@@ -1,0 +1,35 @@
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+
+{{ dwpKeyDetailsBar({
+    primaryIdentifier: {
+    text: 'Name:',
+    value: 'Jane Doe'
+    },
+    secondaryIdentifier: {
+    text: 'Nino:',
+    value: 'QQ 12 34 56 X'
+    },
+    status: {
+    text: 'Claim status:',
+    value: 'SANCTIONED' if not route else 'New Claim',
+    classes: 'govuk-tag govuk-tag--red' if not route else 'govuk-tag govuk-tag--grey'
+    },
+    additionalData: [
+    {
+    value: "NSJSA",
+    text: "Benefit type:"
+    },
+    {
+    value: "4 June 1972",
+    text: "Date of birth:"
+    },
+    {
+    value: "07777 900 900",
+    text: "Mobile number:"
+    },
+    {
+    value: "Welsh speaker",
+    text: "Language:"
+    }
+    ]
+    }) }}

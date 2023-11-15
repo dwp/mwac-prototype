@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+First - Claimant details
+{% endblock %}
+
+{% block header %}
+{% include "./includes/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "./includes/key_details.html" %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "search"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-m">
+            Appointment booking
+        </h2>
+        {% if not route %}
+        {{ govukTable({
+        caption: "Upcoming meeting",
+        captionClasses: "govuk-table__caption--s",
+        firstCellIsHeader: true,
+        head: [
+        {
+        text: "Date"
+        },
+        {
+        text: "Reason"
+        },
+        {}
+        ],
+        rows: [
+        [
+        {
+        text: "12 Sept 2022"
+        },
+        {
+        text: "Review training"
+        },
+        {
+        html: "<a href='edit-appointment/type'>Change</a>"
+        }
+        ],
+        [
+        {
+        text: "31 Dec 2022"
+        },
+        {
+        text: "Check-in"
+        },
+        {
+        html: "<a href='edit-appointment/type'>Change</a>"
+        }
+        ]
+        ]
+        }) }}
+        {% else %}
+            {% if filled %}
+            {{ govukTable({
+                caption: "Upcoming meeting",
+                captionClasses: "govuk-table__caption--s",
+                firstCellIsHeader: true,
+                head: [
+                {
+                text: "Date"
+                },
+                {
+                text: "Reason"
+                },
+                {}
+                ],
+                rows: [
+                [
+                {
+                text: "12 Sept 2022"
+                },
+                {
+                text: "Inital meeting"
+                },
+                {
+                html: "<a href='edit-appointment/type'>Change</a>"
+                }
+                ]
+                ]
+                }) }}
+            {% else %}
+                <p> No appointments booked </p>
+            {% endif %}
+        {% endif %}
+        <p>
+            <a href="book-appointment/type" class="govuk-link" id='new-appt'>
+                Create new appointment
+            </a>
+        </p>
+        <p>
+            <a href="#" class="govuk-link">
+                Past appointments
+            </a>
+        </p>
+
+    </div>
+    <div class="govuk-grid-column-one-half">
+        <div class="govuk-!-margin-9">
+            <h2 class="govuk-heading-m">
+                Claimant history
+            </h2>
+            {% if not route %}
+            {{ govukTable({
+            caption: "History",
+            captionClasses: "govuk-table__caption--s",
+            firstCellIsHeader: true,
+            head: [
+            {
+            text: "Date"
+            },
+            {
+            text: "Item"
+            },
+            {
+            text: "Who"
+            }
+            ],
+            rows: [
+            [
+            {
+            text: "12 02 2022"
+            },
+            {
+            text: "Checked credentials"
+            },
+            {
+                text: "James Gordon"
+                }
+            ],
+            [
+            {
+            text: "31 03 2022"
+            },
+            {
+            text: "Check-in"
+            },
+            {
+                text: "John Grace"
+                }
+            ]
+            ]
+            }) }}
+            <a href="#" class="govuk-link">
+                More history >
+            </a>
+            {% else %}
+                <p>Claimant has no history</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

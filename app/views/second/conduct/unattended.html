@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+    Conduct an interview
+{% endblock %}
+
+{% block beforeContent %}
+     
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.back()"
+        }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+   
+        <h1 class="govuk-heading-l">
+            Close interview
+        </h1>
+        
+          {{ govukRadios({
+            name: "proof",
+            fieldset: {
+              legend: {
+                text: "Did Jane Doe present proof of identity?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "",
+                text: "Yes"
+              },
+              {
+                value: "",
+                text: "No"
+              }
+            ]
+          }) }}
+           
+          {{ govukTextarea({
+            name: "more-detail",
+            id: "more-detail",
+            label: {
+                text: "Do you want to make any notes based on the interview?",
+                classes: "govuk-label--s",
+                isPageHeading: false
+            },
+            hint: {
+                text: "Do not include personal or financial information, like your National Insurance number or credit card details."
+            }
+            }) }}
+
+        {{ govukRadios({
+            name: "booking",
+            fieldset: {
+              legend: {
+                text: "Do you want to create a new booking for Jane Doe?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "",
+                text: "Yes"
+              },
+              {
+                value: "",
+                text: "No"
+              }
+            ]
+          }) }}
+
+            {{ govukButton({
+            text: "Submit",
+            preventDoubleClick: true,
+            href: "../book-appointment/type"
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

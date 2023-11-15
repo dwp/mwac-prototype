@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+First - Find a claimant
+{% endblock %}
+
+{% block header %}
+{% include "./includes/header.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-l">
+            Find a claimant
+        </h1>
+        <form action="search" method="POST" novalidate>
+            <p>Search using one or more fields</p>
+            {{ govukInput({
+            label: {
+            text: "National Insurance number",
+            classes: "govuk-label--s",
+            isPageHeading: false
+            },
+            hint: {
+            text: "Must be in the format QQ123456A"
+            },
+            id: "nino",
+            name: "nino",
+            spellcheck: false
+            }) }}
+
+            {# {{ govukInput({
+            label: {
+            text: "Reference number",
+            classes: "govuk-label--s",
+            isPageHeading: false
+            },
+            id: "refNumber",
+            name: "refNumber",
+            spellcheck: false
+            }) }} #}
+
+            {{ govukInput({
+            label: {
+            text: "Full name",
+            classes: "govuk-label--s",
+            isPageHeading: false
+            },
+            id: "fullName",
+            name: "fullName",
+            spellcheck: false
+            }) }}
+
+            {{ govukDateInput({
+                id: "dob",
+                namePrefix: "dob",
+                fieldset: {
+                  legend: {
+                    text: "Date of birth",
+                    isPageHeading: false,
+                    classes: "govuk-label--s"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    classes: "govuk-input--width-2",
+                    autocomplete: "bday-day"
+                  },
+                  {
+                    name: "month",
+                    classes: "govuk-input--width-2",
+                    autocomplete: "bday-month"
+                  },
+                  {
+                    name: "year",
+                    classes: "govuk-input--width-4",
+                    autocomplete: "bday-year"
+                  }
+                ]
+              }) }}
+
+            {{ govukButton({
+            text: "Search",
+            preventDoubleClick: true
+            }) }}
+
+        </form>
+    </div>
+    
+    {% if not route %}
+    <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-l">
+            My upcoming meetings
+        </h1>
+        {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+                {
+                    text: "Date"
+                },
+                {
+                    text: "Who"
+                },
+                {
+                    text: "What"
+                }
+            ],
+            rows: [
+                [{
+                    text: "9:00am 12 Sept 2022"
+                },
+                {
+                    text: "Spike Spiegel"
+                },
+                {
+                    html: '<a class="govuk-link">Details</a>'
+                }
+                ],
+                [
+                {
+                    text: "10:00am 12 Sept 2022"
+                },
+                {
+                    text: "Iain Banks"
+                },
+                {
+                    html: '<a class="govuk-link">Details</a>'
+                }],
+                [{
+                    text: "1:00pm 12 Sept 2022"
+                },
+                {
+                    text: "Antham Phan"
+                },
+                {
+                    html: '<a class="govuk-link">Details</a>'
+                }
+                ],
+                [
+                {
+                    text: "2:00pm 12 Sept 2022"
+                },
+                {
+                    text: "Iain M Banks"
+                },
+                {
+                    html: '<a class="govuk-link">Details</a>'
+                }]
+            ]
+        }) }}
+        <a class="govuk-link" href="config">My role</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

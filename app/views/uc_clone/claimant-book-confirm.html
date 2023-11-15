@@ -1,0 +1,111 @@
+{% extends "uc_layout.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{% block pageTitle %}
+Managing Working Age Claimants
+{% endblock %}
+
+{% block content %}
+<main id="wrapper">
+    <div id="content" class="">
+        <div class="support-header">
+            <div class="support-header__content">
+                <div class="support-header__content-name"><h1 class="heading-xlarge " data-sanitized-page-title="Confirm appointment details" data-tag-page-title="Confirm appointment details">
+    <span id="id-subtitle" class="category heading-secondary">
+        
+    </span>
+  <span class="js-page-title" id="main-heading">
+Confirm appointment details  </span>
+    <span class="category heading-secondary">
+      
+    </span>
+</h1>
+
+  <h2 class="heading-medium gutter-bottom">Details</h2>
+
+  <dl class="key-value-list text-67 gutter-half-bottom">
+      <dt class="key-value-list__title"><strong>Appointment type</strong></dt>
+      <dd class="key-value-list__description">First Commitments - 30 minutes
+        
+      </dd>
+    <dt class="key-value-list__title"><strong>Channel</strong></dt>
+    <dd class="key-value-list__description">In a jobcentre</dd>
+    <dt class="key-value-list__title"><strong>Location</strong></dt>
+    <dd class="key-value-list__description">Sutton Jobcentre Plus</dd>
+    <dt class="key-value-list__title"><strong>Work coach</strong></dt>
+    <dd class="key-value-list__description">App Ointments Agent </dd>
+    <dt class="key-value-list__title"><strong>Date and time</strong></dt>
+    <dd class="key-value-list__description">5 October 2022 at 2:35pm</dd>
+  </dl>
+
+<form method="post" novalidate="" autocomplete="off" action="https://agent-training01.ucd.gpn.gov.uk/agent/confirm-appointment-details/efe53986-3d50-444b-9650-29241e246b28?t=bdb098#">
+
+  <input type="hidden" name="csrfToken" value="V5LU-H00X-N5FI-2G4X-PSRW-H1A8-6YZP-5MNA">
+
+      <input type="hidden" name="processId" value="efe53986-3d50-444b-9650-29241e246b28">
+
+      <input type="hidden" name="token" value="bdb098">
+
+        <input type="hidden" name="backToAppointmentGather" value="true">
+<div class="buttonSpacing">
+  <div class="form-group">
+
+    <input formnovalidate="" data-tag-submit-button="" id="back-to-appointment-gather" class="link-style " type="submit" name="back.to.appointment.gather" value="Change">
+
+    
+    
+  </div>
+</div>
+
+
+</form>
+  <h2 class="heading-medium gutter-bottom">Further information about the appointment</h2>
+
+  <dl class="key-value-list text-67 gutter-half-bottom">
+
+    
+
+    <dt class="key-value-list__title"><strong>Extra support for the appointment</strong></dt>
+    <dd class="key-value-list__description">asd</dd>
+    <dt class="key-value-list__title"><strong>Agent notes</strong></dt>
+    <dd class="key-value-list__description">asd</dd>
+    <dt class="key-value-list__title"><strong>Extra information for the claimant</strong></dt>
+    <dd class="key-value-list__description"></dd>
+  </dl>
+
+<form method="post" novalidate="" autocomplete="off" action="https://agent-training01.ucd.gpn.gov.uk/agent/confirm-appointment-details/efe53986-3d50-444b-9650-29241e246b28?t=bdb098#">
+
+  <input type="hidden" name="csrfToken" value="V5LU-H00X-N5FI-2G4X-PSRW-H1A8-6YZP-5MNA">
+
+      <input type="hidden" name="processId" value="efe53986-3d50-444b-9650-29241e246b28">
+
+      <input type="hidden" name="token" value="bdb098">
+
+        <input type="hidden" name="backToAppointmentNotes" value="true">
+<div class="buttonSpacing">
+  <div class="form-group">
+
+    <input formnovalidate="" data-tag-submit-button="" id="back-to-appointment-notes" class="link-style gutter-half-bottom " type="submit" name="back.to.appointment.notes" value="Change">
+
+    
+    
+  </div>
+</div>
+
+
+</form>
+{{ govukButton({
+    text: "Confirm details",
+    href: "claimant-view"
+  }) }}
+  
+  <p><a href="#" class="govuk-link">Back</a></p>
+
+
+</div>
+</main>
+
+{% endblock %}

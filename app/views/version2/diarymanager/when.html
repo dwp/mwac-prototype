@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+{% block pageTitle %}
+    First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "../version2/includes/key_details.html" %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">
+                Appointments avaliable
+            </h1>
+            {% set monday %}
+              {% include "../version2/includes/monday.html" %}
+            {% endset %}
+
+            {% set tuesday %}
+              {% include "../version2/includes/tuesday.html" %}
+            {% endset -%}
+
+            {% set wednesday %}
+              {% include "../version2/includes/wednesday.html" %}
+            {% endset %}
+
+            {% set thursday %}
+              {% include "../version2/includes/thursday.html" %}
+            {% endset -%}
+
+            {% set friday %}
+              {% include "../version2/includes/friday.html" %}
+            {% endset %}
+
+
+            {{ govukAccordion({
+            id: "accordion-default",
+            items: [
+              {
+                heading: {
+                  text: "Monday 10 Oct 2022 - 10 slots avaliable"
+                },
+                content: {
+                  html: monday
+                }
+              },
+              {
+                heading: {
+                  text: "Tuesday 11 Oct 2022 - 17 slots avaliable "
+                },
+                content: {
+                  html: tuesday
+                }
+              },
+                {
+                heading: {
+                  text: "Wednesday 12 Oct 2022 - 22 slots avaliable "
+                },
+                content: {
+                  html: wednesday
+                }
+              },
+                {
+                heading: {
+                  text: "Thursday 13 Oct 2022 - 5 slots avaliable "
+                },
+                content: {
+                  html: thursday
+                }
+              },
+              {
+                heading: {
+                  text: "Friday 14 Oct 2022 - 0 slots avaliable "
+                },
+                content: {
+                  html: "<p>No appointment slots available</p>"
+                }
+              }
+            ]
+          }) }}
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true,
+            href: "further"
+            }) }}
+        </div>
+    </div>
+{% endblock %}

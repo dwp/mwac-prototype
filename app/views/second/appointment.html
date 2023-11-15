@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+First - Appointment details
+{% endblock %}
+
+{% block header %}
+{% include "./includes/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "./includes/key_details.html" %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Full initial NSJSA interview
+        </h1>
+        {# {{ getWeek(14) | dump | safe}} #}
+        {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9 govuk-summary-list--no-border',
+        rows: [
+          {
+            key: {
+              text: "Interview channel"
+            },
+            value: {
+              text: "Job centre"
+            }
+          },
+          {
+            key: {
+              text: "Interview location"
+            },
+            value: {
+              text: "Kendal job centre (claimants job centre)"
+            }
+          },
+          {
+            key: {
+              text: "Interview length"
+            },
+            value: {
+              html: "60 minutes"
+            },
+            classes: " my-border"
+          },
+          {
+            key: {
+              text: "Interview conductor"
+            },
+            value: {
+              html: "Jon Clement (claimants work coach)"
+            },
+            classes: " my-border"
+          },
+          {
+            key: {
+              text: "Interview time"
+            },
+            value: {
+              html: "10:30am"
+            },
+            classes: "my-border"
+          },
+          {
+            key: {
+              text: "Interview date"
+            },
+            value: {
+              html: "12 Sept 2022"
+            },
+            classes: "my-border"
+          },
+          {
+            key: {
+              text: "Do they need an interpreter?"
+            },
+            value: {
+              html: "no"
+            }
+          },
+          {
+            key: {
+              text: "Any other information?"
+            },
+            value: {
+              html: "Please bring your passport"
+            },
+            classes: "my-border"
+          }
+          
+        ]
+      }) }}
+           
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-l">
+          Do you want to:
+          </h2>
+          <p>
+            <a href="conduct/conduct" class="govuk-link govuk-link--no-visited-state">Conduct interview</a>
+        </p>
+        <p>
+            <a href="conduct/unattended" class="govuk-link govuk-link--no-visited-state">Mark interview as unattended</a>
+        </p>
+        <p>
+            <a href="conduct/cancel" class="govuk-link govuk-link--no-visited-state">Cancel interview</a>
+        </p>
+        {# <p>
+            <a href="edit-appt/type" class="govuk-link">Change the interview</a>
+        </p> #}
+    </div>
+
+</div>
+
+{% endblock %}

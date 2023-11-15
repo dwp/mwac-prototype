@@ -1,0 +1,183 @@
+{% extends "layout-nokeydetails.html" %}
+
+{% block pageTitle %}
+Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Managing Working Age Claimants prototypes
+    </h1>
+    <p>
+      These are prototypes for the Labour Market System function replacements.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-l">Appointments MVP journey</h3>
+
+    <p>MVP is based off Version 4, diary view in MWAC service.</p>
+
+    <a href="MVP/workcoach/searchlight" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Start now
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third" >
+    <h4 class="govuk-heading-s govuk-!-padding-top-1" style="border-top: 4px solid #1d70b8">Useful links</h4>
+    <ul class="govuk-list">
+      <li>
+        <a href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1666364779858/9633be5c048c3ca220847a226708bc80600debe6?sender=u27e278891566c2ea43a98054" class="govuk-link--no-visited-state">User research</a>
+      </li>
+      <li>
+        <a href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1666550060367/a36b25890036d8abec64f8b2e173eecde0732b29?sender=u27e278891566c2ea43a98054" class="govuk-link--no-visited-state">User journeys</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-l">Features</h3>
+    <p>Allow agents to book appointments without having to use LMS</p>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Appointments
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#contactcentre">
+            Contact centre
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#workcoach">
+            Work coaches
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#teamleads">
+            Team leaders
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#notifications">
+            Notifications
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="contactcentre">
+        <h4 class="govuk-heading-s">Booking an appointment <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="/first_pass/search?route=g4s" class="govuk-link--no-visited-state">Version 1</a>
+          </li>
+          <li>
+            <a href="/version2/contactcentre/search" class="govuk-link--no-visited-state">Version 2</a>
+          </li>
+          <!-- <li>
+            <a href="/uc_clone/agent-home">UC Clone</a>
+          </li> -->
+        </ul>
+
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="workcoach">
+        <h4 class="govuk-heading-s">Diary view and contact details <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">new</strong></h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="/version4/workcoach/searchlight" class="govuk-link--no-visited-state">Version 1 </a>- diary in MWAC service
+          </li>
+          <li>
+            <a href="/version4/UC/searchlight" class="govuk-link--no-visited-state">Version 2 </a>- redirect to UC diary
+          </li>
+        </ul>
+
+        <h4 class="govuk-heading-s">Claimant markers <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">new</strong></h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="/version4/workcoach/searchlight-marker" class="govuk-link--no-visited-state">Current approach </a>
+          </li>
+        </ul>
+
+        <h4 class="govuk-heading-s">Interacting with an existing appointment <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="/searchlight/search-v2?search=second" class="govuk-link--no-visited-state">Version 1</a>
+          </li>
+          <li>
+            <a href="/searchlight/search?search=version2%2Fworkcoach%2Fedit-appt" class="govuk-link--no-visited-state">Version 2</a>
+          </li>
+          <li>
+            <a href="/searchlight/search?search=version3%2Fworkcoach%2Fedit-appt" class="govuk-link--no-visited-state">Version 3</a>
+          </li>
+        </ul>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h4 class="govuk-heading-s">Booking an appointment <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="/first_pass/search" class="govuk-link--no-visited-state">Version 1</a>
+          </li>
+          <li>
+            <a href="/version2/workcoach/search" class="govuk-link--no-visited-state">Version 2</a>
+          </li>
+          <!-- <li>
+            <a href="/uc_clone/agent-home">UC Clone</a>
+          </li> -->
+        </ul>
+
+
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="teamleads">
+        <p>TBC - evidence</p>
+
+
+      </div>
+      <div class="govuk-tabs__panel" id="notifications">
+        <h4 class="govuk-heading-s">Citizen notifications <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">new</strong></h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="version4/notifications/booked" class="govuk-link--no-visited-state">Appointment booked</a>
+          </li>
+          <li>
+            <a href="version4/notifications/rebooked" class="govuk-link--no-visited-state">Appointment re-booked</a>
+          </li>
+          <li>
+            <a href="version4/notifications/cancelled" class="govuk-link--no-visited-state">Appointment cancelled by DWP</a>
+          </li>
+          <li>
+            <a href="version4/notifications/cancelled2" class="govuk-link--no-visited-state">Appointment cancelled by claimant</a>
+          </li>
+          <li>
+            <a href="version4/notifications/notattended" class="govuk-link--no-visited-state">First appointment not attended</a>
+          </li>
+          <li>
+            <a href="version4/notifications/notattended2" class="govuk-link--no-visited-state">Other appointment not attended</a>
+          </li>
+          <li>
+            <a href="version4/notifications/reminder" class="govuk-link--no-visited-state">Appointment reminder</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+{% endblock %}

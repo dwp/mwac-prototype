@@ -1,0 +1,30 @@
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container",
+    navigation: [
+    {
+      href: "/first_pass/home",
+      text: "Home",
+      active: true if navLocation == 'home'
+
+    },
+    {
+      href: "/first_pass/diary",
+      text: "Diary",
+      active: true if navLocation == 'diary'
+    },
+    {
+      href: "/first_pass/config",
+      text: "My details",
+      active: true if navLocation == 'details'
+    }
+  ]
+  }) }}
+{% endblock %}

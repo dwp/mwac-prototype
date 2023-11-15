@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+     
+        {{ govukBackLink({
+          text: "Back",
+          href: "./type"
+        }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+{%- set office %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter the name of the work coach"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+   
+        <h1 class="govuk-heading-l">
+            Appointment conductor
+        </h1>
+        
+          {{ govukRadios({
+            name: "location",
+            fieldset: {
+              legend: {
+                text: "Select a work coach to conduct the appointment",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "",
+                checked: "true",
+                text: "Jon Clement (claimants work coach)"
+              } if not route,
+              {
+                value: "",
+                text: "Next available work coach"
+              },
+              {
+                value: "",
+                text: "Choose a different work coach",
+                conditional: {
+                    html: office
+                  }
+              }
+            ]
+          }) }}
+           
+          
+
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true,
+            href: "when"
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

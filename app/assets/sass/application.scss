@@ -1,0 +1,486 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import ".tmp/sass/extensions";
+
+// Patterns that aren't in Frontend
+.my-border {
+    border-bottom: 1px solid #b1b4b6 !important;
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  .longhand {
+    flex-flow: wrap row;
+  }
+
+  .flex-container > div {
+    width: 4em;
+    text-align: center;
+  }
+
+  .flex-5-accross > div {
+    flex: 1 0 9%;
+  }
+
+  // Hide gov uk logo
+  .govuk-header__logo {
+    display: none;
+  }
+
+  .govuk-header__content {
+    padding-left: 0;
+  }
+
+  // Assessment details
+.govuk-assement-details {
+  background-color: $govuk-brand-colour;
+  padding: 10px 20px 10px 20px;
+
+  p {
+    color: #FFF;
+  }
+}
+
+// amend accordion
+.govuk-accordion__show-all {
+  display: none;
+}
+
+.govuk-accordion__section-toggle {
+  float: right;
+  margin-top: -42px;
+}
+
+.govuk-accordion__section-toggle-text {
+  display: none;
+}
+
+// Key details bar
+.dwp-key-details-bar {
+background-color: #1d70b8;
+color: #fff;
+font-family: Arial, sans-serif;
+}
+
+.dwp-key-details-bar dt,
+.dwp-key-details-bar dd {
+border: none;
+margin: 0;
+padding: 0;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details {
+margin: 0 auto;
+max-width: 1024px;
+padding: 20px 0;
+position: relative;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__top-block::after,
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__bottom-block::after {
+clear: both;
+content: ' ';
+display: block;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__bottom-block {
+border-top: 1px solid rgba(255, 255, 255, .3);
+content: ' ';
+padding-top: 10px;
+margin-top: 6px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details dd,
+.dwp-key-details-bar .dwp-key-details-bar__key-details dt {
+float: left;
+font-size: 19px;
+margin-right: 5px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details dd {
+margin-right: 20px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__name {
+font-size: 36px;
+font-weight: 700;
+line-height: 1.11111;
+margin-right: 10px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__nino {
+font-size: 24px;
+line-height: 1;
+margin-top: 12px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__status {
+font-size: 16px;
+font-weight: 700;
+line-height: 1.25;
+padding: 0px 8px 0;
+color: #005ea5;
+//background-color: #fff;
+letter-spacing: 1px;
+text-decoration: none;
+text-transform: uppercase;
+float: right;
+margin: 5px 0 0;
+}
+
+@media (max-width: 40.0525em) {
+.dwp-key-details-bar .dwp-key-details-bar__key-details {
+padding: 20px 15px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__bottom-block {
+border: 0;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details dd,
+.dwp-key-details-bar .dwp-key-details-bar__key-details dt {
+float: none;
+font-size: 16px;
+margin: 0;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details dd {
+margin-bottom: 20px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details dd:last-of-type {
+margin-bottom: 20px;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__name {
+font-size: 24px;
+line-height: 1.04167;
+float: left;
+margin: 0 5px 0 0;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__nino {
+font-size: 18px;
+float: left;
+margin: 5px 0 0 0;
+}
+
+.dwp-key-details-bar .dwp-key-details-bar__key-details .dwp-key-details-bar__status {
+font-size: 14px;
+float: left;
+clear: both;
+margin-top: 5px;
+}
+}
+
+// Searchlight styles
+
+.searchlight-nav-wrapper {
+  background-color: #fff;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 39%);
+}
+.searchlight-nav {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+
+  li {
+    display: inline-block;
+    padding: 1em 1em .8em 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $govuk-text-colour !important;
+  }
+}
+
+.searchlight-card {
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 20%), 0px 1px 3px 0px rgb(0 0 0 / 10%);
+  padding: 30px;
+}
+
+.govuk-width-container {
+  max-width: 1020px;
+}
+
+// Diary overrides
+
+.diary__appointment-container {
+  border: 1px solid #5694ca;
+  background-color: lighten(#5694ca, 27%);
+  position: absolute;
+  z-index: 999;
+  padding: 9px 5px 5px 5px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 35px;
+  color: $govuk-text-colour;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &.medium {
+    min-height: 73px;
+  }
+
+  &.large {
+    min-height: 181px;
+  }
+
+  &.lunch {
+    min-height: 180px;
+  }
+
+  &:hover {
+    background-color: lighten(#5694ca, 15%);
+    transition: background-color 0.2s ease;
+  }
+}
+
+.diary__appointment-benefit-type {
+  float: right;
+
+  .govuk-tag {
+    font-size: 12px !important;
+  }
+}
+
+// UC header
+
+.uc-layout {
+
+  .govuk-header__service-name {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .govuk-header__content {
+    width: 100%;
+  }
+
+  .govuk-header__navigation-list {
+    margin-top: 2px;
+  }
+
+  .govuk-header__navigation-item:last-of-type {
+    a {
+      color: $govuk-link-colour;
+    }
+  }
+}
+
+//Notifications
+
+.notifications {
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    "Helvetica Neue",
+    sans-serif;
+  font-weight: normal;
+
+  .imessage {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "SanFrancisco";
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
+  max-width: 600px;
+  padding: 0.5rem 1.5rem;
+}
+
+.imessage p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 75%;
+  padding: 0.5rem .875rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.imessage p::before,
+.imessage p::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
+}
+
+p.from-me {
+  align-self: flex-end;
+  background-color: #248bf5;
+  color: #fff;
+}
+
+p.from-me::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid #248bf5;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+p.from-me::after {
+  background-color: #fff;
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform:translate(-30px, -2px);
+  width: 10px;
+}
+
+p[class^="from-"] {
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+p.from-me ~ p.from-me {
+  margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:not(:last-child) {
+  margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:last-child {
+  margin-bottom: 0.5rem;
+}
+
+p.from-them {
+  align-items: flex-start;
+  background-color: #e5e5ea;
+  color: #000;
+}
+
+p.from-them:before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #e5e5ea;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+p.from-them::after {
+  background-color: #fff;
+  border-bottom-right-radius: 0.5rem;
+  left: 20px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+
+p[class^="from-"].emoji {
+  background: none;
+  font-size: 2.5rem;
+}
+
+p[class^="from-"].emoji::before {
+  content: none;
+}
+
+.no-tail::before {
+  display: none;
+}
+
+.margin-b_none {
+  margin-bottom: 0 !important;
+}
+
+.margin-b_one {
+  margin-bottom: 1rem !important;
+}
+
+.margin-t_one {
+  margin-top: 1rem !important;
+}
+
+/* general styling */
+
+
+
+
+.container {
+  margin: 0 auto;
+  max-width: 400px;
+  border: 1px solid #e5e5ea;
+  border-radius: 1em;
+}
+
+.notification-header {
+  padding: 0 1em;
+  min-height: 50px;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.back {
+  color: #248bf5;
+  font-size: 3em;
+  float: left;
+}
+
+.name {
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 17px;
+  margin-right: 20px;
+}
+
+h1 {
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  border-bottom: 1px solid #e5e5ea;
+  color: #666;
+  font-weight: normal;
+  margin-top: 0;
+  padding-bottom: 1.5rem;
+}
+
+.comment {
+  color: #222;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+  padding: 0;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    margin: 0 0.5rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .imessage {
+    font-size: 1.05rem;
+    margin: 0 auto 1rem;
+    max-width: 600px;
+    padding: 0.25rem 0.875rem;
+  }
+
+  .imessage p {
+    margin: 0.5rem 0;
+  }
+}
+}

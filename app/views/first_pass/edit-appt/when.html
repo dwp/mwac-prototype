@@ -1,0 +1,275 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{% block pageTitle %}
+    First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+     
+       {{ govukBackLink({
+            text: "Back",
+            href: "./who"
+        }) }}
+{% endblock %}
+
+{% block content %}
+ 
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">
+                Appointments available
+            </h1>
+            {% set monday %}
+            {% include "../includes/radio_times.html" %}
+            {% endset %}
+
+            {% set tuesday %}
+            {{ govukRadios({
+              name: "location",
+              classes: "govuk-radios--small govuk-radios--inline flex-container flex-5-accross longhand",
+              fieldset: {
+                legend: {
+                  text: "Select a morning appointment",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [
+                {
+                  value: "",
+                  text: "9:30am"
+                },
+                {
+                  value: "",
+                  checked: "true",
+                  text: "9:40am"
+                },
+                
+                {
+                  value: "",
+                  text: "10:20am"
+                },
+                {
+                  value: "",
+                  text: "10:30am"
+                },
+                
+                {
+                  value: "",
+                  text: "11:00am"
+                },
+                {
+                  value: "",
+                  text: "11:10am"
+                },
+                {
+                  value: "",
+                  text: "11:20am"
+                },
+                {
+                  value: "",
+                  text: "11:30am"
+                },
+                {
+                  value: "",
+                  text: "11:50am"
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+              name: "location",
+              classes: "govuk-radios--small govuk-radios--inline flex-container flex-5-accross longhand",
+              fieldset: {
+                legend: {
+                  text: "Select an afternoon appointment",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [
+                {
+                  value: "",
+                  text: "12:00am"
+                },
+                {
+                  value: "",
+                  text: "12:10am"
+                },
+                
+                {
+                  value: "",
+                  text: "12:40am"
+                },
+                {
+                  value: "",
+                  text: "12:50am"
+                },
+                
+                {
+                  value: "",
+                  text: "1:40pm"
+                },
+                {
+                  value: "",
+                  text: "1:50pm"
+                },
+                {
+                  value: "",
+                  text: "2:00pm"
+                },
+               
+                {
+                  value: "",
+                  text: "2:40pm"
+                },
+                {
+                  value: "",
+                  text: "2:50pm"
+                },
+                {
+                  value: "",
+                  text: "3:00pm"
+                },
+               
+                {
+                  value: "",
+                  text: "3:20pm"
+                },
+                {
+                  value: "",
+                  text: "3:30pm"
+                },
+                {
+                  value: "",
+                  text: "3:40pm"
+                },
+                {
+                  value: "",
+                  text: "3:50pm"
+                },
+                
+                {
+                  value: "",
+                  text: "4:20pm"
+                },
+                {
+                  value: "",
+                  text: "4:30pm"
+                },
+                {
+                  value: "",
+                  text: "4:40pm"
+                },
+                {
+                  value: "",
+                  text: "4:50pm"
+                },
+                
+                {
+                  value: "",
+                  text: "5:20pm"
+                },
+                {
+                  value: "",
+                  text: "5:30pm"
+                },
+                {
+                  value: "",
+                  text: "5:40pm"
+                },
+                {
+                  value: "",
+                  text: "5:50pm"
+                }
+              ]
+            }) }}
+            {% endset -%}
+
+            {% set wednesday %}
+            {% include "../includes/radio_times_unavailiable.html" %}
+            {% endset %}
+ {{ govukPagination({
+            previous: {
+              text: "Last week",
+              href: "#"
+            },
+            next: {
+              text: "Next week",
+              href: "#"
+            },
+            items: []
+          }) }}
+            {{ govukAccordion({
+            id: "accordion-default",
+            items: [
+              {
+                heading: {
+                  text: "Monday 10 Oct 2022 - 10 slots available"
+                },
+                content: {
+                  html: monday
+                }
+              },
+              {
+                heading: {
+                  text: "Tuesday 11 Oct 2022 - 22 slots available "
+                },
+                content: {
+                  html: tuesday
+                },
+                expanded: true
+              },
+                {
+                heading: {
+                  html: "Wednesday 12 Oct 2022 - 13 slots available"
+                },
+                content: {
+                  html: wednesday
+                }
+              },
+                {
+                heading: {
+                  text: "Thursday 13 Oct 2022 - 12 slots available "
+                },
+                content: {
+                  html: monday
+                }
+              },
+              {
+                heading: {
+                  text: "Friday 14 Oct 2022 - 0 slots available "
+                },
+                content: {
+                  html: "No slots avaliable"
+                }
+              }
+            ]
+          }) }}
+           {{ govukPagination({
+            previous: {
+              text: "Last week",
+              href: "#"
+            },
+            next: {
+              text: "Next week",
+              href: "#"
+            },
+            items: []
+          }) }}
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true,
+            href: "further"
+            }) }}
+        </div>
+    </div>
+{% endblock %}

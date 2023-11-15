@@ -1,0 +1,414 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{% block pageTitle %}
+    First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+     
+       {{ govukBackLink({
+            text: "Back",
+            href: "./who"
+        }) }}
+{% endblock %}
+
+{% block content %}
+ 
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">
+                Appointments available
+            </h1>
+            {% set monday %}
+            {% include "../includes/radio_times.html" %}
+            {% endset %}
+
+            {% set friday %}
+            {{ govukRadios({
+    name: "weds-morning",
+    classes: "govuk-radios--small govuk-radios--inline flex-container flex-5-accross longhand",
+    fieldset: {
+      legend: {
+        text: "Select a morning appointment",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        value: "",
+        text: "9:00am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "9:10am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "9:20am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "9:30am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "9:40am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "9:50am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "10:00am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "10:10am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "10:20am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "10:30am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "10:40am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "10:50am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "11:00am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "11:10am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "11:20am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "11:30am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "11:40am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "11:50am",
+        disabled: true
+      }
+    ]
+  }) }}
+
+  {{ govukRadios({
+    name: "weds-afternoon",
+    classes: "govuk-radios--small govuk-radios--inline flex-container flex-5-accross longhand",
+    fieldset: {
+      legend: {
+        text: "Select an afternoon appointment",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        value: "",
+        text: "12:00am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "12:10am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "12:20am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "12:30am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "12:40am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "12:50am",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "1:00pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "1:10pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "1:20pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "1:30pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "1:40pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "1:50pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "2:00pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "2:10pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "2:20pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "2:30pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "2:40pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "2:50pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "3:00pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "3:10pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "3:20pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "3:30pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "3:40pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "3:50pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "4:00pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "4:10pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "4:20pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "4:30pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "4:40pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "4:50pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "5:00pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "5:10pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "5:20pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "5:30pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "5:40pm",
+        disabled: true
+      },
+      {
+        value: "",
+        text: "5:50pm",
+        disabled: true
+      }
+    ]
+  }) }}
+            {% endset -%}
+
+            {% set wednesday %}
+            {% include "../includes/radio_times_unavailiable.html" %}
+            {% endset %}
+
+
+          {{ govukPagination({
+            previous: {
+              text: "Last week",
+              href: "#"
+            },
+            next: {
+              text: "Next week",
+              href: "#"
+            },
+            items: []
+          }) }}
+
+            {{ govukAccordion({
+            id: "accordion-default",
+            items: [
+              {
+                heading: {
+                  text: "Monday 10 Oct 2022 - 10 slots available"
+                },
+                content: {
+                  html: wednesday
+                }
+              },
+              {
+                heading: {
+                  text: "Tuesday 11 Oct 2022 - 22 slots available "
+                },
+                content: {
+                  html: wednesday
+                }
+              },
+                {
+                heading: {
+                  html: "Wednesday 12 Oct 2022 - 13 slots available"
+                },
+                content: {
+                  html: wednesday
+                }
+              },
+                {
+                heading: {
+                  text: "Thursday 13 Oct 2022 - 12 slots available "
+                },
+                content: {
+                  html: wednesday
+                }
+              },
+              {
+                heading: {
+                  text: "Friday 14 Oct 2022 - 0 slots available "
+                },
+                content: {
+                  html: friday
+                }
+              }
+            ]
+          }) }}
+          {{ govukPagination({
+            previous: {
+              text: "Last week",
+              href: "#"
+            },
+            next: {
+              text: "Next week",
+              href: "#"
+            },
+            items: []
+          }) }}
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true,
+            href: "further"
+            }) }}
+        </div>
+    </div>
+{% endblock %}

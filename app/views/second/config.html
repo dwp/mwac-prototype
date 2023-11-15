@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+First - Search for a claimant
+{% endblock %}
+
+{% block header %}
+{% include "./includes/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+    }) }}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+           Agent details
+        </h1>
+        {{ govukTable({
+            firstCellIsHeader: true,
+            rows: [
+                [{
+                    text: "Office"
+                },
+                {
+                    html: "<ul class='govuk-list govuk-list--bullet'><li>Southern house</li><li>Ilkeson job centre</li><li>Exchange house</li></ul>"
+                },
+                {
+                    html: '<a class="govuk-link">Edit</a>'
+                }
+                ],
+                [
+                {
+                    text: "Benefits"
+                },
+                {
+                    html: "<ul class='govuk-list govuk-list--bullet'><li>New style job seekers allowance</li><li>Universal Credit</li></ul>"
+                },
+                {
+                    html: '<a class="govuk-link">Edit</a>'
+                }
+                ],
+                [
+                {
+                    text: "Working pattern"
+                },
+                {
+                    html: "<ul class='govuk-list govuk-list--bullet'><li>Tuesday to Friday</li><li>8:30am - 4pm</li></ul>"
+                },
+                {
+                    html: '<a class="govuk-link">Edit</a>'
+                }
+                ]
+            ]
+        }) }}
+    </div>
+</div>
+
+{% endblock %}
