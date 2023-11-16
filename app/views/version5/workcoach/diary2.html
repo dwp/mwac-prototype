@@ -1,0 +1,509 @@
+{% extends "layout-diary.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+My diary - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<div id="govuk-grid-row" class="">
+    <input name="csrfToken" type="hidden" value="0AFC-KN4B-LA4Z-RO24-E3EE-7TJO-SARQ-RUE8" />
+    <input name="impersonatedAgentId" type="hidden" value="" />
+
+    <div id="root" class="uc-diary-instance">
+      <div class="css-6vdfh5-SkeletonTheme">
+        <div class="govuk-grid-column-full govuk-!-padding-0">
+          <!-- <div class="diary__select-diary-container"><a class="diary__manage-diary-button print-hide" href="https://agent-training03.ucd.gpn.gov.uk/diary/dmt/schedule/select/d8a10ec1-936b-45eb-b340-3897f9a616fd/4d7bf909-89b6-48be-8eb2-1e7f77c05e89">Manage diary</a><a class="diary__select-diary-button print-hide" href="https://agent-training03.ucd.gpn.gov.uk/diary/view-a-diary">View a different diary</a>
+          </div> -->
+
+          <a href="#0" class="govuk-link govuk-link--no-visited-state">View a different diary</a>
+
+          <h1 class="govuk-heading-l govuk-!-margin-top-7" data-sanitized-page-title="Day Diary"><span class="js-page-title"><span class="visuallyhidden">Day Diary - </span>Jon Clement's diary in Kendal</span></h1>
+
+          <div class="appointment-diary__date-options-container">
+            <!-- <p class="appointment-diary__last-refreshed">Page last refreshed at 2:12pm</p> -->
+            <h2 class="govuk-heading-m" aria-live="polite" aria-atomic="true"><span class="date"></span></h2>
+          </div>
+          <div class="diary__container">
+            <a class="skip-link" href="https://agent-training03.ucd.gpn.gov.uk/diary/day-diary?date=2022-10-05&amp;agentId=d8a10ec1-936b-45eb-b340-3897f9a616fd&amp;deliveryUnitId=4d7bf909-89b6-48be-8eb2-1e7f77c05e89#diary-calendar">Skip to calendar</a>
+            <div class="diary__date-picker-container print-hide" style="position: sticky; top: 10px; align-self: flex-start;">
+              <div class="diary__date-navigation-container">
+                <button class="diary__link diary__button--previous-day" name="Navigate to the previous day" type="button">Previous day</button>
+                <button class="diary__link diary__button--today" name="Navigate to today" type="button">Today</button>
+                <button class="diary__link diary__button--next-day" name="Navigate to the next day" type="button">Next day</button>
+              </div>
+              <div class="date-picker date-picker__team-view-instance print-hide">
+                <div class="date-picker__controls govuk-visually-hidden">
+                  <input id="date-picker" class="form-control govuk-visually-hidden" name="Date" type="hidden" />
+                  <button class="date-picker__button" type="button">Select date</button>
+                </div>
+                <div class="date-picker__container date-picker__non-toggle" role="dialog" aria-label="October 2022">
+                  <div class="date-picker__status visuallyhidden" role="status" aria-live="polite" aria-atomic="true">&nbsp;</div>
+                  <div class="date-picker__inner">
+                    <div class="date-picker__container--title date-picker__month"><button class="previous date-picker__button--arrow" title="Previous Month" type="button" aria-label="Previous Month"> </button>
+                      <div class="month date-picker__title" role="presentation"><strong class="date-picker__month-label"><span class="month"</span></strong>
+                      </div>
+                      <button class="next month date-picker__button--arrow" title="Next Month" type="button" aria-label="Next Month"> </button>
+                    </div>
+                    <table class="date-picker__table" role="application" summary="Calendar Date Picker" aria-label="Calendar">
+                      <tbody>
+                        <tr>
+                          <th class="date-picker__cell" title="Monday" role="presentation" scope="col"><span class="date-picker__cell--span" aria-hidden="true">M</span><span class="visuallyhidden"> Monday </span></th>
+                          <th class="date-picker__cell" title="Tuesday" role="presentation" scope="col"><span class="date-picker__cell--span" aria-hidden="true">T</span><span class="visuallyhidden"> Tuesday </span></th>
+                          <th class="date-picker__cell" title="Wednesday" role="presentation" scope="col"><span class="date-picker__cell--span" aria-hidden="true">W</span><span class="visuallyhidden"> Wednesday </span></th>
+                          <th class="date-picker__cell" title="Thursday" role="presentation" scope="col"><span class="date-picker__cell--span" aria-hidden="true">T</span><span class="visuallyhidden"> Thursday </span></th>
+                          <th class="date-picker__cell" title="Friday" role="presentation" scope="col"><span class="date-picker__cell--span" aria-hidden="true">F</span><span class="visuallyhidden"> Friday </span></th>
+                          <th class="date-picker__cell" title="Saturday" role="presentation" scope="col"><span class="date-picker__cell--span" aria-hidden="true">S</span><span class="visuallyhidden"> Saturday </span></th>
+                          <th class="date-picker__cell" title="Sunday" role="presentation" scope="col"><span class="date-picker__cell--span" aria-hidden="true">S</span><span class="visuallyhidden"> Sunday </span></th>
+                        </tr>
+                      </tbody>
+                      <tbody>
+                        <tr class="date-picker__table-row ">
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">26</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">27</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">28</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">29</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">30</span></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="1"><button class="date-picker__link" tabindex="-1" type="button" aria-label="1, Saturday October 2022">1</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="2"><button class="date-picker__link" tabindex="-1" type="button" aria-label="2, Sunday October 2022">2</button></td>
+                        </tr>
+                        <tr class="date-picker__table-row ">
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="3"><button class="date-picker__link" tabindex="-1" type="button" aria-label="3, Monday October 2022">3</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="4"><button class="date-picker__link" tabindex="-1" type="button" aria-label="4, Tuesday October 2022">4</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date" data-day="5" aria-current="date"><button class="date-picker__link" tabindex="0" type="button" aria-label="5, Wednesday October 2022" aria-pressed="true">5<span class="govuk-visually-hidden">Selected Date</span></button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="6"><button class="date-picker__link" tabindex="-1" type="button" aria-label="6, Thursday October 2022">6</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="7"><button class="date-picker__link" tabindex="-1" type="button" aria-label="7, Friday October 2022">7</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="8"><button class="date-picker__link" tabindex="-1" type="button" aria-label="8, Saturday October 2022">8</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="9"><button class="date-picker__link" tabindex="-1" type="button" aria-label="9, Sunday October 2022">9</button></td>
+                        </tr>
+                        <tr class="date-picker__table-row ">
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="10"><button class="date-picker__link" tabindex="-1" type="button" aria-label="10, Monday October 2022">10</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="11"><button class="date-picker__link" tabindex="-1" type="button" aria-label="11, Tuesday October 2022">11</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="12"><button class="date-picker__link" tabindex="-1" type="button" aria-label="12, Wednesday October 2022">12</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="13"><button class="date-picker__link" tabindex="-1" type="button" aria-label="13, Thursday October 2022">13</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="14"><button class="date-picker__link" tabindex="-1" type="button" aria-label="14, Friday October 2022">14</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="15"><button class="date-picker__link" tabindex="-1" type="button" aria-label="15, Saturday October 2022">15</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="16"><button class="date-picker__link" tabindex="-1" type="button" aria-label="16, Sunday October 2022">16</button></td>
+                        </tr>
+                        <tr class="date-picker__table-row ">
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="17"><button class="date-picker__link" tabindex="-1" type="button" aria-label="17, Monday October 2022">17</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="18"><button class="date-picker__link" tabindex="-1" type="button" aria-label="18, Tuesday October 2022">18</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="19"><button class="date-picker__link" tabindex="-1" type="button" aria-label="19, Wednesday October 2022">19</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="20"><button class="date-picker__link" tabindex="-1" type="button" aria-label="20, Thursday October 2022">20</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="21"><button class="date-picker__link" tabindex="-1" type="button" aria-label="21, Friday October 2022">21</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="22"><button class="date-picker__link" tabindex="-1" type="button" aria-label="22, Saturday October 2022">22</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="23"><button class="date-picker__link" tabindex="-1" type="button" aria-label="23, Sunday October 2022">23</button></td>
+                        </tr>
+                        <tr class="date-picker__table-row ">
+                          <td class="date-picker__cell date-picker__selectable-date date-picker__date-selected date-picker__today date-picker__date-highlighted" data-day="24"><button class="date-picker__link" tabindex="-1" type="button" aria-label="24, Monday October 2022">24</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="25"><button class="date-picker__link" tabindex="-1" type="button" aria-label="25, Tuesday October 2022">25</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="26"><button class="date-picker__link" tabindex="-1" type="button" aria-label="26, Wednesday October 2022">26</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="27"><button class="date-picker__link" tabindex="-1" type="button" aria-label="27, Thursday October 2022">27</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="28"><button class="date-picker__link" tabindex="-1" type="button" aria-label="28, Friday October 2022">28</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="29"><button class="date-picker__link" tabindex="-1" type="button" aria-label="29, Saturday October 2022">29</button></td>
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="30"><button class="date-picker__link" tabindex="-1" type="button" aria-label="30, Sunday October 2022">30</button></td>
+                        </tr>
+                        <tr class="date-picker__table-row ">
+                          <td class="date-picker__cell date-picker__selectable-date " data-day="31"><button class="date-picker__link" tabindex="-1" type="button" aria-label="31, Monday October 2022">31</button></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">1</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">2</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">3</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">4</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">5</span></td>
+                          <td class="date-picker__cell date-picker__inactive-date"><span class="date-picker__cell--span" tabindex="-1" aria-hidden="true">6</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="diary__right-column ">
+              <div class="diary__link-container print-hide"><nav class="diary__time-navigation-container">
+                <ul class="tabbed-navigation__list">
+                  <li class="tabbed-navigation__list-item tabbed-navigation__list-item--current-page" aria-current="page"><a class="tabbed-navigation__link" href="https://agent-training03.ucd.gpn.gov.uk/diary/day-diary?date=2022-10-05&amp;agentId=d8a10ec1-936b-45eb-b340-3897f9a616fd&amp;deliveryUnitId=4d7bf909-89b6-48be-8eb2-1e7f77c05e89">Day</a></li>
+                  <li class="tabbed-navigation__list-item " aria-current="false"><a class="tabbed-navigation__link" href="https://agent-training03.ucd.gpn.gov.uk/diary/week-diary?date=2022-10-05&amp;agentId=d8a10ec1-936b-45eb-b340-3897f9a616fd&amp;deliveryUnitId=4d7bf909-89b6-48be-8eb2-1e7f77c05e89">Week</a></li>
+                </ul>
+              </nav>
+              <div class="diary__controls-container">
+                <button id="block-time" class="diary__link diary__button--block-time" name="button" type="button">Block time</button>
+                <div>
+                  <a id="print-diary" class="diary__link diary__button--print" title="Print diary (opens in a new tab)" href="https://agent-training03.ucd.gpn.gov.uk/diary-view-print/agent/2022-10-05?deliveryUnitId=4d7bf909-89b6-48be-8eb2-1e7f77c05e89&amp;agentId=d8a10ec1-936b-45eb-b340-3897f9a616fd" target="_blank" rel="noopener noreferrer">Print diary</a>
+                </div>
+              </div>
+            </div>
+            <section id="diary-calendar" class="diary__calendar-container " tabindex="-1" aria-label="Diary calendar">
+              <div class="diary__time-columns print-hide" aria-hidden="true">
+                <div class="diary__hour-container"><span class="diary__hour-label">8am</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">9am</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">10am</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">11am</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">12pm</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">1pm</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">2pm</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">3pm</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">4pm</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">5pm</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">6pm</span></div>
+                <div class="diary__hour-container"><span class="diary__hour-label">7pm</span></div>
+              </div>
+              <div class="diary__appointment-column ">
+                <div class="diary__appointment print-hide diary__appointment-start--08-00 diary__appointment-length--720 diary__appointment--non-working-hours" tabindex="0">
+
+                </div>
+
+                <div class="diary__appointment-container govuk-!-font-size-16" style="top: 252px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">UC</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Flexible intervention</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">9:10am to 9:20am</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 10 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Ralph Jones</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container govuk-!-font-size-16" style="top: 324px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">UC</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Flexible intervention</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">9:30am to 9:40am</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 10 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Jon Smith</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container medium govuk-!-font-size-16" style="top: 396px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">UC</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Flexible intervention</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">9:50am to 10:10am</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 20 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Sara Smith</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container medium govuk-!-font-size-16" style="top: 476px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">UC</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Work search review</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">10:15am to 10:35am</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 20 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Amin Howard</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container large govuk-!-font-size-16" style="top: 576px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">UC</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Initial appointment</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">10:40am to 11:30am</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 50 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Gary Grey</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container medium govuk-!-font-size-16" style="top: 776px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">UC</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Work search review</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">11:35am to 11:55am</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 20 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Barney Manning</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container lunch govuk-!-font-size-16" style="top: 865px; background-color: white; border: 1px solid white;">
+                  <!-- <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">UC</span>
+                  </div> -->
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Lunch</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">12:00pm to 12:50pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong></strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16"></span>
+                  </p>
+                </div>
+
+                <a href="edit-appt/amend-2" class="govuk-link govuk-link--no-visited-state">
+                  <div class="diary__appointment-container large govuk-!-font-size-16" style="top: 1080px;">
+                    <div class="diary__appointment-benefit-type">
+                      <span class="govuk-tag">NSJSA</span>
+                    </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Full initial NSJSA interview</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">1:00pm to 1:50pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 50 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Jane Doe</span>
+                  </p>
+                </div>
+                </a>
+
+                <div class="diary__appointment-container medium govuk-!-font-size-16" style="top: 1296px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">NSJSA</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Work search review</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">2:00pm to 2:20pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 20 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Kade Cabrera</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container medium govuk-!-font-size-16" style="top: 1404px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">NSJSA</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Work search review</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">2:30pm to 2:50pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 20 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Noah Bloggs</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container medium govuk-!-font-size-16" style="top: 1512px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">NSJSA</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Work search review</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">3:00pm to 3:20pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 20 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Cameron Castillo</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container small govuk-!-font-size-16" style="top: 1620px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">NSJSA</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Flexible intervention</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">3:30pm to 3:40pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 10 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Keith Farmer</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container small govuk-!-font-size-16" style="top: 1692px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">NSJSA</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Flexible intervention</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">3:50pm to 4:00pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 10 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Zayd Hoffman</span>
+                  </p>
+                </div>
+
+                <div class="diary__appointment-container small govuk-!-font-size-16" style="top: 1764px;">
+                  <div class="diary__appointment-benefit-type">
+                    <span class="govuk-tag">NSJSA</span>
+                  </div>
+                  <div class="diary__appointment-title-container govuk-!-font-size-16" style="float: left;">
+                    <h3 class="diary__appointment-title govuk-!-font-size-16 govuk-!-margin-right-1">Flexible intervention</h3>
+                  </div>
+                  <p class="govuk-!-margin-0">
+                    <span class="visuallyhidden">from</span>
+                    <span class="diary__appointment-time visuallyhidden">4:10pm to 4:20pm</span>
+                    <span class="visuallyhidden">for</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16 govuk-!-margin-right-3" style="float: left;"><strong>- 10 minutes</strong></span>
+                    <span class="visuallyhidden">&nbsp; on Wednesday 5 October &nbsp;</span>
+                    <span class="visuallyhidden">with</span>
+                    <span class="diary__appointment-length govuk-!-font-size-16">Aiden Figueroa</span>
+                  </p>
+                </div>
+
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-08-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 08:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-08-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 08:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-08-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 08:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-08-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 08:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-08-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 08:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-08-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 08:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-09-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 09:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-09-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 09:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-09-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 09:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-09-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 09:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-09-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 09:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-09-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 09:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-10-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 10:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-10-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 10:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-10-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 10:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-10-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 10:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-10-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 10:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-10-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 10:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-11-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 11:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-11-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 11:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-11-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 11:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-11-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 11:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-11-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 11:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-11-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 11:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-12-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 12:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-12-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 12:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-12-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 12:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-12-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 12:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-12-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 12:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-12-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 12:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-13-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 13:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-13-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 13:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-13-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 13:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-13-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 13:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-13-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 13:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-13-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 13:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-14-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 14:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-14-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 14:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-14-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 14:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-14-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 14:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-14-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 14:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-14-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 14:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-15-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 15:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-15-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 15:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-15-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 15:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-15-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 15:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-15-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 15:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-15-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 15:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-16-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 16:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-16-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 16:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-16-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 16:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-16-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 16:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-16-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 16:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-16-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 16:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-17-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 17:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-17-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 17:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-17-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 17:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-17-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 17:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-17-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 17:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-17-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 17:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-18-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 18:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-18-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 18:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-18-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 18:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-18-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 18:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-18-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 18:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-18-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 18:50</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-19-00" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 19:00</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-19-10" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 19:10</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-19-20" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 19:20</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-19-30" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 19:30</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-19-40" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 19:40</span></button>
+                <button class="diary__block-time-trigger print-hide qa-diary__block-time-trigger-19-50" tabindex="-1" aria-hidden="true"><span class="diary__block-time-trigger-text">+ Block time</span><span class="visuallyhidden"> at 19:50</span></button>
+              </div>
+            </section>
+          </div>
+        </div>
+        <input name="deliveryUnitId" type="hidden" value="4d7bf909-89b6-48be-8eb2-1e7f77c05e89" /><input name="appointmentAgentId" type="hidden" value="d8a10ec1-936b-45eb-b340-3897f9a616fd" />
+        <!-- <p class="print-show-block">Dispose of this print-out securely when no longer in use.</p> -->
+        <input class="appointment__agent-id" name="appointmentAgentId" type="hidden" value="d8a10ec1-936b-45eb-b340-3897f9a616fd" /></div>
+      </div>
+    </div>
+    <div class="inner-block clear js-visible cf">
+      <section id="expandableFeedback" class="expand-help feedback print-hide " aria-labelledby="expand-help__heading-expandableFeedback" data-initial-value="" data-page-id="Qr7nPlS8PVmAjhh4gLp5flZnD0HaTpxbcMG08OBJIb7nLd6wzKAsgXpsHwYaTRGI+gAERvGeCcRl715FdKbWLw==" data-feedback-generic-error="There was a problem loading the feedback form. Refresh the page or try again later." data-feedback-voted="You agreed with this">
+        <h2 id="expand-help__heading-expandableFeedback" class="expand-help__heading"><button class="expand-help__button " name="expand-help-button" type="button" aria-expanded="false" aria-controls="help-content-expandableFeedback"> Could we improve this page?</button></h2>
+        <div id="help-content-expandableFeedback" class="expand-help__content feedback__content" aria-hidden="true">&nbsp;</div>
+      </section>
+    </div>
+</div>
+
+{% endblock %}

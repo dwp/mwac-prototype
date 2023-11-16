@@ -66,6 +66,22 @@ if(document.querySelector(".old-date-short")) {
   document.querySelector(".old-date-short").innerHTML = nd + " " + monthNamesShort[nm] + " " + ny;
 }
 
+// Show future date
+newDate = new Date();
+var numberOfDaysToAdd = +14;
+newDate.setDate(newDate.getDate() + numberOfDaysToAdd);
+ny = newDate.getFullYear();
+nm = newDate.getMonth();
+nd = newDate.getDate();
+
+if(document.querySelector(".future-date")) {
+  document.querySelector(".future-date").innerHTML = nd + " " + monthNames[nm] + " " + ny;
+}
+
+if(document.querySelector(".future-date-short")) {
+  document.querySelector(".future-date-short").innerHTML = nd + " " + monthNamesShort[nm] + " " + ny;
+}
+
 // convert month numbers to names
 var months = document.querySelector(".months");
 
@@ -85,4 +101,53 @@ if(document.querySelector(".months")) {
         months.innerHTML = months.innerHTML.replace('12', 'December');
     }
     numberToMonths();
+}
+
+// Dynamic appointment booking banner__content__tag
+function locationCheck() {
+    if (document.getElementById('location').checked) {
+        document.getElementById('channel').style.display = 'block';
+    }
+    else  document.getElementById('channel').style.display = 'none';
+          document.getElementById('new-claim').style.display = 'none';
+          document.getElementById('work-search').style.display = 'none';
+          document.getElementById('flexible').style.display = 'none';
+
+}
+
+function appointmentType1() {
+    if (document.getElementById('appointment-type').checked) {
+        document.getElementById('new-claim').style.display = 'block';
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('flexible').style.display = 'none';
+    }
+}
+
+function appointmentType2() {
+    if (document.getElementById('appointment-type-2').checked) {
+        document.getElementById('work-search').style.display = 'block';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'none';
+    }
+}
+
+function appointmentType3() {
+    if (document.getElementById('appointment-type-3').checked) {
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'block';
+    }
+}
+
+function noteType() {
+    if (document.getElementById('notetype').checked) {
+        document.getElementById('claimant-note').style.display = 'block';
+    }
+    else  document.getElementById('claimant-note').style.display = 'none';
+
+    if (document.getElementById('notetype-2').checked) {
+        document.getElementById('decision-note').style.display = 'block';
+    }
+    else  document.getElementById('decision-note').style.display = 'none';
+
 }

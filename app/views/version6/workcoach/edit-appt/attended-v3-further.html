@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Mark appointment as attended - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">New claim appointment</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 1:50pm</h3>
+
+        <form action="attended-v3-notes" method="post">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Which further proof of ID did the claimant present?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="further-proof" name="further-proof" type="radio" value="P60">
+                  <label class="govuk-label govuk-radios__label" for="further-proof">
+                    P60
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="further-proof-2" name="further-proof" type="radio" value="savings-account">
+                  <label class="govuk-label govuk-radios__label" for="further-proof-2">
+                    Savings account book
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="further-proof-3" name="further-proof" type="radio" value="cheque-book">
+                  <label class="govuk-label govuk-radios__label" for="further-proof-3">
+                    Personal cheque book
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="further-proof-4" name="further-proof" type="radio" value="bank-card">
+                  <label class="govuk-label govuk-radios__label" for="further-proof-4">
+                    Bank card
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="further-proof-5" name="further-proof" type="radio" value="other">
+                  <label class="govuk-label govuk-radios__label" for="further-proof-5">
+                    Other proof of ID
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="document-name">
+              Enter the document reference number
+            </label>
+            <div id="document-reference-hint" class="govuk-hint">
+              If you have selected bank card only record the last 4 digits
+            </div>
+            <input class="govuk-input govuk-input--width-10" id="document-name" name="documentName" type="text">
+          </div>
+
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+
+        </form>
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m" style="border-top: #1d70b8 solid 4px; padding-top: 4px;">Recent appointments</h3>
+
+      <p>No recent appointments</p>
+
+    </div> -->
+
+
+
+</div>
+
+{% endblock %}

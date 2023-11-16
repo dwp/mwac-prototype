@@ -1,0 +1,67 @@
+{% extends "layout-diary.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+All appointments - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div>
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Print list - work coach
+    </button>
+
+    <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Print list - FOH
+    </button> -->
+    </div>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--l">Jane Doe's appointments</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Time</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Agent</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><span class="date"></span></td>
+          <td class="govuk-table__cell">3:00 - 3:20pm</td>
+          <td class="govuk-table__cell"><a href="edit-appt/amend-2" class="govuk-link govuk-link govuk-link--no-visited-state">Work search review</a></td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">14 May 2023</td>
+          <td class="govuk-table__cell">4:00 - 4:10pm</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link govuk-link--no-visited-state">Work search review</a></td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">19 May 2023</td>
+          <td class="govuk-table__cell">1:00 - 1:50pm</td>
+          <td class="govuk-table__cell"><a href="edit-appt/amend-3" class="govuk-link govuk-link govuk-link--no-visited-state">New claim appointment</a></td>
+          <td class="govuk-table__cell">Agent 2</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+{% endblock %}

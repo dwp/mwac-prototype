@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Check appointment details - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+            Check appointment details
+        </h1>
+        {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9 govuk-summary-list--no-border',
+        rows: [
+          {
+            key: {
+              text: "Appointment channel"
+            },
+            value: {
+              text: "Jobcentre"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./type",
+                  text: "Change",
+                  visuallyHiddenText: "appointment details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Appointment location"
+            },
+            value: {
+              text: "Kendal Jobcentre (claimant's jobcentre)"
+            }
+          },
+          {
+            key: {
+              text: "Appointment type"
+            },
+            value: {
+              html: "Full initial NSJSA interview"
+            }
+          },
+          {
+            key: {
+              text: "Appointment length"
+            },
+            value: {
+              html: "60 minutes"
+            },
+            classes: " my-border"
+          },
+          {
+            key: {
+              text: "Work coach"
+            },
+            value: {
+              html: "Jon Clement (claimant's work coach)"
+            },
+            classes: " my-border",
+            actions: {
+              items: [
+                {
+                  href: "./who",
+                  text: "Change",
+                  visuallyHiddenText: "work coach"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Appointment date and time"
+            },
+            value: {
+              html: "10th October 2022 at 1:00pm"
+            },
+            classes: "my-border",
+            actions: {
+              items: [
+                {
+                  href: "./when",
+                  text: "Change",
+                  visuallyHiddenText: "appointment date and time"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Do they need an interpreter?"
+            },
+            value: {
+              html: "no"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./further",
+                  text: "Change",
+                  visuallyHiddenText: "interpreter and further information"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Any other information?"
+            },
+            value: {
+              html: "I need them to bring a certain document as per our conversation"
+            },
+            classes: "my-border"
+          }
+
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-l">
+          Confirm contact details
+      </h3>
+
+      <p>Notifications will be sent to the claimant using these details.</p>
+
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          07777 900 900
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="change-phone">
+            Change<span class="govuk-visually-hidden"> phone number</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          jane.doe@example.com
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="change-email">
+            Change<span class="govuk-visually-hidden"> email address</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+
+            {{ govukButton({
+            text: "Submit",
+            preventDoubleClick: true,
+            href: "claimant-view-booked.html"
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

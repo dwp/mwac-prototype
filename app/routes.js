@@ -74,3 +74,242 @@ router.post('/version4/workcoach/edit-appt/attended', function (req, res) {
     res.redirect('/version4/workcoach/edit-appt/cancel')
   }
 })
+
+// Version 5 - appointment amending
+
+router.post('/version5/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/version5/workcoach/edit-appt/attended')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/version5/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/version5/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/version5/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/version5/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/version5/workcoach/edit-appt/claimant-view-attended', function (req, res) {
+
+  let notes = req.session.data['appointment-notes']
+
+  if (notes.length != 0) {
+    res.redirect('/version5/workcoach/edit-appt/claimant-view-attended')
+  } else {
+    res.redirect('/version5/workcoach/edit-appt/attended-error')
+  }
+})
+
+router.post('/version5/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/version5/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/version5/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/version5/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/version5/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/version5/workcoach/edit-appt/cancel-error')
+  }
+})
+
+// Version 6 - appointment amending
+
+router.post('/version6/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/version6/workcoach/edit-appt/attended')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/version6/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/version6/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/version6/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/version6/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+
+
+router.post('/version6/workcoach/edit-appt/claimant-view-attended', function (req, res) {
+
+  let notes = req.session.data['appointment-notes']
+
+  if (notes.length != 0) {
+    res.redirect('/version6/workcoach/edit-appt/claimant-view-attended')
+  } else {
+    res.redirect('/version6/workcoach/edit-appt/attended-error')
+  }
+})
+
+router.post('/version6/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/version6/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/version6/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/version6/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/version6/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/version6/workcoach/edit-appt/cancel-error')
+  }
+})
+
+// ID journey 2 and 3
+
+router.post('/version6/workcoach/edit-appt/appointment-details-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/version6/workcoach/edit-appt/attended-v2-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/version6/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/version6/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/version6/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/version6/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/version6/workcoach/edit-appt/appointment-details-3-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/version6/workcoach/edit-appt/attended-v3-photo-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/version6/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/version6/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/version6/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/version6/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/version6/workcoach/edit-appt/claimant-view-attended-2', function (req, res) {
+
+  let notes = req.session.data['appointment-notes']
+
+  if (notes.length != 0) {
+    res.redirect('/version6/workcoach/edit-appt/claimant-view-attended')
+  } else {
+    res.redirect('/version6/workcoach/edit-appt/claimant-view-attended')
+  }
+})
+
+// MVP - appointment amending
+
+router.post('/MVP/workcoach/edit-appt/attended', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/MVP/workcoach/edit-appt/attended')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/MVP/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/MVP/workcoach/edit-appt/rebook/type')
+  } else {
+    res.redirect('/MVP/workcoach/edit-appt/cancel')
+  }
+})
+
+// Beta 1 - appointment amending
+
+router.post('/beta1/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta1/workcoach/edit-appt/attended-wsr')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta1/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta1/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta1/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta1/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta1/workcoach/edit-appt/amend-3-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta1/workcoach/edit-appt/attended')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta1/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta1/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta1/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta1/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta1/workcoach/edit-appt/claimant-view-attended', function (req, res) {
+
+  let notes = req.session.data['appointment-notes']
+
+  if (notes.length != 0) {
+    res.redirect('/beta1/workcoach/edit-appt/claimant-view-attended')
+  } else {
+    res.redirect('/beta1/workcoach/edit-appt/attended-error')
+  }
+})
+
+router.post('/beta1/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/beta1/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/beta1/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/beta1/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/beta1/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/beta1/workcoach/edit-appt/cancel-error')
+  }
+})

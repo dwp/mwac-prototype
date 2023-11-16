@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Error: Cancel appointment - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#cancellation-notes">What is the reason for cancelling the appointment?</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <span class="govuk-caption-l">Full initial NSJSA interview</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 2:00pm</h3>
+
+        <form action="claimant-view-cancelled" method="post">
+
+          <!-- {{ govukCheckboxes({
+            name: "cancel",
+            fieldset: {
+              legend: {
+                text: "Are you sure you want to cancel this appointment?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            errorMessage: {
+              text: "Do you want to cancel the appointment?"
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, cancel this appointment"
+              }
+            ]
+          }) }} -->
+
+        {{ govukTextarea({
+          name: "cancellation-notes",
+          id: "cancellation-notes",
+          errorMessage: {
+            text: "What is the reason for cancelling the appointment?"
+          },
+          label: {
+            text: "Cancellation notes",
+            classes: "govuk-label--s"
+          }
+        }) }}
+
+
+        {{ govukButton({
+          text: "Cancel appointment",
+          classes: "govuk-button--warning",
+          preventDoubleClick: true
+        }) }}
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -484,3 +484,41 @@ h2 {
   }
 }
 }
+
+//filters accordion
+
+.details-accordion {
+  .govuk-details__summary{
+    padding-left: 30px;
+  }
+  
+  .govuk-details__summary::before {
+    content: "›";
+    transform: rotate(90deg);
+    left: 22px;
+    top: -9px;
+    font-size: 2em;
+    border-style: none;
+    height: auto;
+    clip-path: none;
+    color: $govuk-text-colour;
+
+  }
+
+  .govuk-details__text {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+.details-accordion[open] > .govuk-details__summary:before {
+  content: "›";
+  transform: rotate(270deg);
+  left: -11px;
+  top: 15px;
+  font-size: 2em;
+  border-style: none;
+  height: auto;
+  clip-path: none;
+  color: $govuk-text-colour;
+}
