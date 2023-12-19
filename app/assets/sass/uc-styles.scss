@@ -4,3 +4,13 @@
 @import 'print';
 @import 'styles-agent';
 @import 'styles-common';
+
+// Overrides for conflicts with front end styles-agent
+
+.support-header {
+  margin: 0;
+}
+
+.inner-block {
+  margin: 0;
+}
