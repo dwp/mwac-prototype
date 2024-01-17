@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+{%- set office %}
+<label class="govuk-label" for="office-autocomplete">Enter type of meeting</label>
+<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
+
+{% endset -%}
+
+{%- set timex %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  hint: {
+    text: "For example 10 minuites or 1 hour"
+  },
+  label: {
+    text: "Enter meeting length"
+  }
+}) }}
+{% endset -%}
+
+{%- set typeOfMeeting %}
+<label class="govuk-label" for="appointment-name">What is the appointment for?</label>
+<input class="govuk-input govuk-!-width-one-half" id="appointment-name" name="appointment-name" type="text">
+
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+            Confirm contact details
+        </h1>
+
+        <p>Notifications will be sent to the claimant using these details.</p>
+
+        <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            07777 900 900
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="change-phone">
+              Change<span class="govuk-visually-hidden"> phone number</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            jane.doe@example.com
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="change-email">
+              Change<span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true,
+            href: "type"
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block bodyEnd %}
+
+
+{% endblock %}

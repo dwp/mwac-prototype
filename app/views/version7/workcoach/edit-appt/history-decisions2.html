@@ -1,0 +1,451 @@
+{% extends "layout.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+History and notes - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+
+    <h2 class="govuk-heading-m">Actions</h2>
+    <ul class="govuk-list">
+      <li>
+        <a href="add-note" class="govuk-link--no-visited-state">Add a claimant note</a>
+      </li>
+      <li>
+        <a href="add-decision" class="govuk-link--no-visited-state">Update a decision</a>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-m">Filters</h2>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Sort by
+          </h1>
+        </legend>
+        <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="changed-name" name="sort" type="radio" value="month" checked>
+            <label class="govuk-label govuk-radios__label" for="sort">
+              Newest
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="sort-2" name="sort" type="radio" value="year">
+            <label class="govuk-label govuk-radios__label" for="sort-2">
+              Oldest
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Note type
+          </h1>
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="attended">
+            <label class="govuk-label govuk-checkboxes__label" for="type">
+              Appointments
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="fta">
+            <label class="govuk-label govuk-checkboxes__label" for="type-2">
+              Claimant
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="decisions">
+            <label class="govuk-label govuk-checkboxes__label" for="type-2">
+              Decisions
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Appointment status
+          </h1>
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="attended">
+            <label class="govuk-label govuk-checkboxes__label" for="status">
+              Attended
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="fta">
+            <label class="govuk-label govuk-checkboxes__label" for="status-2">
+              Failed to attend
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="rebooked">
+            <label class="govuk-label govuk-checkboxes__label" for="status-3">
+              Rebooked
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="status-4" name="status" type="checkbox" value="cancelled">
+            <label class="govuk-label govuk-checkboxes__label" for="status-4">
+              Cancelled
+            </label>
+          </div>
+          <!-- <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="appointment-5" name="appointment" type="checkbox" value="general">
+            <label class="govuk-label govuk-checkboxes__label" for="appointment-5">
+              General notes
+            </label>
+          </div> -->
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Appointment type
+          </h1>
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="apptype" name="apptype" type="checkbox" value="attended">
+            <label class="govuk-label govuk-checkboxes__label" for="apptype">
+              New claim appointment
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="apptype-2" name="apptype" type="checkbox" value="fta">
+            <label class="govuk-label govuk-checkboxes__label" for="apptype-2">
+              Work search review
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="apptype-3" name="apptype" type="checkbox" value="rebooked">
+            <label class="govuk-label govuk-checkboxes__label" for="apptype-3">
+              Flexible appointment
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="apptype-4" name="apptype" type="checkbox" value="cancelled">
+            <label class="govuk-label govuk-checkboxes__label" for="apptype-4">
+              Other
+            </label>
+          </div>
+          <!-- <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="appointment-5" name="appointment" type="checkbox" value="general">
+            <label class="govuk-label govuk-checkboxes__label" for="appointment-5">
+              General notes
+            </label>
+          </div> -->
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Agent
+          </h1>
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="workcoach" name="workcoach" type="checkbox" value="attended">
+            <label class="govuk-label govuk-checkboxes__label" for="workcoach">
+              Jon Clement
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="workcoach-2" name="workcoach" type="checkbox" value="fta">
+            <label class="govuk-label govuk-checkboxes__label" for="workcoach-2">
+              Sara Blythe
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="workcoach-3" name="workcoach" type="checkbox" value="rebooked">
+            <label class="govuk-label govuk-checkboxes__label" for="workcoach-3">
+              Gordon Smith
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Appointment channel
+          </h1>
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="channel" name="channel" type="checkbox" value="attended">
+            <label class="govuk-label govuk-checkboxes__label" for="channel">
+              Jobcentre
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="channel-2" name="channel" type="checkbox" value="fta">
+            <label class="govuk-label govuk-checkboxes__label" for="channel-2">
+              Phone
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+    <table class="govuk-table govuk-!-font-size-19">
+      <caption class="govuk-table__caption govuk-table__caption--m">History and notes</caption>
+
+
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="white-space: nowrap;">Date & time</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Agent</th>
+          <th scope="col" class="govuk-table__header"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">28 Jun 2023</span><br> 2:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="past-appointment" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--green">attended</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant provided job applications via email and interview confirmations for 2 roles.</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">15 Jun 2023</span><br> 2:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="decision" class="govuk-link--no-visited-state">Failure to accept an offered job</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Sally Hemsworth</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--yellow">Decision</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Thank you for your referral. Please be aware that we are currently working on cases</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">14 Jun 2023</span><br> 3:30pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="#" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--green">attended</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">No update on previous job applications. Waiting for companies to get back to them.</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">1 Jun 2023</span><br> 2:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="decision" class="govuk-link--no-visited-state">Failure to accept an offered job</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--yellow">Decision</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Referral for sanction raised and sent to decision maker, waiting for feedback and investigation</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">1 June 2023</span><br> 1:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--green">attended</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant mentioned they had declined a job offer so I will send in a referral to a decision maker</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">21 May 2023</span><br> 1:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="rebooked-appointment" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--orange">rebooked</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Rebooked for the 1st of June. Claimant informed of new appointment via text message</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">8 May 2023</span><br> 2:45pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="view-note" class="govuk-link--no-visited-state">Illness</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Gordon Smith</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--grey">Claimant note</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant emailed to advise of illness. Appointment will be rebooked for the next suitable </p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">24 Apr 2023</span><br> 2:10pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="#" class="govuk-link--no-visited-state">Flexible intervention</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--green">attended</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant asked for support in searching for work online and how to apply via email</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">20 Apr 2023</span><br> 2:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="#" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--green">attended</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Frustrated at having to search online. Claimant finding it very difficult to get a response</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">6 Apr 2023</span><br> 2:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="#" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--green">attended</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant finds it difficult to use a computer to search for work. Prefers to use job papers</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">12 Mar 2023</span><br> 1:00pm</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="#" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--orange">rebooked</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant called to rebook appointment after missing the last WSR that was booked</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">9 Mar 2023</span><br> 11:00am</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="fta-appointment" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--red">failed to attend</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant did not show for the appointment and wasn't contactable by phone</p>
+          </td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header govuk-!-padding-bottom-0" style="border-bottom: none;"><span style="white-space: nowrap;">1 Mar 2023</span><br> 10:00am</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;"><a href="newclaim-appointment" class="govuk-link--no-visited-state">New claim appointment</a></td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="border-bottom: none;">Jon Clement</td>
+          <td class="govuk-table__cell govuk-!-padding-bottom-0" style="text-align: right; border-bottom: none;"><strong class="govuk-tag govuk-tag--green">attended</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell govuk-!-paddin-top-0"> </td>
+          <td colspan="3" class="govuk-table__cell govuk-!-padding-top-0">
+            <p class="govuk-!-margin-bottom-0" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Claimant commitment agreed and  we discussed what types of work they were going to look for</p>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <nav class="govuk-pagination" role="navigation" aria-label="results">
+      <!-- <div class="govuk-pagination__prev">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+          <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+          </svg>
+          <span class="govuk-pagination__link-title">Previous</span></a>
+      </div> -->
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"  aria-current="page">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item ">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+            2
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+            3
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg></a>
+      </div>
+    </nav>
+
+  </div>
+</div>
+
+{% endblock %}

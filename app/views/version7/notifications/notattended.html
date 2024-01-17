@@ -1,0 +1,31 @@
+{% extends "layout-noheader.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+First - Search for a claimant
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="notifications">
+  <div class="container">
+
+    <div class="notification-header">
+      <div class="back">‹</div>
+      <div class="name">GOVUK</div>
+    </div>
+
+    <div class="imessage">
+      <p class="from-them">New Style Jobseeker's Allowance: You did not attend your appointment at 1:00pm on <span class="date"></span> at Kentmere House, 1 Blackhall Rd, Kendal LA9 4BS. You have 30 days from the day you made your claim to get in touch. After that, your claim will be closed. To rebook your appointment, call 0800 169 0190.</p>
+    </div>
+</div>
+
+{% endblock %}
