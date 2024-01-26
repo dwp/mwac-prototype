@@ -231,6 +231,17 @@ router.post('/version7/workcoach/edit-appt/claimant-view-cancelled', function (r
   }
 })
 
+router.post('/version7/workcoach/edit-appt/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+
+  if (kbvFail === 'No') {
+    res.redirect('/version7/workcoach/edit-appt/kbv-failed')
+  } else {
+    res.redirect('/version7/workcoach/edit-appt/attended-notes')
+  }
+})
+
 // ID journey 2 and 3
 
 router.post('/version6/workcoach/edit-appt/appointment-details-2-error', function (req, res) {

@@ -139,6 +139,7 @@ function appointmentType3() {
     }
 }
 
+// Dynamic note-types banner__content__tag
 function noteType() {
     if (document.getElementById('notetype').checked) {
         document.getElementById('claimant-note').style.display = 'block';
@@ -149,5 +150,19 @@ function noteType() {
         document.getElementById('decision-note').style.display = 'block';
     }
     else  document.getElementById('decision-note').style.display = 'none';
+
+}
+
+// Dynamic id types banner__content__tag
+function idCheck() {
+    if (document.getElementById('id-types').checked) {
+        document.getElementById('identification').style.display = 'block';
+    }
+    else  document.getElementById('identification').style.display = 'none';
+
+    if (document.getElementById('id-types-2').checked) {
+        document.getElementById('kbv').style.display = 'block';
+    }
+    else  document.getElementById('kbv').style.display = 'none';
 
 }
