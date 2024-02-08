@@ -139,6 +139,46 @@ function appointmentType3() {
     }
 }
 
+function appointmentType4() {
+    if (document.getElementById('appointment-type-4').checked) {
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'block';
+    }
+}
+
+function appointmentType5() {
+    if (document.getElementById('appointment-type-5').checked) {
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'block';
+    }
+}
+
+function appointmentType6() {
+    if (document.getElementById('appointment-type-6').checked) {
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'block';
+    }
+}
+
+function appointmentType7() {
+    if (document.getElementById('appointment-type-7').checked) {
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'block';
+    }
+}
+
+function appointmentType8() {
+    if (document.getElementById('appointment-type-8').checked) {
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'block';
+    }
+}
+
 // Dynamic note-types banner__content__tag
 function noteType() {
     if (document.getElementById('notetype').checked) {

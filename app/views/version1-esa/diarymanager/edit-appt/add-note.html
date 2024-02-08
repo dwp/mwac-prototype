@@ -1,0 +1,89 @@
+{% extends "layout-esa.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Add note - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Add a note</h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="notes">
+          Type of note
+        </label>
+        <select class="govuk-select" id="notes" name="notes" aria-describedby="notes-hint">
+          <option value="all" selected>All notes</option>
+          <option value="attended">Attended</option>
+          <option value="fta">Failed to attend</option>
+          <option value="booked">Booked</option>
+          <option value="rebooked">Re-booked</option>
+          <option value="cancelled">Cancelled</option>
+          <option value="general">General</option>
+        </select>
+      </div>
+
+      <div class="govuk-form-group">
+        <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="more-detail">
+            Note details
+          </label>
+        </h3>
+        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="7" aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="pinned-hint">
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="pinned" name="pinned" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="pinned">
+                Pin this note
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+
+            {{ govukButton({
+            text: "Continue",
+            href: "claimant-view-newnote#history",
+            preventDoubleClick: true
+            }) }}
+
+          </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
