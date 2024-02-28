@@ -9,7 +9,7 @@
     "@dwp/dwp-frontend": "2.5.0",
     "@govuk-prototype-kit/step-by-step": "2.2.2",
     "accessible-autocomplete": "^2.0.4",
-    "govuk-frontend": "5.0.0",
+    "govuk-frontend": "5.1.0",
     "govuk-prototype-kit": "^13.16.0",
     "jquery": "3.7.1",
     "notifications-node-client": "^5.2.3"

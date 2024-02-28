@@ -1,0 +1,99 @@
+{% extends "layout-esa.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+First - Search for a claimant
+{% endblock %}
+
+{% block beforeContent %}
+     
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="govuk-assement-details">
+      <p class="govuk-!-margin-bottom-2"><strong>Claim ends</strong></p>
+      <p class="govuk-!-margin-bottom-0">12 November 2022</p>
+    </div> -->
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <!-- <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Claim summary
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class='govuk-body'>Claim summary in here</p>
+        </div>
+      </div> -->
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Claimant details
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+          <p class='govuk-body'>Claimant details in here.</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#9" class="govuk-body">Customer statement</a>
+
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#appointments">
+            Overview
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#history">
+            History
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="appointments">
+        <h3 class="govuk-heading-m">Today's appointments</h3>
+        <p>No appointments booked</p>
+
+        <a href="type" class="govuk-button" data-module="govuk-button">
+          Book an appointment
+        </a>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h3 class="govuk-heading-m">Notes</h3>
+        <p>No notes</p>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Add a note
+        </button>
+
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="history">
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,304 @@
+{% extends "layout-esa.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Error: Mark appointment as attended - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#photo-id">Select 1 photo ID</a>
+              </li>
+              <li>
+                <a href="#proof-of-address">Select 1 proof of address</a>
+              </li>
+              <li>
+                <a href="#proof-of-id">Select 1 further proof of ID</a>
+              </li>
+              <li>
+                <a href="#claimant-commitment">Select Yes or No</a>
+              </li>
+              <li>
+                <a href="#appointment-notes">Enter a note</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <span class="govuk-caption-l">New claim appointment</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 1:50pm</h3>
+
+        <form action="claimant-view-attended" method="post">
+
+          <div class="govuk-form-group govuk-form-group--error">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  What photo ID did the claimant present?
+                </h1>
+              </legend>
+              <p id="photo-id-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select 1 photo ID
+              </p>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="photo-id" name="photo-id" type="radio" value="driving license">
+                  <label class="govuk-label govuk-radios__label" for="photo-id">
+                    Driving licence
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="photo-id-2" name="photo-id" type="radio" value="passport">
+                  <label class="govuk-label govuk-radios__label" for="photo-id-2">
+                    Passport
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="photo-id-3" name="photo-id" type="radio" value="Biometric residence permit">
+                  <label class="govuk-label govuk-radios__label" for="photo-id-3">
+                    Biometric residence permit
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="photo-id-4" name="photo-id" type="radio" value="Certificate of naturalisation as a British citizen">
+                  <label class="govuk-label govuk-radios__label" for="photo-id-4">
+                    Certificate of naturalisation as a British citizen
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="photo-id-5" name="photo-id" type="radio" value="Permanent residence permit">
+                  <label class="govuk-label govuk-radios__label" for="photo-id-5">
+                    Permanent residence permit
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="photo-id-6" name="photo-id" type="radio" value="Other proof of photographic identity">
+                  <label class="govuk-label govuk-radios__label" for="photo-id-6">
+                    Other proof of photographic identity
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group govuk-form-group--error">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  What proof of address did the claimant present?
+                </h1>
+              </legend>
+              <p id="proof-of-address-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select 1 proof of address
+              </p>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-address" name="proof-of-address" type="radio" value="Payslip or pension statement">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-address">
+                    Payslip or pension statement
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-address-2" name="proof-of-address" type="radio" value="Student loan documentation">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-address-2">
+                    Student loan documentation
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-address-3" name="proof-of-address" type="radio" value="Utility bill">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-address-3">
+                    Utility bill
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-address-4" name="proof-of-address" type="radio" value="Council Tax bill">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-address-4">
+                    Council Tax bill
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-address-5" name="proof-of-address" type="radio" value="Other proof of address">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-address-5">
+                    Other proof of address
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group govuk-form-group--error">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  What further proof of ID did the claimant present?
+                </h1>
+              </legend>
+              <p id="proof-of-id-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select 1 further proof of ID
+              </p>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-id" name="proof-of-id" type="radio" value="P60">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-id">
+                    P60
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-id-2" name="proof-of-id" type="radio" value="Savings account book">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-id-2">
+                    Savings account book
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-id-3" name="proof-of-id" type="radio" value="Personal cheque book">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-id-3">
+                    Personal cheque book
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-id-4" name="proof-of-id" type="radio" value="Bank card">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-id-4">
+                    Bank card
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input govuk-input--error" id="proof-of-id-5" name="proof-of-id" type="radio" value="Other proof of ID">
+                  <label class="govuk-label govuk-radios__label" for="proof-of-id-5">
+                    Other proof of ID
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "claimant-commitment",
+          fieldset: {
+            legend: {
+              text: "Has the claimant commitment been agreed?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          errorMessage: {
+            text: "Select Yes or No"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
+          <div class="govuk-form-group govuk-form-group--error">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="appointment-notes">
+                Appointment notes
+              </label>
+            </h1>
+            <p id="appointment-notes-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter a note
+            </p>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-input--error" id="appointment-notes" name="appointment-notes" rows="5" aria-describedby="appointment-notes-info"></textarea>
+          </div>
+          <div id="appointment-notes-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 1000 words
+          </div>
+        </div>
+
+
+        {{ govukButton({
+          text: "Mark appointment as attended",
+          preventDoubleClick: true
+        }) }}
+        </form>
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m" style="border-top: #1d70b8 solid 4px; padding-top: 4px;">Recent appointments</h3>
+
+      <div class="dwp-timeline">
+        <ol class="dwp-timeline__events">
+        <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Attended</h2>
+            <a href="initial-interview" class="govuk-body govuk-link--no-visited-state" target="_blank">view appointment</a>
+            <p class="govuk-caption-m"><span class="old-date-short"></span></p>
+        </li>
+        <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Attended</h2>
+            <a href="" class="govuk-body govuk-link--no-visited-state">view appointment</a>
+            <p class="govuk-caption-m">28 Jan 2023</p>
+        </li>
+        <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Re-booked</h2>
+            <a href="" class="govuk-body govuk-link--no-visited-state">view appointment</a>
+            <p class="govuk-caption-m">12 Jan 2023</p>
+        </li>
+        <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Failed to attend</h2>
+            <a href="" class="govuk-body govuk-link--no-visited-state">view appointment</a>
+            <p class="govuk-caption-m">20 Dec 2022</p>
+        </li>
+        <li class="dwp-timeline__events--entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Attended</h2>
+            <a href="" class="govuk-body govuk-link--no-visited-state">view appointment</a>
+            <p class="govuk-caption-m">4 Dec 2022</p>
+        </li>
+        </ol>
+      </div>
+
+      <a href="history-2" target="_blank" class="govuk-body govuk-link--no-visited-state">View all history and notes</a>
+
+    </div> -->
+
+
+
+</div>
+
+{% endblock %}

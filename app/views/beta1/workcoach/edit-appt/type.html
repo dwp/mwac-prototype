@@ -6,7 +6,7 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% block pageTitle %}
-First - Claimant details
+Appointment details - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
@@ -67,6 +67,12 @@ First - Claimant details
                 </label>
               </div>
               <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="location-3" name="location" type="radio" value="Sheffield Bailey Jobcentre Plus" onclick="javascript:locationCheck2();">
+                <label class="govuk-label govuk-radios__label" for="location-3">
+                  Sheffield Bailey Jobcentre Plus
+                </label>
+              </div>
+              <!-- <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="location-2" name="location" type="radio" value="Other location" data-aria-controls="conditional-location-2" onclick="javascript:locationCheck();">
                 <label class="govuk-label govuk-radios__label" for="location-2">
                   Other location
@@ -79,40 +85,51 @@ First - Claimant details
                     <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
                       <div id="office-autocomplete__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
                       <div id="office-autocomplete__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
-                    </div>
+                    </div> -->
                     <!-- <input aria-expanded="false" aria-owns="office-autocomplete__listbox" aria-autocomplete="list" aria-describedby="office-autocomplete__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="office-autocomplete" name="input-autocomplete" placeholder="" type="text" role="combobox"> -->
-                    <div class="autocomplete__dropdown-arrow-down-wrapper"></div>
+                    <!-- <div class="autocomplete__dropdown-arrow-down-wrapper"></div>
                     <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="office-autocomplete__listbox" role="listbox"></ul>
                     <span id="office-autocomplete__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </fieldset>
         </div>
 
         <div id="channel" style="display: none;">
-        {{ govukRadios({
-            name: "appointment-channel",
-            fieldset: {
-              legend: {
-                text: "Select appointment channel",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "",
-                text: "In jobcentre"
-              },
-              {
-                value: "",
-                text: "By phone"
-              }
-            ]
-          }) }}
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Select appointment channel
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="channel-1" name="appointment-channel" type="radio" value="In job centre" onclick="javascript:appointmentChannel();">
+                  <label class="govuk-label govuk-radios__label" for="channel-1">
+                    In jobcentre
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="channel-2" name="appointment-channel" type="radio" value="By phone" onclick="javascript:appointmentChannel2();">
+                  <label class="govuk-label govuk-radios__label" for="channel-2">
+                    By phone
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="channel-3" name="appointment-channel" type="radio" value="Digital" onclick="javascript:appointmentChannel3();">
+                  <label class="govuk-label govuk-radios__label" for="channel-3">
+                    Digital
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
 
+        <div id="type1" style="display: none;">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -142,35 +159,54 @@ First - Claimant details
               </div>
             </fieldset>
           </div>
+        </div>
 
-          </div>
-
-          <div id="new-claim"  style="display: none;">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                  <h1 class="govuk-fieldset__heading">
-                    Select appointment length
-                  </h1>
-                </legend>
-                <div class="govuk-radios" data-module="govuk-radios">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length1" name="appointment-length1" type="radio" value="50 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length1">
-                      30 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length1-2" name="appointment-length1" type="radio" value="60 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length1-2">
-                      50 minutes
-                    </label>
-                  </div>
+        <div id="type2" style="display: none;">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Select appointment type
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="appointment-type-4" name="appointment-type" type="radio" value="Flexible intervention" onclick="javascript:appointmentType4();">
+                  <label class="govuk-label govuk-radios__label" for="appointment-type-4">
+                    Flexible appointment
+                  </label>
                 </div>
-              </fieldset>
-            </div>
-
+              </div>
+            </fieldset>
           </div>
+        </div>
+
+        <div id="new-claim"  style="display: none;">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Select appointment length
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="appointment-length1" name="appointment-length1" type="radio" value="50 minutes">
+                  <label class="govuk-label govuk-radios__label" for="appointment-length1">
+                    30 minutes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="appointment-length1-2" name="appointment-length1" type="radio" value="60 minutes">
+                  <label class="govuk-label govuk-radios__label" for="appointment-length1-2">
+                    50 minutes
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        </div>
 
           <div id="work-search"  style="display: none;">
             <div class="govuk-form-group">
@@ -209,38 +245,38 @@ First - Claimant details
                 </legend>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2" name="appointment-length2" type="radio" value="10 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2">
+                    <input class="govuk-radios__input" id="appointment-length3" name="appointment-length3" type="radio" value="10 minutes">
+                    <label class="govuk-label govuk-radios__label" for="appointment-length3">
                       10 minutes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-2" name="appointment-length2" type="radio" value="20 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
+                    <input class="govuk-radios__input" id="appointment-length3-2" name="appointment-length3" type="radio" value="20 minutes">
+                    <label class="govuk-label govuk-radios__label" for="appointment-length3-2">
                       20 minutes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-3" name="appointment-length2" type="radio" value="30 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
+                    <input class="govuk-radios__input" id="appointment-length3-3" name="appointment-length3" type="radio" value="30 minutes">
+                    <label class="govuk-label govuk-radios__label" for="appointment-length3-3">
                       30 minutes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-4" name="appointment-length2" type="radio" value="40 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
+                    <input class="govuk-radios__input" id="appointment-length3-4" name="appointment-length3" type="radio" value="40 minutes">
+                    <label class="govuk-label govuk-radios__label" for="appointment-length3-4">
                       40 minutes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-5" name="appointment-length2" type="radio" value="50 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
+                    <input class="govuk-radios__input" id="appointment-length3-5" name="appointment-length3" type="radio" value="50 minutes">
+                    <label class="govuk-label govuk-radios__label" for="appointment-length3-5">
                       50 minutes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-6" name="appointment-length2" type="radio" value="60 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
+                    <input class="govuk-radios__input" id="appointment-length3-6" name="appointment-length3" type="radio" value="60 minutes">
+                    <label class="govuk-label govuk-radios__label" for="appointment-length3-6">
                       60 minutes
                     </label>
                   </div>
@@ -263,7 +299,7 @@ First - Claimant details
 
 {% block bodyEnd %}
     {{ super() }}
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         const type = [
         'France',
         'Germany',
@@ -1363,5 +1399,5 @@ First - Claimant details
           document.getElementById("channel").style.display = "block";
       }
 
-    </script>
+    </script> -->
 {% endblock %}

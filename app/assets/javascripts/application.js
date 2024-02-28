@@ -107,12 +107,54 @@ if(document.querySelector(".months")) {
 function locationCheck() {
     if (document.getElementById('location').checked) {
         document.getElementById('channel').style.display = 'block';
+
     }
     else  document.getElementById('channel').style.display = 'none';
           document.getElementById('new-claim').style.display = 'none';
           document.getElementById('work-search').style.display = 'none';
           document.getElementById('flexible').style.display = 'none';
 
+}
+
+function locationCheck2() {
+    if (document.getElementById('location-3').checked) {
+        document.getElementById('channel').style.display = 'block';
+    }
+    else  document.getElementById('channel').style.display = 'none';
+          document.getElementById('new-claim').style.display = 'none';
+          document.getElementById('work-search').style.display = 'none';
+          document.getElementById('flexible').style.display = 'none';
+
+}
+
+function appointmentChannel() {
+    if (document.getElementById('channel-1').checked) {
+        document.getElementById('type1').style.display = 'block';
+        document.getElementById('type2').style.display = 'none';
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'none';
+    }
+}
+
+function appointmentChannel2() {
+    if (document.getElementById('channel-2').checked) {
+        document.getElementById('type1').style.display = 'block';
+        document.getElementById('type2').style.display = 'none';
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'none';
+    }
+}
+
+function appointmentChannel3() {
+    if (document.getElementById('channel-3').checked) {
+        document.getElementById('type2').style.display = 'block';
+        document.getElementById('type1').style.display = 'none';
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'none';
+    }
 }
 
 function appointmentType1() {
@@ -133,6 +175,14 @@ function appointmentType2() {
 
 function appointmentType3() {
     if (document.getElementById('appointment-type-3').checked) {
+        document.getElementById('work-search').style.display = 'none';
+        document.getElementById('new-claim').style.display = 'none';
+        document.getElementById('flexible').style.display = 'block';
+    }
+}
+
+function appointmentType4() {
+    if (document.getElementById('appointment-type-4').checked) {
         document.getElementById('work-search').style.display = 'none';
         document.getElementById('new-claim').style.display = 'none';
         document.getElementById('flexible').style.display = 'block';

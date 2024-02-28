@@ -546,3 +546,9 @@ h2 {
 .js-enabled .govuk-tabs__panel {
   padding: 30px 13px;
 }
+
+// fix for small radios inline
+
+.govuk-radios--inline .govuk-radios__item {
+    margin-right: 50px;
+}
