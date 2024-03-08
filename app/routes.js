@@ -287,6 +287,60 @@ router.post('/version1-esa/workcoach/edit-appt/attended-notes', function (req, r
   }
 })
 
+// MWAC and SO - appointment amending
+
+router.post('/mwac-so/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/mwac-so/workcoach/edit-appt/attended-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/mwac-so/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/mwac-so/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/mwac-so/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/mwac-so/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/mwac-so/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/mwac-so/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/mwac-so/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/mwac-so/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/mwac-so/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/mwac-so/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/mwac-so/workcoach/edit-appt/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+
+  if (kbvFail === 'No') {
+    res.redirect('/mwac-so/workcoach/edit-appt/kbv-failed')
+  } else if (kbvFail === 'Yes') {
+    res.redirect('/mwac-so/workcoach/edit-appt/kbv-notes')
+  } else {
+    res.redirect('/mwac-so/workcoach/edit-appt/attended-notes')
+  }
+})
+
 // ID journey 2 and 3
 
 router.post('/version6/workcoach/edit-appt/appointment-details-2-error', function (req, res) {
