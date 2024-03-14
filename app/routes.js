@@ -419,7 +419,7 @@ router.post('/beta1/workcoach/edit-appt/amend-2-error', function (req, res) {
   if (appointment === 'attended') {
     res.redirect('/beta1/workcoach/edit-appt/attended-wsr')
   } else if (appointment === 'not-attended') {
-    res.redirect('/beta1/workcoach/edit-appt/not-attended')
+    res.redirect('/beta1/workcoach/edit-appt/not-attended-wsr')
   } else if (appointment === 'rebook') {
     res.redirect('/beta1/workcoach/edit-appt/rebook/type')
   } else if (appointment === 'cancel') {
