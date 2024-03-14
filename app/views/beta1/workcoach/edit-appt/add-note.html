@@ -4,7 +4,7 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block pageTitle %}
-Add note - Managing Working Age Claimants
+Add a claimant note - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
@@ -38,7 +38,7 @@ Add note - Managing Working Age Claimants
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="event-name">
-          Title
+          Subject
         </label>
         <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text">
       </div>
@@ -73,7 +73,7 @@ Add note - Managing Working Age Claimants
 
 
             {{ govukButton({
-            text: "Continue",
+            text: "Add claimant note",
             href: "history-banner",
             preventDoubleClick: true
             }) }}

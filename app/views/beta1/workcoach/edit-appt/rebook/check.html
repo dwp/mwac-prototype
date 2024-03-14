@@ -4,7 +4,7 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block pageTitle %}
-First - Claimant details
+Check appointment details - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
@@ -140,15 +140,6 @@ First - Claimant details
             },
             value: {
               html: "Claimant has an interview"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./further",
-                  text: "Change",
-                  visuallyHiddenText: "why the appointment is being rebooked"
-                }
-              ]
             }
           },
           {
@@ -202,7 +193,7 @@ First - Claimant details
 
 
             {{ govukButton({
-            text: "Submit",
+            text: "Book appointment",
             preventDoubleClick: true,
             href: "../claimant-view-rebooked.html"
             }) }}
