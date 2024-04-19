@@ -189,14 +189,6 @@ function appointmentType4() {
     }
 }
 
-function appointmentType4() {
-    if (document.getElementById('appointment-type-4').checked) {
-        document.getElementById('work-search').style.display = 'none';
-        document.getElementById('new-claim').style.display = 'none';
-        document.getElementById('flexible').style.display = 'block';
-    }
-}
-
 function appointmentType5() {
     if (document.getElementById('appointment-type-5').checked) {
         document.getElementById('work-search').style.display = 'none';

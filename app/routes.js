@@ -220,16 +220,70 @@ router.post('/version7/workcoach/edit-appt/claimant-view-cancelled', function (r
   }
 })
 
+router.post('/version7/workcoach/edit-appt/attended-photo-id', function (req, res) {
+
+  let idType = req.session.data['id-types']
+
+  if (idType === 'No') {
+    res.redirect('/version7/workcoach/edit-appt/attended-kbv-id')
+  } else {
+    res.redirect('/version7/workcoach/edit-appt/attended-photo-id')
+  }
+})
+
 router.post('/version7/workcoach/edit-appt/attended-notes', function (req, res) {
 
   let kbvFail = req.session.data['kbv-check']
 
   if (kbvFail === 'No') {
     res.redirect('/version7/workcoach/edit-appt/kbv-failed')
-  } else if (kbvFail === 'Yes') {
-    res.redirect('/version7/workcoach/edit-appt/kbv-notes')
   } else {
-    res.redirect('/version7/workcoach/edit-appt/attended-notes')
+    res.redirect('/version7/workcoach/edit-appt/kbv-notes')
+  }
+})
+
+// Version 7 - duration routing - existing claim
+
+router.post('/version7/workcoach/existing-claim/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/version7/workcoach/existing-claim/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/version7/workcoach/existing-claim/appointment-duration-wsr')
+  } else {
+    res.redirect('/version7/workcoach/existing-claim/appointment-duration-flex')
+  }
+})
+
+// Version 7 - duration routing - existing claim v2
+
+router.post('/version7/workcoach/existing-claim-v2/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/version7/workcoach/existing-claim-v2/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/version7/workcoach/existing-claim-v2/appointment-duration-wsr')
+  } else {
+    res.redirect('/version7/workcoach/existing-claim-v2/appointment-duration-flex')
+  }
+})
+
+// Version 7 - duration routing - existing claim v3
+
+router.post('/version7/workcoach/existing-claim-v3/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/version7/workcoach/existing-claim-v3/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/version7/workcoach/existing-claim-v3/appointment-duration-wsr')
+  } else {
+    res.redirect('/version7/workcoach/existing-claim-v3/appointment-duration-flex')
   }
 })
 
@@ -286,6 +340,115 @@ router.post('/version1-esa/workcoach/edit-appt/attended-notes', function (req, r
     res.redirect('/version1-esa/workcoach/edit-appt/attended-notes')
   }
 })
+
+// Version 2 ESA - appointment amending
+
+router.post('/version2-esa/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/version2-esa/workcoach/edit-appt/attended-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/version2-esa/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/version2-esa/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/version2-esa/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/version2-esa/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/version2-esa/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/version2-esa/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/version2-esa/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/version2-esa/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/version2-esa/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/version2-esa/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/version2-esa/workcoach/edit-appt/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+
+  if (kbvFail === 'No') {
+    res.redirect('/version2-esa/workcoach/edit-appt/kbv-failed')
+  } else if (kbvFail === 'Yes') {
+    res.redirect('/version2-esa/workcoach/edit-appt/kbv-notes')
+  } else {
+    res.redirect('/version2-esa/workcoach/edit-appt/attended-notes')
+  }
+})
+
+// Version 2.2 ESA - appointment amending
+
+router.post('/version2-esa-2/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/attended-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/rebook/type')
+  } else if (appointment === 'cancel') {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/version2-esa-2/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/version2-esa-2/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/version2-esa-2/workcoach/edit-appt/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+
+  if (kbvFail === 'No') {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/kbv-failed')
+  } else if (kbvFail === 'Yes') {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/kbv-notes')
+  } else {
+    res.redirect('/version2-esa-2/workcoach/edit-appt/attended-notes')
+  }
+})
+
 
 // MWAC and SO - appointment amending
 

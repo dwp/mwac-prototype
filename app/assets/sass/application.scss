@@ -184,6 +184,27 @@ margin-top: 5px;
 }
 }
 
+.dwp-key-details-bar-secondary {
+  background-color: #5694ca;
+  min-height: 60px;
+
+  .dwp-key-details-bar-secondary__key-details {
+    padding: 2px 0;
+  }
+
+  .govuk-tag {
+    float: left;
+    margin-right: 10px;
+    margin-top: -4px;
+    background-color: white;
+  }
+}
+
+.govuk-tag--white {
+  background-color: white;
+}
+
+
 // Searchlight styles
 
 .searchlight-nav-wrapper {

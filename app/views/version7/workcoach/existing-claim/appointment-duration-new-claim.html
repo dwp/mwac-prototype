@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+Select an appointment duration - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="who" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select appointment duration
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-duration" name="appointment-duration" type="radio" value="30 minutes" {{ checked("appointment-duration", "30 minutes") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-duration1">
+                30 minutes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-duration-2" name="appointment-duration" type="radio" value="50 minutes" {{ checked("appointment-duration", "50 minutes") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-duration-2">
+                50 minutes
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+      }) }}
+
+      </form>
+    </div>
+
+</div>
+
+{% endblock %}

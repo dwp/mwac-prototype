@@ -1,0 +1,172 @@
+{% extends "layout-esa-appointee.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+First - Search for a claimant
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="govuk-assement-details">
+      <p class="govuk-!-margin-bottom-2"><strong>Claim ends</strong></p>
+      <p class="govuk-!-margin-bottom-0">12 November 2022</p>
+    </div> -->
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <!-- <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Claim summary
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p class='govuk-body'>Claim summary in here</p>
+        </div>
+      </div> -->
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Claimant details
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+          <p class='govuk-body'>Claimant details in here.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <a href="#9" class="govuk-body">Customer statement</a> -->
+
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#appointments">
+            Overview
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#history">
+            History
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="appointments">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Today's appointments</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Date & time</th>
+              <th scope="col" class="govuk-table__header">Appointment type</th>
+              <th scope="col" class="govuk-table__header"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">1:00pm to 1:50pm</th>
+              <td class="govuk-table__cell">Full initial NSJSA interview</td>
+              <td class="govuk-table__cell"><a href="amend-2" class="govuk-link--no-visited-state">view</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <a href="type" class="govuk-button" data-module="govuk-button">
+          Book an appointment
+        </a>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h3 class="govuk-heading-m">Pinned notes</h3>
+        <p>No pinned notes</p>
+
+        <!-- <button class="govuk-button" data-module="govuk-button">
+          Add a note
+        </button> -->
+
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="history">
+        <table class="govuk-table govuk-!-font-size-16">
+          <caption class="govuk-table__caption govuk-table__caption--m">Recent history</caption>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="notes">
+              Show notes
+            </label>
+            <select class="govuk-select" id="notes" name="notes" aria-describedby="notes-hint">
+              <option value="all" selected>All notes</option>
+              <option value="attended">Attended</option>
+              <option value="fta">Failed to attend</option>
+              <option value="booked">Booked</option>
+              <option value="rebooked">Re-booked</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="general">General</option>
+            </select>
+
+            <!-- <fieldset class="govuk-fieldset" style="float: right;">
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                  <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                    Show deleted notes
+                  </label>
+                </div>
+              </div>
+            </fieldset> -->
+          </div>
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Date & time</th>
+              <th scope="col" class="govuk-table__header">Details</th>
+              <th scope="col" class="govuk-table__header"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><span class="old-date-short"></span> at 2:00pm</td>
+              <td class="govuk-table__cell"><a href="initial-interview" class="govuk-link--no-visited-state">Attended:<br>Full initial NSJSA interview</a></td>
+              <td class="govuk-table__cell">by <a href="#" class="govuk-link--no-visited-state">Work coach</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">10 Oct 2022 at 1:09pm</td>
+              <td class="govuk-table__cell">Booked:<br>Full initial NSJSA interview</td>
+              <td class="govuk-table__cell">by <a href="#" class="govuk-link--no-visited-state">Contact Centre</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">9 Oct 2022 at 2:34pm</td>
+              <td class="govuk-table__cell">Claim processed</td>
+              <td class="govuk-table__cell">by <a href="#" class="govuk-link--no-visited-state">Service Centre</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        {{ govukButton({
+          text: "Add a note",
+          href: 'add-note'
+        }) }}
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

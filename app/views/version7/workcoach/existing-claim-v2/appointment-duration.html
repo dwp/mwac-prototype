@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+Select an appointment duration - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+{%- set office %}
+<label class="govuk-label" for="office-autocomplete">Enter name of Job Centre</label>
+<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
+
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select appointment duration
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-length1" name="appointment-length1" type="radio" value="50 minutes">
+              <label class="govuk-label govuk-radios__label" for="appointment-length1">
+                30 minutes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-length1-2" name="appointment-length1" type="radio" value="60 minutes">
+              <label class="govuk-label govuk-radios__label" for="appointment-length1-2">
+                50 minutes
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+      }) }}
+
+      <h3 class="govuk-heading-m govuk-!-margin-top-8">Appointment details overview</h3>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="location">Change<span class="govuk-visually-hidden"> appointment location</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Channel
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-channel'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="channel">Change<span class="govuk-visually-hidden"> appointment channel</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-type'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment type</span></a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+</div>
+
+{% endblock %}

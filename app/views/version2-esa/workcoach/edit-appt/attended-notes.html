@@ -1,0 +1,145 @@
+{% extends "layout-esa-appointee.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Mark appointment as attended - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">New claim appointment</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 1:50pm</h3>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">ID documents</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Photo ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Passport - 4523
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="attended-v2-id">
+                Change<span class="govuk-visually-hidden"> photo ID</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proof of address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Utility bill - 56782345
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="attended-v2-id">
+                Change<span class="govuk-visually-hidden"> proof of address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Further proof of ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Bank card - 3345
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="attended-v2-id">
+                Change<span class="govuk-visually-hidden"> further proof of ID</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <form action="claimant-view-attended" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "claimant-commitment",
+          fieldset: {
+            legend: {
+              text: "Has the claimant commitment been agreed?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("claimant-commitment", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("claimant-commitment", "no")
+            }
+          ]
+        }) }}
+
+
+
+        {{ govukTextarea({
+          name: "appointment-notes",
+          id: "appointment-notes",
+          value: data['appointment-notes'],
+          label: {
+            text: "Appointment notes",
+            classes: "govuk-label--s"
+          }
+        }) }}
+
+
+        {{ govukButton({
+          text: "Mark appointment as attended",
+          preventDoubleClick: true
+        }) }}
+
+
+
+        </form>
+
+
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m" style="border-top: #1d70b8 solid 4px; padding-top: 4px;">Recent appointments</h3>
+
+      <p>No recent appointments</p>
+
+    </div> -->
+
+
+
+</div>
+
+{% endblock %}
