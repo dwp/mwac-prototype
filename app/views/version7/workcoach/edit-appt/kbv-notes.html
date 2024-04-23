@@ -64,15 +64,19 @@ Mark appointment as attended - Managing Working Age Claimants
 
 
 
-        {{ govukTextarea({
-          name: "appointment-notes",
-          id: "appointment-notes",
-          value: data['appointment-notes'],
-          label: {
-            text: "Appointment notes",
-            classes: "govuk-label--s"
-          }
-        }) }}
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="appointment-notes">
+                Appointment notes
+              </label>
+            </h1>
+            <textarea class="govuk-textarea govuk-js-character-count" id="appointment-notes" name="appointment-notes" rows="5" aria-describedby="appointment-notes-info"></textarea>
+          </div>
+          <div id="appointment-notes-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 1000 words
+          </div>
+        </div>
 
 
         {{ govukButton({
