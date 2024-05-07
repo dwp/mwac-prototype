@@ -341,7 +341,7 @@ router.post('/version1-esa/workcoach/edit-appt/attended-notes', function (req, r
   }
 })
 
-// Version 2 ESA - appointment amending
+// Version 7 - appointment amending
 
 router.post('/version2-esa/workcoach/edit-appt/amend-2-error', function (req, res) {
 
@@ -382,16 +382,47 @@ router.post('/version2-esa/workcoach/edit-appt/claimant-view-cancelled', functio
   }
 })
 
+router.post('/version2-esa/workcoach/edit-appt/attended-photo-id', function (req, res) {
+
+  let idType = req.session.data['id-types']
+
+  if (idType === 'No') {
+    res.redirect('/version2-esa/workcoach/edit-appt/attended-kbv-id')
+  } else {
+    res.redirect('/version2-esa/workcoach/edit-appt/attended-photo-id')
+  }
+})
+
+router.post('/version2-esa/workcoach/edit-appt/attended-photo-id-appointee', function (req, res) {
+
+  let idType = req.session.data['id-types-appointee']
+
+  if (idType === 'No') {
+    res.redirect('/version2-esa/workcoach/edit-appt/attended-kbv-id-appointee')
+  } else {
+    res.redirect('/version2-esa/workcoach/edit-appt/attended-photo-id-appointee')
+  }
+})
+
 router.post('/version2-esa/workcoach/edit-appt/attended-notes', function (req, res) {
 
   let kbvFail = req.session.data['kbv-check']
 
   if (kbvFail === 'No') {
     res.redirect('/version2-esa/workcoach/edit-appt/kbv-failed')
-  } else if (kbvFail === 'Yes') {
-    res.redirect('/version2-esa/workcoach/edit-appt/kbv-notes')
   } else {
-    res.redirect('/version2-esa/workcoach/edit-appt/attended-notes')
+    res.redirect('/version2-esa/workcoach/edit-appt/attended-id-appointee')
+  }
+})
+
+router.post('/version2-esa/workcoach/edit-appt/kbv-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+
+  if (kbvFail === 'No') {
+    res.redirect('/version2-esa/workcoach/edit-appt/kbv-failed')
+  } else {
+    res.redirect('/version2-esa/workcoach/edit-appt/kbv-notes')
   }
 })
 
