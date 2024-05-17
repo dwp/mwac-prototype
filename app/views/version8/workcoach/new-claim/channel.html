@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Select an appointment channel - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="appointment-type" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select an appointment channel
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-channel" name="appointment-channel" type="radio" value="In jobcentre" {{ checked("appointment-channel", "In jobcentre") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-channel">
+                In jobcentre
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-channel-2" name="appointment-channel" type="radio" value="By phone" {{ checked("appointment-channel", "By phone") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-channel-2">
+                By phone
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+
+
+      </form>
+    </div>
+
+</div>
+
+{% endblock %}

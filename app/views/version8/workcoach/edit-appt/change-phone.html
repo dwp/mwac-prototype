@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Change phone number - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+{%- set office %}
+<label class="govuk-label" for="office-autocomplete">Enter type of meeting</label>
+<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
+
+{% endset -%}
+
+{%- set timex %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  hint: {
+    text: "For example 10 minuites or 1 hour"
+  },
+  label: {
+    text: "Enter meeting length"
+  }
+}) }}
+{% endset -%}
+
+{%- set typeOfMeeting %}
+<label class="govuk-label" for="appointment-name">What is the appointment for?</label>
+<input class="govuk-input govuk-!-width-one-half" id="appointment-name" name="appointment-name" type="text">
+
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="phone-number">
+            What is the claimant's phone number?
+          </label>
+        </h1>
+        <div id="phone-number-hint" class="govuk-hint">
+          Notifications will be sent to the claimant using this number
+        </div>
+        <input class="govuk-input govuk-!-width-one-third" id="phone-number" name="phone-number" type="text" aria-describedby="phone-number-hint">
+        </div>
+
+
+
+
+            {{ govukButton({
+            text: "Save and continue",
+            preventDoubleClick: true,
+            href: "../existing-claim-v2/check"
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block bodyEnd %}
+
+
+{% endblock %}
