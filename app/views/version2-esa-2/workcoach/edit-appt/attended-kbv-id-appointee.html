@@ -50,25 +50,28 @@ Mark appointment as attended - Managing Working Age Claimants
                 </div>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="kbv-check" name="kbv-check" type="radio" value="No">
-                    <label class="govuk-label govuk-radios__label" for="kbv-check">
-                      No
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="kbv-check-2" name="kbv-check" type="radio" value="email" data-aria-controls="conditional-kbv-check">
                     <label class="govuk-label govuk-radios__label" for="kbv-check-2">
                       Yes
                     </label>
                   </div>
+
                   <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-kbv-check">
                     <div class="govuk-form-group">
                       <label class="govuk-label" for="kbv-notes">
-                        Enter the questions used and answers given
+                        Enter the KBV questions used 
                       </label>
                       <textarea class="govuk-textarea govuk-!-width-full" id="kbv-notes" name="kbv-notes" rows="5"></textarea>
                     </div>
                   </div>
+
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="kbv-check" name="kbv-check" type="radio" value="No">
+                    <label class="govuk-label govuk-radios__label" for="kbv-check">
+                      No
+                    </label>
+                  </div>
+
                 </div>
               </fieldset>
             </div>
