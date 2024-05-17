@@ -429,7 +429,7 @@ router.post('/version2-esa/workcoach/edit-appt/amend-2-error', function (req, re
   } else if (appointment === 'not-attended') {
     res.redirect('/version2-esa/workcoach/edit-appt/not-attended')
   } else if (appointment === 'rebook') {
-    res.redirect('/version2-esa/workcoach/edit-appt/rebook/type')
+    res.redirect('/version2-esa/workcoach/edit-appt/rebook/location')
   } else if (appointment === 'cancel') {
     res.redirect('/version2-esa/workcoach/edit-appt/cancel')
   } else {
@@ -527,7 +527,7 @@ router.post('/version2-esa-2/workcoach/edit-appt/amend-2-error', function (req, 
   } else if (appointment === 'not-attended') {
     res.redirect('/version2-esa-2/workcoach/edit-appt/not-attended')
   } else if (appointment === 'rebook') {
-    res.redirect('/version2-esa-2/workcoach/edit-appt/rebook/type')
+    res.redirect('/version2-esa-2/workcoach/edit-appt/rebook/location')
   } else if (appointment === 'cancel') {
     res.redirect('/version2-esa-2/workcoach/edit-appt/cancel')
   } else {

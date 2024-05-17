@@ -1,19 +1,11 @@
 {% extends "layout-esa-appointee.html" %}
-{% from "timeline/macro.njk" import dwpTimeline %}
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% block pageTitle %}
-Appointment details - Managing Working Age Claimants
+Select an appointment location - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
-    {{ govukBackLink({
-        text: "Back",
-        href: "javascript:history.back()"
-      }) }}
+
 {% endblock %}
 
 {% block content %}
@@ -25,271 +17,53 @@ Appointment details - Managing Working Age Claimants
 
 {% endset -%}
 
-{%- set timex %}
-{{ govukInput({
-  id: "location-by-phone",
-  name: "location-by-phone",
-  type: "text",
-  classes: "govuk-!-width-one-third",
-  hint: {
-    text: "For example 10 minuites or 1 hour"
-  },
-  label: {
-    text: "Enter meeting length"
-  }
-}) }}
-{% endset -%}
-
-{%- set typeOfMeeting %}
-<label class="govuk-label" for="appointment-name">What is the appointment for?</label>
-<input class="govuk-input govuk-!-width-one-half" id="appointment-name" name="appointment-name" type="text">
-
-{% endset -%}
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">
-            Appointment details
-        </h1>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="location-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading">
-                Select an appointment location
-              </h1>
-            </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="location" name="location" type="radio" value="Kendal job centre (claimants job centre)" onclick="javascript:locationCheck();" checked>
-                <label class="govuk-label govuk-radios__label" for="location" >
-                  Kendal Jobcentre (claimants jobcentre)
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="location-2" name="location" type="radio" value="Other location" data-aria-controls="conditional-location-2" onclick="javascript:locationCheck();">
-                <label class="govuk-label govuk-radios__label" for="location-2">
-                  Other location
-                </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-location-2">
-                <label class="govuk-label" for="office-autocomplete">Enter name of jobcentre</label>
-                <div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container">
-                  <div class="autocomplete__wrapper">
-                    <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-                      <div id="office-autocomplete__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
-                      <div id="office-autocomplete__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
-                    </div>
-                    <!-- <input aria-expanded="false" aria-owns="office-autocomplete__listbox" aria-autocomplete="list" aria-describedby="office-autocomplete__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="office-autocomplete" name="input-autocomplete" placeholder="" type="text" role="combobox"> -->
-                    <div class="autocomplete__dropdown-arrow-down-wrapper"></div>
-                    <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="office-autocomplete__listbox" role="listbox"></ul>
-                    <span id="office-autocomplete__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
+      <form action="channel" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="location-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select an appointment location
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="location" name="location" type="radio" value="Kendal Jobcentre" {{ checked("location", "Kendal Jobcentre") }} checked>
+              <label class="govuk-label govuk-radios__label" for="location">
+                Kendal Jobcentre (claimant's jobcentre)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="location-2" name="location" type="radio" value="Other location" data-aria-controls="conditional-location-2">
+              <label class="govuk-label govuk-radios__label" for="location-2">
+                Other location
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-location-2">
+              <label class="govuk-label" for="office-autocomplete">Enter name of jobcentre</label>
+              <div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container">
+                <div class="autocomplete__wrapper">
+                  <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                    <div id="office-autocomplete__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
+                    <div id="office-autocomplete__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
                   </div>
+                  <!-- <input aria-expanded="false" aria-owns="office-autocomplete__listbox" aria-autocomplete="list" aria-describedby="office-autocomplete__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="office-autocomplete" name="input-autocomplete" placeholder="" type="text" role="combobox"> -->
+                  <div class="autocomplete__dropdown-arrow-down-wrapper"></div>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="office-autocomplete__listbox" role="listbox"></ul>
+                  <span id="office-autocomplete__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
                 </div>
               </div>
             </div>
-          </fieldset>
-        </div>
-
-        <div id="channel" style="display: block;">
-        {{ govukRadios({
-            name: "appointment-channel",
-            fieldset: {
-              legend: {
-                text: "Select an appointment channel",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "",
-                text: "In Jobcentre",
-                checked: "true"
-              },
-              {
-                value: "",
-                text: "By Phone"
-              },
-              {
-                value: "",
-                text: "Home visit"
-              }
-            ]
-          }) }}
-
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                <h1 class="govuk-fieldset__heading">
-                  Select appointment type
-                </h1>
-              </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type" name="appointment-type" type="radio" value="New claim appointment" onclick="javascript:appointmentType1();" checked>
-                  <label class="govuk-label govuk-radios__label" for="appointment-type">
-                    New claim appointment
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type-2" name="appointment-type" type="radio" value="Work search review" onclick="javascript:appointmentType2();">
-                  <label class="govuk-label govuk-radios__label" for="appointment-type-2">
-                    Health and work conversation
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type-3" name="appointment-type" type="radio" value="Flexible appointment voluntary" onclick="javascript:appointmentType3();">
-                  <label class="govuk-label govuk-radios__label" for="appointment-type-3">
-                    Flexible appointment - Voluntary
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type-4" name="appointment-type" type="radio" value="Flexible appointment mandatory" onclick="javascript:appointmentType4();">
-                  <label class="govuk-label govuk-radios__label" for="appointment-type-4">
-                    Flexible appointment - Mandatory
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type-5" name="appointment-type" type="radio" value="Work coach support health voluntary" onclick="javascript:appointmentType5();">
-                  <label class="govuk-label govuk-radios__label" for="appointment-type-5">
-                    Work coach support health - Voluntary
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type-6" name="appointment-type" type="radio" value="Work coach support health mandatory" onclick="javascript:appointmentType6();">
-                  <label class="govuk-label govuk-radios__label" for="appointment-type-6">
-                    Work coach support health - Mandatory
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type-7" name="appointment-type" type="radio" value="Work and health programme signposted" onclick="javascript:appointmentType7();">
-                  <label class="govuk-label govuk-radios__label" for="appointment-type-7">
-                    Work and Health programme - Signposted
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="appointment-type-8" name="appointment-type" type="radio" value="Work and health programme voluntary" onclick="javascript:appointmentType8();">
-                  <label class="govuk-label govuk-radios__label" for="appointment-type-8">
-                    Work and Health programme - Voluntary
-                  </label>
-                </div>
-              </div>
-            </fieldset>
           </div>
+        </fieldset>
+      </div>
 
-          </div>
-
-          <div id="new-claim"  style="display: block;">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                  <h1 class="govuk-fieldset__heading">
-                    Select appointment length
-                  </h1>
-                </legend>
-                <div class="govuk-radios" data-module="govuk-radios">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length1" name="appointment-length1" type="radio" value="50 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length1">
-                      30 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length1-2" name="appointment-length1" type="radio" value="60 minutes" checked>
-                    <label class="govuk-label govuk-radios__label" for="appointment-length1-2">
-                      50 minutes
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-
-          </div>
-
-          <div id="work-search"  style="display: none;">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                  <h1 class="govuk-fieldset__heading">
-                    Select appointment length
-                  </h1>
-                </legend>
-                <div class="govuk-radios" data-module="govuk-radios">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2" name="appointment-length2" type="radio" value="10 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2">
-                      10 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-2" name="appointment-length2" type="radio" value="20 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
-                      20 minutes
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-
-          </div>
-
-          <div id="flexible"  style="display: none;">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                  <h1 class="govuk-fieldset__heading">
-                    Select appointment length
-                  </h1>
-                </legend>
-                <div class="govuk-radios" data-module="govuk-radios">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2" name="appointment-length2" type="radio" value="10 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2">
-                      10 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-2" name="appointment-length2" type="radio" value="20 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
-                      20 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-3" name="appointment-length2" type="radio" value="30 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
-                      30 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-4" name="appointment-length2" type="radio" value="40 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
-                      40 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-5" name="appointment-length2" type="radio" value="50 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
-                      50 minutes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="appointment-length2-6" name="appointment-length2" type="radio" value="60 minutes">
-                    <label class="govuk-label govuk-radios__label" for="appointment-length2-2">
-                      60 minutes
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-
-          </div>
-
-          {{ govukButton({
-          text: "Continue",
-          preventDoubleClick: true,
-          href: "who"
-          }) }}
+      {{ govukButton({
+        text: "Continue",
+        preventDoubleClick: true
+      }) }}
+      </form>
     </div>
 
 </div>
