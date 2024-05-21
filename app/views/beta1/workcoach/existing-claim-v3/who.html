@@ -45,7 +45,7 @@ Select a work coach - Managing Working Age Claimants
         </legend>
 
         <div class="govuk-radios" data-module="govuk-radios">
-          {% if data['location']=="Sheffield Bailey Jobcentre Plus" %}
+          <!-- {% if data['location']=="Sheffield Bailey Jobcentre Plus" %}
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="agent" name="agent" type="radio" value="Karen Salter" {{ checked("agent", "Karen Salter") }}>
             <label class="govuk-label govuk-radios__label" for="agent">
@@ -61,7 +61,7 @@ Select a work coach - Managing Working Age Claimants
               Hugh Ritchie
             </label>
           </div>
-          {% endif %}
+          {% endif %} -->
 
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="agent-2" name="agent" type="radio" value="Next available work coach" {{ checked("agent", "Next available work coach") }}>
@@ -70,7 +70,7 @@ Select a work coach - Managing Working Age Claimants
             </label>
           </div>
           <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="wc-2" name="wc" type="radio" value="Other wc" data-aria-controls="conditional-wc-2">
+              <input class="govuk-radios__input" id="wc-2" name="agent" type="radio" value="Other wc" data-aria-controls="conditional-wc-2">
               <label class="govuk-label govuk-radios__label" for="wc-2">
                 Choose a different work coach
               </label>

@@ -1,180 +1,49 @@
-{% extends "layout.html" %}
-{% from "timeline/macro.njk" import dwpTimeline %}
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% extends "layout-nokeydetails.html" %}
 
 {% block pageTitle %}
-First - Claimant details
+Select an appointment location - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
 
-    {{ govukBackLink({
-        text: "Back",
-        href: "javascript:history.back()"
-      }) }}
 {% endblock %}
 
 {% block content %}
 
 <!-- Includes -->
-{%- set office %}
-<label class="govuk-label" for="office-autocomplete">Enter name of Job Centre</label>
-<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
-
-{% endset -%}
-
-{%- set timex %}
-{{ govukInput({
-  id: "contact-by-phone",
-  name: "contact-by-phone",
-  type: "text",
-  classes: "govuk-!-width-one-third",
-  hint: {
-    text: "For example 10 minuites or 1 hour"
-  },
-  label: {
-    text: "Enter meeting length"
-  }
-}) }}
-{% endset -%}
-
-{%- set typeOfMeeting %}
-<label class="govuk-label" for="type-autocomplete">Enter type of meeting</label>
-<div class="autocomplete-wrapper govuk-body" id="type-autocomplete-container"></div>
-
-{% endset -%}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">
-            Appointment details
-        </h1>
-        {{ govukRadios({
-            name: "appointment-channel",
-            fieldset: {
-              legend: {
-                text: "Select an appointment channel",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "",
-                checked: true,
-                text: "In Jobcentre"
-              },
-              {
-                value: "",
-                text: "By Phone"
-              }
-            ]
-          }) }}
+      <form action="channel" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="location-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select an appointment location
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="location" name="location" type="radio" value="Sheffield Cavendish Court Jobcentre Plus" {{ checked("location", "Sheffield Cavendish Court Jobcentre Plus") }}>
+              <label class="govuk-label govuk-radios__label" for="location">
+                Sheffield Cavendish Court Jobcentre Plus
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="location-2" name="location" type="radio" value="Sheffield Bailey Jobcentre Plus" {{ checked("location", "Sheffield Bailey Jobcentre Plus") }}>
+              <label class="govuk-label govuk-radios__label" for="location-2">
+                Sheffield Bailey Jobcentre Plus
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-          {{ govukRadios({
-            name: "location",
-            fieldset: {
-              legend: {
-                text: "Select an appointment location",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "",
-                checked: true,
-                text: "Kendal job centre (claimants job centre)"
-              },
-              {
-                value: "",
-                text: "Other location",
-                conditional: {
-                    html: office
-                  }
-              }
-            ]
-          }) }}
-
-          {{ govukRadios({
-            name: "appointment-type",
-            fieldset: {
-              legend: {
-                text: "Select appointment type",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "",
-                text: "Flexible Intervention"
-              },
-              {
-                value: "",
-                checked: true,
-                text: "Full initial NSJSA interview"
-              },
-              {
-                value: "",
-                text: "Work search review"
-              },
-              {
-                value: "",
-                text: "Other type of meeting",
-                conditional: {
-                    html: typeOfMeeting
-                  }
-              }
-            ]
-          }) }}
-
-          {{ govukRadios({
-            name: "appointment-length",
-            fieldset: {
-              legend: {
-                text: "Select appointment length",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-            {
-              value: "",
-              text: "10 minutes"
-            },
-            {
-              value: "",
-              text: "20 minutes"
-            },
-              {
-                value: "",
-                text: "30 minutes"
-              },
-              {
-                value: "",
-                checked: true,
-                text: "50 minutes"
-              },
-              {
-                value: "x",
-                text: "Other length",
-                conditional: {
-                    html: timex
-                }
-              }
-            ]
-          }) }}
-
-            {{ govukButton({
-            text: "Continue",
-            preventDoubleClick: true,
-            href: "who"
-            }) }}
-
+      {{ govukButton({
+        text: "Continue",
+        preventDoubleClick: true
+      }) }}
+      </form>
     </div>
 
 </div>
@@ -1278,6 +1147,10 @@ First - Claimant details
         showAllValues: true,
         dropdownArrow: () => ''
       })
+
+      document.getElementById("office-autocomplete").onclick = function() {
+          document.getElementById("channel").style.display = "block";
+      }
 
     </script>
 {% endblock %}

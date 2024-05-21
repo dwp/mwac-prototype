@@ -1,4 +1,4 @@
-{% extends "layout-esa-appointee2.html" %}
+{% extends "layout-nokeydetails.html" %}
 
 
 {% block pageTitle %}
@@ -38,30 +38,6 @@ Select an appointment duration - Managing Working Age Claimants
                 20 minutes
               </label>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="appointment-duration-3" name="appointment-duration" type="radio" value="30 minutes" {{ checked("appointment-duration", "30 minutes") }}>
-              <label class="govuk-label govuk-radios__label" for="appointment-duration-3">
-                30 minutes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="appointment-duration-4" name="appointment-duration" type="radio" value="40 minutes" {{ checked("appointment-duration", "40 minutes") }}>
-              <label class="govuk-label govuk-radios__label" for="appointment-duration-4">
-                40 minutes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="appointment-duration-5" name="appointment-duration" type="radio" value="50 minutes" {{ checked("appointment-duration", "50 minutes") }}>
-              <label class="govuk-label govuk-radios__label" for="appointment-duration-5">
-                50 minutes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="appointment-duration-6" name="appointment-duration" type="radio" value="60 minutes" {{ checked("appointment-duration", "60 minutes") }}>
-              <label class="govuk-label govuk-radios__label" for="appointment-duration-6">
-                60 minutes
-              </label>
-            </div>
           </div>
         </fieldset>
       </div>
@@ -71,6 +47,9 @@ Select an appointment duration - Managing Working Age Claimants
           text: "Continue",
           preventDoubleClick: true
       }) }}
+
+
+
 
     </div>
 
@@ -113,7 +92,6 @@ Select an appointment duration - Managing Working Age Claimants
       </dl>
     </div>
 </form>
-
 </div>
 
 {% endblock %}

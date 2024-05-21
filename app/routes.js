@@ -298,7 +298,7 @@ router.post('/version8/workcoach/edit-appt/amend-2-error', function (req, res) {
   } else if (appointment === 'not-attended') {
     res.redirect('/version8/workcoach/edit-appt/not-attended')
   } else if (appointment === 'rebook') {
-    res.redirect('/version8/workcoach/edit-appt/rebook/type')
+    res.redirect('/version8/workcoach/edit-appt/rebook/location')
   } else if (appointment === 'cancel') {
     res.redirect('/version8/workcoach/edit-appt/cancel')
   } else {
@@ -749,7 +749,7 @@ router.post('/beta1/workcoach/edit-appt/amend-2-error', function (req, res) {
   } else if (appointment === 'not-attended') {
     res.redirect('/beta1/workcoach/edit-appt/not-attended-wsr')
   } else if (appointment === 'rebook') {
-    res.redirect('/beta1/workcoach/edit-appt/rebook/type')
+    res.redirect('/beta1/workcoach/edit-appt/rebook/location')
   } else if (appointment === 'cancel') {
     res.redirect('/beta1/workcoach/edit-appt/cancel')
   } else {
@@ -766,7 +766,7 @@ router.post('/beta1/workcoach/edit-appt/amend-3-error', function (req, res) {
   } else if (appointment === 'not-attended') {
     res.redirect('/beta1/workcoach/edit-appt/not-attended')
   } else if (appointment === 'rebook') {
-    res.redirect('/beta1/workcoach/edit-appt/rebook/type')
+    res.redirect('/beta1/workcoach/edit-appt/rebook/location')
   } else if (appointment === 'cancel') {
     res.redirect('/beta1/workcoach/edit-appt/cancel')
   } else {

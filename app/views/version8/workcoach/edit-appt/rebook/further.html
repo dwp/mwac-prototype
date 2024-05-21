@@ -1,17 +1,10 @@
 {% extends "layout.html" %}
-{% from "timeline/macro.njk" import dwpTimeline %}
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% block pageTitle %}
-First - Claimant details
+Further appointment details - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
-
     {{ govukBackLink({
         text: "Back",
         href: "javascript:history.back()"
@@ -20,125 +13,120 @@ First - Claimant details
 
 {% block content %}
 
-
-<!-- Includes -->
-{%- set interpreter %}
-{{ govukInput({
-  id: "contact-by-phone",
-  name: "contact-by-phone",
-  type: "text",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "What language does the claimant speak?"
-  }
-}) }}
-{% endset -%}
-
 <div class="govuk-grid-row">
+  <form action="check" method="post">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">
-            Further appointment details
-        </h1>
-        {{ govukRadios({
-
-            name: "appointment-channel",
-            fieldset: {
-              legend: {
-                text: "Do they need an interpreter?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "",
-                text: "Yes",
-                conditional: {
-                    html: interpreter
-                }
-              },
-              {
-                value: "",
-                checked: "true",
-                text: "No"
-              }
-              ]
-          }) }}
-
-          {{ govukRadios({
-            name: "rebookReason",
-            fieldset: {
-              legend: {
-                text: "Why is this appointment being rebooked?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "illness",
-                text: "Claimant is ill"
-              },
-              {
-                value: "childcare",
-                text: "Claimant has childcare commitments"
-              },
-              {
-                value: "medical",
-                text: "Claimant has a medical appointment"
-              },
-              {
-                value: "interview",
-                text: "Claimant has an interview"
-              },
-              {
-                value: "specialist",
-                text: "Claimant needs specialist work coach"
-              },
-              {
-                value: "bereavement",
-                text: "Claimant is going through a bereavement"
-              },
-              {
-                value: "domestic",
-                text: "Claimant has a domestic emergency"
-              },
-              {
-                value: "jury",
-                text: "Claimant has jury service"
-              },
-              {
-                value: "other",
-                text: "Other"
-              }
-            ]
-          }) }}
-
-
-          <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
-            <div class="govuk-form-group">
-              <h1 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--s" for="more-details">
-                  Any other information?
+        <h3 class="govuk-heading-l">Further appointment details</h3>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend">
+              Does the claimant need an interpreter?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interpreter" name="interpreter" type="radio" value="No" {{ checked("interpreter", "No") }} checked>
+              <label class="govuk-label govuk-radios__label" for="interpreter">
+                No
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interpreter-2" name="interpreter" type="radio" value="Yes, {{ data['interpreter-language'] }}" data-aria-controls="conditional-interpreter-2" {{ checked("interpreter", "Yes, {{ data['interpreter-language'] }}") }}>
+              <label class="govuk-label govuk-radios__label" for="interpreter-2">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-interpreter-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="interpreter-by-text">
+                  What language does the claimant speak?
                 </label>
-              </h1>
-              <textarea class="govuk-textarea govuk-js-character-count" id="more-details" name="more-details" rows="5" aria-describedby="more-details-info"></textarea>
+                <input class="govuk-input govuk-!-width-two-thirds" id="interpreter-by-text" name="interpreter-language" type="text" value="{{ data['interpreter-language'] }}">
+              </div>
             </div>
-            <div id="more-details-info" class="govuk-hint govuk-character-count__message">
-              You can enter up to 1000 words
+          </div>
+          </fieldset>
+          </div>
+
+          <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              Why is this appointment being rebooked?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook" name="rebook" type="radio" value="Claimant is ill" {{ checked("rebook", "Claimant is ill") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook">
+                  Claimant is ill
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-2" name="rebook" type="radio" value="Claimant has childcare commitments" {{ checked("rebook", "Claimant has childcare commitments") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-2">
+                  Claimant has childcare commitments
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-3" name="rebook" type="radio" value="Claimant has a medical appointment" {{ checked("rebook", "Claimant has a medical appointment") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-3">
+                  Claimant has a medical appointment
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-4" name="rebook" type="radio" value="Claimant has an interview" {{ checked("rebook", "Claimant has an interview") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-4">
+                  Claimant has an interview
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-5" name="rebook" type="radio" value="Claimant needs specialist work coach" {{ checked("rebook", "Claimant needs specialist work coach") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-5">
+                  Claimant needs specialist work coach
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-6" name="rebook" type="radio" value="Claimant is going through a bereavement" {{ checked("rebook", "Claimant is going through a bereavement") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-6">
+                  Claimant is going through a bereavement
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-7" name="rebook" type="radio" value="Claimant has a domestic emergency" {{ checked("rebook", "Claimant has a domestic emergency") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-7">
+                  Claimant has a domestic emergency
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-8" name="rebook" type="radio" value="Claimant has jury service" {{ checked("rebook", "Claimant has jury service") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-8">
+                  Claimant has jury service
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-9" name="rebook" type="radio" value="Other" {{ checked("rebook", "Other") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-9">
+                  Other
+                </label>
+              </div>
+
             </div>
+          </fieldset>
+        </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="further-appointment-info">
+              Any other information?
+            </label>
+            <textarea class="govuk-textarea" id="further-appointment-info" name="further-appointment-info" rows="5">{{ data['further-appointment-info'] }}</textarea>
           </div>
 
 
-
-            {{ govukButton({
-            text: "Continue",
-            preventDoubleClick: true,
-            href: "check"
-            }) }}
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
 
     </div>
-
+    </form>
 </div>
 
 {% endblock %}

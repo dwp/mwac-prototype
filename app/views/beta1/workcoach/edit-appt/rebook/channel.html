@@ -1,4 +1,4 @@
-{% extends "layout-esa-appointee2.html" %}
+{% extends "layout-nokeydetails.html" %}
 
 {% block pageTitle %}
 Select an appointment channel - Managing Working Age Claimants
@@ -27,7 +27,7 @@ Select an appointment channel - Managing Working Age Claimants
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="appointment-channel" name="appointment-channel" type="radio" value="In jobcentre" {{ checked("appointment-channel", "In jobcentre") }} checked>
+              <input class="govuk-radios__input" id="appointment-channel" name="appointment-channel" type="radio" value="In jobcentre" {{ checked("appointment-channel", "In jobcentre") }}>
               <label class="govuk-label govuk-radios__label" for="appointment-channel">
                 In jobcentre
               </label>

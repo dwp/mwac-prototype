@@ -1,16 +1,10 @@
 {% extends "layout-nokeydetails.html" %}
-{% from "timeline/macro.njk" import dwpTimeline %}
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% block pageTitle %}
 Select a work coach - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
-
     {{ govukBackLink({
         text: "Back",
         href: "javascript:history.back()"
@@ -20,6 +14,12 @@ Select a work coach - Managing Working Age Claimants
 {% block content %}
 
 <!-- Includes -->
+{%- set workcoach %}
+<label class="govuk-label" for="office-autocomplete">Enter name of Job Centre</label>
+<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
+
+{% endset -%}
+
 {%- set office %}
 {{ govukInput({
   id: "contact-by-phone",
@@ -32,48 +32,173 @@ Select a work coach - Managing Working Age Claimants
 }) }}
 {% endset -%}
 
+
 <div class="govuk-grid-row">
+  <form action="when" method="post">
     <div class="govuk-grid-column-two-thirds">
-
-
-        <h1 class="govuk-heading-l">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
             Select a work coach
-        </h1>
+          </h1>
+        </legend>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <!-- {% if data['location']=="Sheffield Bailey Jobcentre Plus" %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="agent" name="agent" type="radio" value="Karen Salter" {{ checked("agent", "Karen Salter") }}>
+            <label class="govuk-label govuk-radios__label" for="agent">
+              Karen Salter
+            </label>
+          </div>
+          {% endif %}
+
+          {% if data['location']=="Sheffield Cavendish Court Jobcentre Plus" %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="agent" name="agent" type="radio" value="Hugh Ritchie" {{ checked("agent", "Hugh Ritchie") }}>
+            <label class="govuk-label govuk-radios__label" for="agent">
+              Hugh Ritchie
+            </label>
+          </div>
+          {% endif %} -->
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="agent-2" name="agent" type="radio" value="Next available work coach" {{ checked("agent", "Next available work coach") }}>
+            <label class="govuk-label govuk-radios__label" for="agent-2">
+              Next available work coach
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="wc-2" name="agent" type="radio" value="Other wc" data-aria-controls="conditional-wc-2">
+              <label class="govuk-label govuk-radios__label" for="wc-2">
+                Choose a different work coach
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-wc-2">
+              <label class="govuk-label" for="office-autocomplete">Enter the name of the work coach</label>
+              <div class="autocomplete-wrapper govuk-body govuk-!-width-three-quarters" id="office-autocomplete-container">
+                <div class="autocomplete__wrapper">
+                  <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                    <div id="office-autocomplete__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
+                    <div id="office-autocomplete__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
+                  </div>
+                  <!-- <input aria-expanded="false" aria-owns="office-autocomplete__listbox" aria-autocomplete="list" aria-describedby="office-autocomplete__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="office-autocomplete" name="input-autocomplete" placeholder="" type="text" role="combobox"> -->
+                  <div class="autocomplete__dropdown-arrow-down-wrapper"></div>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="office-autocomplete__listbox" role="listbox"></ul>
+                  <span id="office-autocomplete__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
 
 
-          {{ govukRadios({
-            name: "location",
-            items: [
-              {
-                value: "",
-                checked: true,
-                text: "Work Coach 1"
-              },
-              {
-                value: "",
-                text: "Next available work coach"
-              },
-              {
-                value: "",
-                text: "Choose a different work coach",
-                conditional: {
-                    html: office,
-                    classes: "govuk-!-width-20"
-                  }
-              }
-            ]
-          }) }}
-
-
-
-            {{ govukButton({
-            text: "Continue",
-            preventDoubleClick: true,
-            href: "when"
-            }) }}
 
     </div>
 
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m">Appointment details</h3>
+      <dl class="govuk-summary-list govuk-!-font-size-16">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="location">Change<span class="govuk-visually-hidden"> appointment location</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Channel
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-channel'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="channel">Change<span class="govuk-visually-hidden"> appointment channel</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-type'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment type</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Duration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-duration'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment curation</span></a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </form>
 </div>
+
+{% endblock %}
+
+{% block bodyEnd %}
+    {{ super() }}
+    <script type="text/javascript">
+        const type = [
+        'France',
+        'Germany',
+        'United Kingdom'
+        ]
+
+      var element = document.querySelector('#type-autocomplete-container')
+      var id = 'type-autocomplete'
+      accessibleAutocomplete({
+        element: element,
+        id: id,
+        source: type,
+        showAllValues: true,
+        dropdownArrow: () => 'x'
+      })
+
+    </script>
+
+     <script type="text/javascript">
+        const office = [
+                        'Work coach 1',
+                        'Work coach 2'
+
+        ]
+
+      var element = document.querySelector('#office-autocomplete-container')
+      var id = 'office-autocomplete'
+      accessibleAutocomplete({
+        element: element,
+        id: id,
+        source: office,
+        showAllValues: true,
+        dropdownArrow: () => ''
+      })
+
+      document.getElementById("office-autocomplete").onclick = function() {
+          document.getElementById("channel").style.display = "block";
+      }
+
+    </script>
 
 {% endblock %}

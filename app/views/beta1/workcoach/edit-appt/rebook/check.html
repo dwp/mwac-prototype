@@ -1,14 +1,10 @@
 {% extends "layout-nokeydetails.html" %}
-{% from "timeline/macro.njk" import dwpTimeline %}
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block pageTitle %}
 Check appointment details - Managing Working Age Claimants
 {% endblock %}
 
 {% block beforeContent %}
-
     {{ govukBackLink({
         text: "Back",
         href: "javascript:history.back()"
@@ -36,127 +32,126 @@ Check appointment details - Managing Working Age Claimants
         <h1 class="govuk-heading-l">
             Check appointment details
         </h1>
-        {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-9 govuk-summary-list--no-border',
-        rows: [
-          {
-            key: {
-              text: "Appointment location"
-            },
-            value: {
-              text: "Kendal Jobcentre (claimant's jobcentre)"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./type",
-                  text: "Change",
-                  visuallyHiddenText: "appointment details"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Appointment channel"
-            },
-            value: {
-              text: "Jobcentre "
-            }
-          },
-          {
-            key: {
-              text: "Appointment type"
-            },
-            value: {
-              html: "New claim appointment"
-            }
-          },
-          {
-            key: {
-              text: "Appointment length"
-            },
-            value: {
-              html: "60 minutes"
-            },
-            classes: " my-border"
-          },
-          {
-            key: {
-              text: "Work coach"
-            },
-            value: {
-              html: "Jon Clement (claimant's work coach)"
-            },
-            classes: " my-border",
-            actions: {
-              items: [
-                {
-                  href: "./who",
-                  text: "Change",
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Appointment date and time"
-            },
-            value: {
-              html: "10th October 2022 at 1:00pm"
-            },
-            classes: "my-border",
-            actions: {
-              items: [
-                {
-                  href: "./when",
-                  text: "Change",
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Do they need an interpreter?"
-            },
-            value: {
-              html: "no"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./further",
-                  text: "Change",
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Why is this appointment being rebooked?"
-            },
-            value: {
-              html: "Claimant has an interview"
-            }
-          },
-          {
-            key: {
-              text: "Any other information?"
-            },
-            value: {
-              html: "I need them to bring a certain document as per our conversation"
-            },
-            classes: "my-border"
-          }
 
-        ]
-      }) }}
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['location'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="location">Change<span class="govuk-visually-hidden"> appointment location</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Channel
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['appointment-channel'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="channel">Change<span class="govuk-visually-hidden"> appointment channel</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['appointment-type'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment type</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Duration
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['appointment-duration'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['appointment-type']=="New claim appointment" %}
+                <a class="govuk-link govuk-link--no-visited-state" href="appointment-duration-new-claim">Change<span class="govuk-visually-hidden"> appointment duration</span></a>
+              {% endif %}
+              {% if data['appointment-type']=="Work search review" %}
+                <a class="govuk-link govuk-link--no-visited-state" href="appointment-duration-wsr">Change<span class="govuk-visually-hidden"> appointment duration</span></a>
+              {% endif %}
+              {% if data['appointment-type']=="Flexible appointment" %}
+                <a class="govuk-link govuk-link--no-visited-state" href="appointment-duration-flex">Change<span class="govuk-visually-hidden"> appointment duration</span></a>
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Work coach
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['agent'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="who">Change<span class="govuk-visually-hidden"> work coach</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date and time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span class="future-date"></span> at {{ data['app-time'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="when">Change<span class="govuk-visually-hidden"> appointment date and time</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do they need an interpreter?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['interpreter'] }} {{ data['interpreter-language'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="further">Change<span class="govuk-visually-hidden"> interpreter</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Why is this appointment being rebooked?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['rebook'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="further">Change<span class="govuk-visually-hidden"> rebooking reason</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other information
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['further-appointment-info'].length != 0 %}
+                {{ data['further-appointment-info'] }}
+              {% endif %}
+
+              {% if data['further-appointment-info'].length == 0 %}
+                None
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="further">Change<span class="govuk-visually-hidden"> other information</span></a>
+            </dd>
+          </div>
+        </dl>
+
 
       <h3 class="govuk-heading-l">
-          Confirm contact details
+          Confirm claimant contact details
       </h3>
 
       <p>Notifications will be sent to the claimant using these details.</p>
@@ -195,7 +190,7 @@ Check appointment details - Managing Working Age Claimants
             {{ govukButton({
             text: "Book appointment",
             preventDoubleClick: true,
-            href: "../claimant-view-rebooked.html"
+            href: "../edit-appt/claimant-view-booked.html"
             }) }}
 
     </div>
