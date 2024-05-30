@@ -17,18 +17,13 @@ Further appointment details - Managing Working Age Claimants
   <form action="check" method="post">
     <div class="govuk-grid-column-two-thirds">
         <h3 class="govuk-heading-l">Further appointment details</h3>
+
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
           <legend class="govuk-fieldset__legend">
               Does the claimant need an interpreter?
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="interpreter" name="interpreter" type="radio" value="No" {{ checked("interpreter", "No") }}>
-              <label class="govuk-label govuk-radios__label" for="interpreter">
-                No
-              </label>
-            </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="interpreter-2" name="interpreter" type="radio" value="Yes, {{ data['interpreter-language'] }}" data-aria-controls="conditional-interpreter-2" {{ checked("interpreter", "Yes, {{ data['interpreter-language'] }}") }}>
               <label class="govuk-label govuk-radios__label" for="interpreter-2">
@@ -42,6 +37,12 @@ Further appointment details - Managing Working Age Claimants
                 </label>
                 <input class="govuk-input govuk-!-width-two-thirds" id="interpreter-by-text" name="interpreter-language" type="text" value="{{ data['interpreter-language'] }}">
               </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interpreter" name="interpreter" type="radio" value="No" {{ checked("interpreter", "No") }}>
+              <label class="govuk-label govuk-radios__label" for="interpreter">
+                No
+              </label>
             </div>
           </div>
           </fieldset>
