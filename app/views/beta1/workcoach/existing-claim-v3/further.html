@@ -47,11 +47,17 @@ Further appointment details - Managing Working Age Claimants
           </fieldset>
           </div>
 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="further-appointment-info">
-              Any other information?
-            </label>
-            <textarea class="govuk-textarea" id="further-appointment-info" name="further-appointment-info" rows="5">{{ data['further-appointment-info'] }}</textarea>
+
+          <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="further-appointment-info">
+                Any other information?
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="further-appointment-info" name="further-appointment-info" rows="5" aria-describedby="further-appointment-info-info">{{ data['further-appointment-info'] }}</textarea>
+            </div>
+            <div id="further-appointment-info-info" class="govuk-hint govuk-character-count__message">
+              You can enter up to 1000 words
+            </div>
           </div>
 
 

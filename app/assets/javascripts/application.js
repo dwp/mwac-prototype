@@ -82,6 +82,22 @@ if(document.querySelector(".future-date-short")) {
   document.querySelector(".future-date-short").innerHTML = nd + " " + monthNamesShort[nm] + " " + ny;
 }
 
+// Show future date
+newDate = new Date();
+var numberOfDaysToAdd = +7;
+newDate.setDate(newDate.getDate() + numberOfDaysToAdd);
+ny = newDate.getFullYear();
+nm = newDate.getMonth();
+nd = newDate.getDate();
+
+if(document.querySelector(".future-date-7")) {
+  document.querySelector(".future-date-7").innerHTML = nd + " " + monthNames[nm] + " " + ny;
+}
+
+if(document.querySelector(".future-date-7-short")) {
+  document.querySelector(".future-date-7-short").innerHTML = nd + " " + monthNamesShort[nm] + " " + ny;
+}
+
 // convert month numbers to names
 var months = document.querySelector(".months");
 
