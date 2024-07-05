@@ -573,3 +573,18 @@ h2 {
 .govuk-radios--inline .govuk-radios__item {
     margin-right: 50px;
 }
+
+// NSJSA agent UI styles needed
+
+.link-panel {
+  background: #1d70b8;
+  min-height: 190px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.link-panel:hover {
+  background: #003078;
+}
