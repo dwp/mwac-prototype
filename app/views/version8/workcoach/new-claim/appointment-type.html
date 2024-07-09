@@ -20,8 +20,9 @@ Select an appointment type - Managing Working Age Claimants
 
 
 <div class="govuk-grid-row">
+  <form action="appointment-duration" method="post">
     <div class="govuk-grid-column-two-thirds">
-      <form action="appointment-duration" method="post">
+
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -58,9 +59,39 @@ Select an appointment type - Managing Working Age Claimants
       }) }}
 
 
-      </form>
+
+
+
     </div>
 
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m">Appointment details</h3>
+      <dl class="govuk-summary-list govuk-!-font-size-16">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="location">Change<span class="govuk-visually-hidden"> appointment location</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Channel
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-channel'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="channel">Change<span class="govuk-visually-hidden"> appointment channel</span></a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+</form>
 </div>
 
 {% endblock %}

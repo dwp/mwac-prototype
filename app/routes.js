@@ -363,6 +363,19 @@ router.post('/version8/workcoach/existing-claim-v3/appointment-duration', functi
   }
 })
 
+router.post('/version8/workcoach/new-claim/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/version8/workcoach/new-claim/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/version8/workcoach/new-claim/appointment-duration-wsr')
+  } else {
+    res.redirect('/version8/workcoach/new-claim/appointment-duration-flex')
+  }
+})
+
 
 // Version 1 ESA - appointment amending
 
