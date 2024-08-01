@@ -1,0 +1,157 @@
+{% extends "layout-esa-appointee4.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+First - Search for a claimant
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+            Find a claimant
+        </h1>
+        <form action="claimant-view" method="POST" novalidate>
+            <p>Search using one or more fields</p>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                {{ govukInput({
+                label: {
+                text: "Enter a National Insurance number",
+                classes: "govuk-label--s",
+                isPageHeading: false
+                },
+
+                id: "nino",
+                name: "nino",
+                spellcheck: false
+                }) }}
+              </div>
+              <div class="govuk-grid-column-one-half">
+                {{ govukInput({
+                label: {
+                text: "Full name (optional)",
+                classes: "govuk-label--s",
+                isPageHeading: false
+                },
+                id: "fullName",
+                name: "fullName",
+                spellcheck: false
+                }) }}
+              </div>
+              </div>
+
+            {{ govukDateInput({
+                id: "dob",
+                namePrefix: "dob",
+                fieldset: {
+                  legend: {
+                    text: "Date of birth (optional)",
+                    isPageHeading: false,
+                    classes: "govuk-label--s"
+                  }
+                },
+                items: [
+                  {
+                    name: "day",
+                    classes: "govuk-input--width-2",
+                    autocomplete: "bday-day"
+                  },
+                  {
+                    name: "month",
+                    classes: "govuk-input--width-2",
+                    autocomplete: "bday-month"
+                  },
+                  {
+                    name: "year",
+                    classes: "govuk-input--width-4",
+                    autocomplete: "bday-year"
+                  }
+                ]
+              }) }}
+
+            {{ govukButton({
+            text: "Find claimant",
+            preventDoubleClick: true
+            }) }}
+
+        </form>
+    </div>
+
+
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--l">Today's agenda</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Time</th>
+            <th scope="col" class="govuk-table__header">Appointment type</th>
+            <th scope="col" class="govuk-table__header">Claimant name</th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">9:30am to 10:00am</th>
+            <td class="govuk-table__cell">Work search review</td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">Jon Smith</a></td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">11:00am to 12:00am</th>
+            <td class="govuk-table__cell">Flexible Intervention</td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">Rosa Vân</a></td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">1:00pm to 2:00pm</th>
+            <td class="govuk-table__cell">Full New jobseeker interview</td>
+            <td class="govuk-table__cell"><a href="claimant-view" class="govuk-link--no-visited-state">Jane Doe</a></td>
+            <td class="govuk-table__cell"><a href="amend-2" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">1:45pm to 2:15pm</th>
+            <td class="govuk-table__cell">Work search review</td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">Joonas Paris</a></td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">2:30pm to 2:45pm</th>
+            <td class="govuk-table__cell">Work search review</td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">Leila Lynette</a></td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">3:00pm to 4:00pm</th>
+            <td class="govuk-table__cell">Flexible Intervention</td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">Alexandra Wilson</a></td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">4:05pm to 4:25pm</th>
+            <td class="govuk-table__cell">Work search review</td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">Marvin Agostina</a></td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">4:30pm to 5:00pm</th>
+            <td class="govuk-table__cell">Work search review</td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">Ron Tancredi</a></td>
+            <td class="govuk-table__cell"><a href="#0" class="govuk-link--no-visited-state">view</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

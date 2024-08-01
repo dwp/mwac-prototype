@@ -1,0 +1,142 @@
+{% extends "layout-esa-appointee4.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Error: Mark appointment as not attended - Manageing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#attendance">Select Yes or No</a>
+              </li>
+              <li>
+                <a href="#appointment-notes-not-attended">Enter a note</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <span class="govuk-caption-l">New claim appointment</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 2:00pm</h3>
+
+        <form action="claimant-view-not-attended" method="post">
+
+        {% set contactTimes %}
+          {{ govukRadios({
+            name: "how-many-times",
+            fieldset: {
+              legend: {
+                text: "How many times?"
+              }
+            },
+            items: [
+              {
+                value: "1",
+                text: "1"
+              },
+              {
+                value: "2",
+                text: "2"
+              },
+              {
+                value: "3plus",
+                text: "3 or more"
+              }
+            ]
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "attendance",
+          fieldset: {
+            legend: {
+              text: "Have you tried to contact the claimant?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          errorMessage: {
+            text: "Select Yes or No"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: contactTimes
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
+          <div class="govuk-form-group govuk-form-group--error">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="appointment-notes-not-attended">
+                Appointment notes
+              </label>
+            </h1>
+            <p id="appointment-notes-not-attended-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter a note
+            </p>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-input--error" id="appointment-notes-not-attended" name="appointment-notes-not-attended" rows="5" aria-describedby="appointment-notes-not-attended-info"></textarea>
+          </div>
+          <div id="appointment-notes-not-attended-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 1000 words
+          </div>
+        </div>
+
+
+        {{ govukButton({
+          text: "Mark appointment as not attended",
+          preventDoubleClick: true
+        }) }}
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout-esa-appointee4.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Past appointment details - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l"><span class="govuk-caption-l">Past appointment details</span>28 June 2023 - 2:00pm to 2:20pm <br><strong class="govuk-tag govuk-tag--orange">rebooked</strong></h1>
+
+      <h3 class="govuk-heading-m">Notes</h3>
+
+      <p>Rebooked for the 1st June. Claimant informed of new appointment via text message.</p>
+
+      <p>They have not yet given a reason for their illness. Need to find that out at the next appointment.</p>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Why is this appointment being rebooked?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Claimant is ill
+          </dd>
+        </div>
+      </dl>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--s govuk-!-margin-top-4">Appointment details</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header"> </th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header ">Work coach</th>
+            <td class="govuk-table__cell">Jon Clement (claimants work coach)</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Location</th>
+            <td class="govuk-table__cell">Kendal Jobcentre Plus<br>Kentmere House<br>1 Blackhall Road<br>Kendal<br>LA9 4BS</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Appointment type</th>
+            <td class="govuk-table__cell">Work search review</td>
+          </tr>
+        </tbody>
+      </table>
+
+        <p><strong>Do they need an interpreter?</strong><br>
+        No</p>
+
+        <!-- <p><strong>Why is this appointment being rebooked?</strong><br>
+          Claimant is ill</p> -->
+
+        <!-- <p><strong>Any other information?</strong><br>
+          <p>Rebooked for the next available time. Claimant informed of new appointment via SMS.</p>
+
+          <p>They have not yet given a reason for their illness. Need to find that out at the next appointment.</p> -->
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m" style="border-top: #1d70b8 solid 4px; padding-top: 4px;">Actions</h3>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="pinned-hint">
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="pinned" name="pinned" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="pinned">
+                Pin this note
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue",
+        href: 'claimant-view#history'
+      }) }}
+
+    </div> -->
+
+</div>
+
+{% endblock %}

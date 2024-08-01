@@ -1,0 +1,109 @@
+{% extends "layout-esa-appointee4.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Full initial NSJSA interview</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 2:00pm</h3>
+
+        {% set contactTimes %}
+          {{ govukRadios({
+            name: "how-many-times",
+            fieldset: {
+              legend: {
+                text: "How many times?"
+              }
+            },
+            items: [
+              {
+                value: "1",
+                text: "1"
+              },
+              {
+                value: "2",
+                text: "2"
+              },
+              {
+                value: "3plus",
+                text: "3 or more"
+              }
+            ]
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "attendance",
+          fieldset: {
+            legend: {
+              text: "Have you tried to contact the claimant?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: contactTimes
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukTextarea({
+          name: "appointment-notes",
+          id: "appointment-notes",
+          label: {
+            text: "Appointment notes",
+            classes: "govuk-label--s"
+          }
+        }) }}
+
+
+        {{ govukButton({
+        text: "Mark appointment as not attended",
+        preventDoubleClick: true,
+        href: "claimant-view-not-attended.html"
+        }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

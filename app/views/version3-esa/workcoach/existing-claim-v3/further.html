@@ -1,0 +1,73 @@
+{% extends "layout-esa-appointee3.html" %}
+
+{% block pageTitle %}
+Further appointment details - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <form action="check" method="post">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-l">Further appointment details</h3>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend">
+              Is an interpreter needed for this appointment?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interpreter-2" name="interpreter" type="radio" value="Yes, {{ data['interpreter-language'] }}" data-aria-controls="conditional-interpreter-2" {{ checked("interpreter", "Yes, {{ data['interpreter-language'] }}") }}>
+              <label class="govuk-label govuk-radios__label" for="interpreter-2">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-interpreter-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="interpreter-by-text">
+                  What is the preferred language?
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="interpreter-by-text" name="interpreter-language" type="text" value="{{ data['interpreter-language'] }}">
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interpreter" name="interpreter" type="radio" value="No" {{ checked("interpreter", "No") }}>
+              <label class="govuk-label govuk-radios__label" for="interpreter">
+                No
+              </label>
+            </div>
+          </div>
+          </fieldset>
+          </div>
+
+          <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="further-appointment-info">
+                Any other information?
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="further-appointment-info" name="further-appointment-info" rows="5" aria-describedby="further-appointment-info-info">{{ data['further-appointment-info'] }}</textarea>
+            </div>
+            <div id="further-appointment-info-info" class="govuk-hint govuk-character-count__message">
+              You can enter up to 1000 words
+            </div>
+          </div>
+
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+
+    </div>
+    </form>
+</div>
+
+{% endblock %}
