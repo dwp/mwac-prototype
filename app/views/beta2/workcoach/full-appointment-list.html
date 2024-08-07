@@ -1,0 +1,163 @@
+{% extends "layout-nokeydetails.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+All appointments - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div>
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Print - work coach
+    </button>
+
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Print - front of house
+    </button>
+    </div>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--l">All appointments</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Time</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Claimant</th>
+          <th scope="col" class="govuk-table__header">Date of birth</th>
+          <th scope="col" class="govuk-table__header">Postcode</th>
+          <th scope="col" class="govuk-table__header">Contact details</th>
+          <th scope="col" class="govuk-table__header">Agent</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">10 May 2023</td>
+          <td class="govuk-table__cell">3:00pm - 3:20pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Jane Doe</td>
+          <td class="govuk-table__cell">12/5/1977</td>
+          <td class="govuk-table__cell">S1 2FQ</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">14 May 2023</td>
+          <td class="govuk-table__cell">4:00pm - 4:10pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Spike Spiegel</td>
+          <td class="govuk-table__cell">15/10/1990</td>
+          <td class="govuk-table__cell">S25 4DG</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">19 May 2023</td>
+          <td class="govuk-table__cell">1:00pm - 1:50pm</td>
+          <td class="govuk-table__cell">New claim appointment</td>
+          <td class="govuk-table__cell">Iain Banks</td>
+          <td class="govuk-table__cell">5/6/1987</td>
+          <td class="govuk-table__cell">S61 4NZ</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 2</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">20 May 2023</td>
+          <td class="govuk-table__cell">10:00am - 10:20am</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Antham Phan</td>
+          <td class="govuk-table__cell">14/11/1970</td>
+          <td class="govuk-table__cell">S45 9JZ</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 2</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">20 May 2023</td>
+          <td class="govuk-table__cell">3:00pm - 3:20pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Phillip Sykes</td>
+          <td class="govuk-table__cell">19/4/1973</td>
+          <td class="govuk-table__cell">S43 4NA</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">20 May 2023</td>
+          <td class="govuk-table__cell">2:00pm - 2:10pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Ellie-May Rogers</td>
+          <td class="govuk-table__cell">9/11/1988</td>
+          <td class="govuk-table__cell">S71 4JQ</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">25 May 2023</td>
+          <td class="govuk-table__cell">2:10pm - 2:30pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Pablo Buchanan</td>
+          <td class="govuk-table__cell">14/6/1971</td>
+          <td class="govuk-table__cell">S35 1RE</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">25 May 2023</td>
+          <td class="govuk-table__cell">3:30pm - 4:20pm</td>
+          <td class="govuk-table__cell">New claim appointment</td>
+          <td class="govuk-table__cell">Isabella Romero</td>
+          <td class="govuk-table__cell">12/12/1985</td>
+          <td class="govuk-table__cell">S75 6PD</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">25 May 2023</td>
+          <td class="govuk-table__cell">3:15pm - 3:25pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Sabrina Krueger</td>
+          <td class="govuk-table__cell">15/11/1995</td>
+          <td class="govuk-table__cell">S11 8BS</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">28 May 2023</td>
+          <td class="govuk-table__cell">1:30pm - 1:40pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Constance Dominguez</td>
+          <td class="govuk-table__cell">18/9/1998</td>
+          <td class="govuk-table__cell">S2 1LD</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 1</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">28 May 2023</td>
+          <td class="govuk-table__cell">3:00pm - 3:10pm</td>
+          <td class="govuk-table__cell">Work search review</td>
+          <td class="govuk-table__cell">Damien Pearson</td>
+          <td class="govuk-table__cell">15/1/1980</td>
+          <td class="govuk-table__cell">S63 6DJ</td>
+          <td class="govuk-table__cell">07540525252</td>
+          <td class="govuk-table__cell">Agent 2</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+{% endblock %}

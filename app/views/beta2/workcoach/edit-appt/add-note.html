@@ -1,0 +1,85 @@
+{% extends "layout-nokeydetails.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Add a claimant note - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "What lanaguage does the claimant speak?"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Add a claimant note</h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Subject
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text">
+      </div>
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label" for="note-details">
+              Note details
+            </label>
+          </h1>
+          <textarea class="govuk-textarea govuk-js-character-count" id="note-details" name="note-details" rows="5" aria-describedby="note-details-info"></textarea>
+        </div>
+        <div id="note-details-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 1000 words
+        </div>
+      </div>
+
+      <!-- <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="pinned-hint">
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="pinned" name="pinned" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="pinned">
+                Pin this note
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+
+
+
+            {{ govukButton({
+            text: "Add claimant note",
+            href: "history-banner",
+            preventDoubleClick: true
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

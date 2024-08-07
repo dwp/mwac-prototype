@@ -1021,6 +1021,101 @@ router.post('/beta1/workcoach/existing-claim-v3/appointment-duration', function 
   }
 })
 
+// Beta 2 - appointment amending
+
+router.post('/beta2/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta2/workcoach/edit-appt/attended-wsr')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta2/workcoach/edit-appt/not-attended-wsr')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta2/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta2/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta2/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta2/workcoach/edit-appt/amend-3-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta2/workcoach/edit-appt/attended')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta2/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta2/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta2/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta2/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta2/workcoach/edit-appt/claimant-view-attended', function (req, res) {
+
+  let notes = req.session.data['appointment-notes']
+
+  if (notes.length != 0) {
+    res.redirect('/beta2/workcoach/edit-appt/claimant-view-attended')
+  } else {
+    res.redirect('/beta2/workcoach/edit-appt/attended-error')
+  }
+})
+
+router.post('/beta2/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/beta2/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/beta2/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/beta2/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/beta2/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/beta2/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/beta2/workcoach/existing-claim-v3/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2/workcoach/existing-claim-v3/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2/workcoach/existing-claim-v3/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2/workcoach/existing-claim-v3/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2/workcoach/edit-appt/rebook/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2/workcoach/edit-appt/rebook/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2/workcoach/edit-appt/rebook/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2/workcoach/edit-appt/rebook/appointment-duration-flex')
+  }
+})
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////

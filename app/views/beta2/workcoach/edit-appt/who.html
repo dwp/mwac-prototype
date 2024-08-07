@@ -1,0 +1,144 @@
+{% extends "layout-nokeydetails.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select a work coach - Managing Working Age CLaimants
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+{%- set workcoach %}
+<label class="govuk-label" for="office-autocomplete">Enter name of Job Centre</label>
+<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
+
+{% endset -%}
+
+{%- set office %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter their name"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="location-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select a work coach
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="wc" name="wc" type="radio" value="Karen Salter">
+              <label class="govuk-label govuk-radios__label" for="wc">
+                Karen Salter
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="wc-3" name="wc" type="radio" value="Next available work coach">
+              <label class="govuk-label govuk-radios__label" for="wc-3">
+                Next available work coach
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="wc-2" name="wc" type="radio" value="Other wc" data-aria-controls="conditional-wc-2">
+              <label class="govuk-label govuk-radios__label" for="wc-2">
+                Choose a different work coach
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-wc-2">
+              <label class="govuk-label" for="office-autocomplete">Enter the name of the work coach</label>
+              <div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container">
+                <div class="autocomplete__wrapper govuk-grid-column-one-half">
+                  <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                    <div id="office-autocomplete__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
+                    <div id="office-autocomplete__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
+                  </div>
+                  <!-- <input aria-expanded="false" aria-owns="office-autocomplete__listbox" aria-autocomplete="list" aria-describedby="office-autocomplete__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="office-autocomplete" name="input-autocomplete" placeholder="" type="text" role="combobox"> -->
+                  <div class="autocomplete__dropdown-arrow-down-wrapper"></div>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="office-autocomplete__listbox" role="listbox"></ul>
+                  <span id="office-autocomplete__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true,
+            href: "when"
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block bodyEnd %}
+    {{ super() }}
+    <script type="text/javascript">
+        const type = [
+        'France',
+        'Germany',
+        'United Kingdom'
+        ]
+
+      var element = document.querySelector('#type-autocomplete-container')
+      var id = 'type-autocomplete'
+      accessibleAutocomplete({
+        element: element,
+        id: id,
+        source: type,
+        showAllValues: true,
+        dropdownArrow: () => 'x'
+      })
+
+    </script>
+
+     <script type="text/javascript">
+        const office = [
+                        'Hugh Ritchie'
+
+        ]
+
+      var element = document.querySelector('#office-autocomplete-container')
+      var id = 'office-autocomplete'
+      accessibleAutocomplete({
+        element: element,
+        id: id,
+        source: office,
+        showAllValues: true,
+        dropdownArrow: () => ''
+      })
+
+      document.getElementById("office-autocomplete").onclick = function() {
+          document.getElementById("channel").style.display = "block";
+      }
+
+    </script>
+{% endblock %}
