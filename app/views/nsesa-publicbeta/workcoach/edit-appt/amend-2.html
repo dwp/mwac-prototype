@@ -1,0 +1,145 @@
+{% extends "layout-esa-appointee-final.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Appointment details - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Appointment details</span>
+      <h1 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 1:50pm</h1>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Work coach
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jon Clement (claimants work coach)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              By phone
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Appointment type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              New claim appointment
+            </dd>
+          </div>
+        </dl>
+
+        <p><strong>Is an interpreter needed for this appointment?</strong><br>
+        No</p>
+
+        <p><strong>Other information</strong><br>
+        Appointee and claimant live in the same household and will be attending appointments together.</p>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h1 class="govuk-heading-m govuk-!-margin-top-9">Personal appointee details</h1>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Sandra Moore
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Relationship to claimant
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Parent
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Phone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                07540 123 456
+              </dd>
+            </div>
+          </dl>
+
+        <form action="amend-2-error" method="post">
+          {{ govukRadios({
+            classes: "govuk-radios",
+            name: "appointmentActions",
+            fieldset: {
+              legend: {
+                text: "Appointment actions",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "attended",
+                text: "Mark appointment as attended"
+              },
+              {
+                value: "not-attended",
+                text: "Mark appointment as not attended"
+              },
+              {
+                value: "rebook",
+                text: "Rebook this appointment"
+              },
+              {
+                value: "cancel",
+                text: "Cancel this appointment"
+              }
+            ]
+          }) }}
+
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true
+            }) }}
+
+          </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

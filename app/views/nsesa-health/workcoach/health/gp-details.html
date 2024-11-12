@@ -1,0 +1,107 @@
+{% extends "layout-esa-appointee-final.html" %}
+
+{% block pageTitle %}
+What is the name of your GP surgery or medical centre? - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form id="form" method="post" action="/apply/v22/live-less-than-12-months">
+
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+          What is the name of your GP surgery or medical centre?
+        </h1>
+
+        <div id="gp-hint" class="govuk-hint">
+          We might need to contact them for more information.
+        </div>
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="surgery">
+            Name of GP surgery or medical centre
+          </label>
+          <input class="govuk-input govuk-!-width-one-half" id="surgery" name="surgery" type="text" placeholder="GetWell medical centre">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">
+            Address line 1
+            <span class="govuk-visually-hidden">line 1 of 2</span>
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="gp-address-line-1" name="gp-address-line-1" type="text" placeholder="123 South Street">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">
+            Address line 2 (optional)
+            <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="gp-address-line-2" name="gp-address-line-2" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-town">
+            Town or city
+          </label>
+          <input class="govuk-input govuk-!-width-one-half" id="gp-address-town" name="gp-address-town" type="text" placeholder="Hull">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="gp-address-postcode" name="gp-address-postcode" type="text" placeholder="HU12 1UL">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="gp-phone">
+          Phone number
+          </label>
+          <input class="govuk-input govuk-!-width-one-half" id="gp-phone" name="gp-phone" type="text" placeholder="07540 589871">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="gp">
+            Name of your doctor (optional)
+          </label>
+
+          <input class="govuk-input govuk-!-width-one-half" id="gp" name="gp" type="text">
+        </div>
+
+
+
+
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

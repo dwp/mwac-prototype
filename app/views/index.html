@@ -110,41 +110,52 @@ Managing Working Age Claimants - Prototype
 
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+<!-- PUBLIC BETA NSJSA -->
+
 <div class="govuk-grid-row govuk-!-margin-top-4">
   <div class="govuk-grid-column-two-thirds">
     <h3 class="govuk-heading-l">Public Beta - NSJSA</h3>
-    <p>Allow agents to book appointments without having to use LMS</p>
-
-    <!-- PUBLIC BETA NSJSA -->
-
+    <p>Additional features and improvements that will be in place for NSJSA Public Beta</p>
     <div class="govuk-tabs" data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">
         Appointments
       </h2>
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#contactcentre">
-            Contact centre
+          <a class="govuk-tabs__tab" href="#publicbeta1">
+            Public Beta
           </a>
         </li>
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#workcoach">
-            Work coaches
+          <a class="govuk-tabs__tab" href="#Testednsjsa">
+            Tested designs
           </a>
         </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#teamleads">
-            Team leaders
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#notifications">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#notificationsnsjsa">
             Notifications
           </a>
         </li>
       </ul>
-      <div class="govuk-tabs__panel" id="contactcentre">
-        <h4 class="govuk-heading-s">Contact centre initial appointment booking <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">New</strong></h4>
+      <div class="govuk-tabs__panel" id="publicbeta1">
+        <ul class="govuk-list">
+          <li><span class="govuk-!-font-size-36" style="color: #00703c;">&#9745;</span> Improved ID collection</li>
+          <li><span class="govuk-!-font-size-36" style="color: #00703c;">&#9745;</span> Improved history and filters</li>
+          <li><span class="govuk-!-font-size-36" style="color: #00703c;">&#9745;</span> Improved appointment booking playback</li>
+        </ul>
+
+        <a href="nsjsa-publicbeta/workcoach/searchlight-existing-claim" role="button" draggable="false" class="govuk-button govuk-button--start govuk-button--secondary" data-module="govuk-button">
+          Start NSJSA Public Beta
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </a>
+
+      </div>
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Testednsjsa">
+        <h4 class="govuk-heading-s">Contact centre initial appointment booking <strong class="govuk-tag govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Sept 2024</div></h4>
+
         <ul class="govuk-list govuk-list--bullet">
           <li>
             <a href="/version8/contactcentre/choose-task-v1" class="govuk-link--no-visited-state">Version 1</a> - banner
@@ -152,34 +163,14 @@ Managing Working Age Claimants - Prototype
           <li>
             <a href="/version8/contactcentre/choose-task-v2" class="govuk-link--no-visited-state">Version 2</a> - button
           </li>
-          <!-- <li>
-            <a href="/uc_clone/agent-home">UC Clone</a>
-          </li> -->
         </ul>
 
-        <h4 class="govuk-heading-s">Booking an appointment <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a href="/first_pass/search?route=g4s" class="govuk-link--no-visited-state">Version 1</a>
-          </li>
-          <li>
-            <a href="/version2/contactcentre/search" class="govuk-link--no-visited-state">Version 2</a>
-          </li>
-          <!-- <li>
-            <a href="/uc_clone/agent-home">UC Clone</a>
-          </li> -->
-        </ul>
-
-      </div>
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="workcoach">
-        <h4 class="govuk-heading-s">Appointment booking new flow <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">new</strong></h4>
+        <h4 class="govuk-heading-s">Appointment booking new flow <strong class="govuk-tag govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Apr 2024</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="/version8/workcoach/searchlight-existing-claim-results" class="govuk-link--no-visited-state">Searchlight - existing claim</a></li>
         </ul>
 
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-        <h4 class="govuk-heading-s">Appointment booking re-design <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">Appointment booking re-design <strong class="govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Apr 2024</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="/version7/workcoach/searchlight-existing-claim-results" class="govuk-link--no-visited-state">Searchlight - existing claim</a></li>
           <li><a href="/version7/workcoach/existing-claim/location" class="govuk-link--no-visited-state">Existing claim - book appointment - v1</a></li>
@@ -187,24 +178,20 @@ Managing Working Age Claimants - Prototype
           <li><a href="/version7/workcoach/existing-claim-v3/location" class="govuk-link--no-visited-state">Existing claim - book appointment - v3</a></li>
         </ul>
 
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-        <h4 class="govuk-heading-s">ID collection <strong class="govuk-tag govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">ID collection <strong class="govuk-tag govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Mar 2024</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="/version6/workcoach/edit-appt/amend-2" class="govuk-link--no-visited-state">ID collection original version</a></li>
           <li><a href="/version6/workcoach/edit-appt/appointment-details-2" class="govuk-link--no-visited-state">ID collection version 2</a></li>
           <li><a href="/version6/workcoach/edit-appt/appointment-details-3" class="govuk-link--no-visited-state">ID collection version 3</a></li>
         </ul>
 
-        <h4 class="govuk-heading-s">Note types <strong class="govuk-tag govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">Note types <strong class="govuk-tag govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Nov 2023</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="/version6/workcoach/searchlight-results-decisions1" class="govuk-link--no-visited-state">Note types version 1</a></li>
           <li><a href="/version6/workcoach/searchlight-results-decisions2" class="govuk-link--no-visited-state">Note types version 2</a></li>
         </ul>
 
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-        <h4 class="govuk-heading-s">Historical appointments and notes <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">Historical appointments and notes <strong class="govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Oct 2023</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
             <a href="/version5/workcoach/searchlight" class="govuk-link--no-visited-state">Version 1 </a>- permanent filters
@@ -214,9 +201,8 @@ Managing Working Age Claimants - Prototype
           </li>
         </ul>
 
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-        <h4 class="govuk-heading-s">Diary view and contact details <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">Diary view and contact details <strong class="govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Aug 2023</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
             <a href="/version4/workcoach/searchlight" class="govuk-link--no-visited-state">Version 1 </a>- diary in MWAC service
@@ -226,14 +212,21 @@ Managing Working Age Claimants - Prototype
           </li>
         </ul>
 
-        <h4 class="govuk-heading-s">Claimant markers <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">Diary view<strong class="govuk-tag govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">May 2023</div></h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="/version4/diarymanager/searchlight" class="govuk-link--no-visited-state">Version 1 </a>- diary in MWAC service
+          </li>
+        </ul>
+
+        <h4 class="govuk-heading-s">Claimant markers <strong class="govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">May 2023</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
             <a href="/version4/workcoach/searchlight-marker" class="govuk-link--no-visited-state">Current approach </a>
           </li>
         </ul>
 
-        <h4 class="govuk-heading-s">Interacting with an existing appointment <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">Interacting with an existing appointment <strong class="govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Dec 2022</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
             <a href="/searchlight/search-v2?search=second" class="govuk-link--no-visited-state">Version 1</a>
@@ -248,7 +241,7 @@ Managing Working Age Claimants - Prototype
 
 
 
-        <h4 class="govuk-heading-s">Booking an appointment <strong class="govuk-tag govuk-!-margin-left-1">tested</strong></h4>
+        <h4 class="govuk-heading-s">Booking an appointment <strong class="govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Oct 2022</div></h4>
 
         <ul class="govuk-list govuk-list--bullet">
           <li>
@@ -262,20 +255,22 @@ Managing Working Age Claimants - Prototype
           </li> -->
         </ul>
 
-
-      </div>
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="teamleads">
-        <h4 class="govuk-heading-s">Diary view<strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">new</strong></h4>
+        <h4 class="govuk-heading-s">Contact centre booking an appointment <strong class="govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Oct 2022</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
-            <a href="/version4/diarymanager/searchlight" class="govuk-link--no-visited-state">Version 1 </a>- diary in MWAC service
+            <a href="/first_pass/search?route=g4s" class="govuk-link--no-visited-state">Version 1</a>
           </li>
+          <li>
+            <a href="/version2/contactcentre/search" class="govuk-link--no-visited-state">Version 2</a>
+          </li>
+          <!-- <li>
+            <a href="/uc_clone/agent-home">UC Clone</a>
+          </li> -->
         </ul>
-
-
       </div>
-      <div class="govuk-tabs__panel" id="notifications">
-        <h4 class="govuk-heading-s">Citizen notifications <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">new</strong></h4>
+
+      <div class="govuk-tabs__panel" id="notificationsnsjsa">
+        <h4 class="govuk-heading-s">Citizen notifications <strong class="govuk-tag govuk-tag govuk-!-margin-left-1">Tested</strong><div class="govuk-hint">Feb 2023</div></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
             <a href="version6/notifications/booked" class="govuk-link--no-visited-state">Appointment booked</a>
@@ -328,7 +323,7 @@ Managing Working Age Claimants - Prototype
 <div class="govuk-grid-row govuk-!-margin-top-4">
   <div class="govuk-grid-column-two-thirds">
     <h3 class="govuk-heading-l">Public Beta - NSESA</h3>
-    <p>Allow agents to book appointments without having to use LMS</p>
+    <p>Additional features and improvements that will be in place for NSESA Public Beta</p>
 
     <!-- PUBLIC BETA NSESA -->
 
@@ -338,18 +333,13 @@ Managing Working Age Claimants - Prototype
       </h2>
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#contactcentre-esa">
-            Contact centre
+          <a class="govuk-tabs__tab" href="#publicbeta-esa">
+            Public Beta
           </a>
         </li>
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#workcoach-esa">
-            Work coaches
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#teamleads-esa">
-            Team leaders
+          <a class="govuk-tabs__tab" href="#tested-esa">
+            Tested designs
           </a>
         </li>
         <li class="govuk-tabs__list-item">
@@ -358,12 +348,21 @@ Managing Working Age Claimants - Prototype
           </a>
         </li>
       </ul>
-      <div class="govuk-tabs__panel" id="contactcentre-esa">
-        Coming soon
+      <div class="govuk-tabs__panel" id="publicbeta-esa">
+        <ul class="govuk-list">
+          <li><span class="govuk-!-font-size-36" style="color: #00703c;">&#9745;</span> Appointee information</li>
+        </ul>
+
+        <a href="nsesa-publicbeta/workcoach/searchlight" role="button" draggable="false" class="govuk-button govuk-button--start govuk-button--secondary" data-module="govuk-button">
+          Start NSESA Public Beta
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </a>
 
       </div>
 
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="workcoach-esa">
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tested-esa">
         <h4 class="govuk-heading-s">Version 3 (work in progress) <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">New</strong></h4>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="/version3-esa/workcoach/searchlight" class="govuk-link--no-visited-state">Benefit tag</a></li>
@@ -392,33 +391,7 @@ Managing Working Age Claimants - Prototype
       </div>
 
       <div class="govuk-tabs__panel" id="notifications-esa">
-        <h4 class="govuk-heading-s">Citizen notifications <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-1">new</strong></h4>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a href="version6/notifications/booked" class="govuk-link--no-visited-state">Appointment booked</a>
-          </li>
-          <li>
-            <a href="version6/notifications/rebooked-first" class="govuk-link--no-visited-state">First appointment rebooked</a>
-          </li>
-          <li>
-            <a href="version6/notifications/rebooked" class="govuk-link--no-visited-state">Appointment re-booked</a>
-          </li>
-          <li>
-            <a href="version6/notifications/cancelled" class="govuk-link--no-visited-state">Appointment cancelled by DWP</a>
-          </li>
-          <li>
-            <a href="version6/notifications/cancelled2" class="govuk-link--no-visited-state">Appointment cancelled by claimant</a>
-          </li>
-          <li>
-            <a href="version6/notifications/notattended" class="govuk-link--no-visited-state">First appointment not attended</a>
-          </li>
-          <li>
-            <a href="version6/notifications/notattended2" class="govuk-link--no-visited-state">Other appointment not attended</a>
-          </li>
-          <li>
-            <a href="version6/notifications/reminder" class="govuk-link--no-visited-state">Appointment reminder</a>
-          </li>
-        </ul>
+        TBC
 
       </div>
     </div>
@@ -429,7 +402,7 @@ Managing Working Age Claimants - Prototype
     <h4 class="govuk-heading-s govuk-!-padding-top-1" style="border-top: 4px solid #1d70b8">Useful links</h4>
     <ul class="govuk-list">
       <li>
-        <a href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1666364779858/9633be5c048c3ca220847a226708bc80600debe6?sender=u27e278891566c2ea43a98054" class="govuk-link--no-visited-state">User research</a>
+        <a href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1704706326916/61c7b8f34b1c5627552652803a404f5c9ae137fd" class="govuk-link--no-visited-state">User research</a>
       </li>
       <li>
         <a href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1666550060367/a36b25890036d8abec64f8b2e173eecde0732b29?sender=u27e278891566c2ea43a98054" class="govuk-link--no-visited-state">User journeys</a>

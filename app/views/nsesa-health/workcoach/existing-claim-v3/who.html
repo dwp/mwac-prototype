@@ -1,0 +1,119 @@
+{% extends "layout-esa-appointee-final.html" %}
+
+{% block pageTitle %}
+Select a work coach - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <form action="when" method="post">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Select a work coach
+          </h1>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="agent" name="agent" type="radio" value="Jon Clement" {{ checked("agent", "Jon Clement") }}>
+            <label class="govuk-label govuk-radios__label" for="agent">
+              Jon Clement (claimant's work coach)
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="agent-2" name="agent" type="radio" value="Next available work coach" {{ checked("agent", "Next available work coach") }}>
+            <label class="govuk-label govuk-radios__label" for="agent-2">
+              Next available work coach
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="agent-3" name="agent" type="radio" value="{{ data['agent-name'] }}" data-aria-controls="conditional-agent-3" {{ checked("agent", "Next available work coach") }}>
+            <label class="govuk-label govuk-radios__label" for="agent-3">
+              Choose a different work coach
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-agent-3">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="agent-by-text">
+                Enter the name of the work coach
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="agent-by-text" name="agent-name" type="text" value="{{ data['agent-name'] }}">
+            </div>
+          </div>
+        </div>
+        </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m">Appointment details</h3>
+      <dl class="govuk-summary-list govuk-!-font-size-16">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="location">Change<span class="govuk-visually-hidden"> appointment location</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Channel
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-channel'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="channel">Change<span class="govuk-visually-hidden"> appointment channel</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-type'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment type</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Duration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-duration'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment curation</span></a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

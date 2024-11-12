@@ -1,0 +1,186 @@
+{% extends "layout-esa-appointee-final.html" %}
+
+{% block pageTitle %}
+    First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% set weekArray = getWeek(14) %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-row">
+        <form action="further" method="post">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">
+                Appointments available
+            </h1>
+
+            <nav class="govuk-pagination" role="navigation" aria-label="results">
+              <div class="govuk-pagination__prev">
+                <a class="govuk-link govuk-pagination__link" href="#8" rel="prev">
+                  <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                  </svg>
+                  <span class="govuk-pagination__link-title">Previous week</span></a>
+              </div>
+
+              <div class="govuk-pagination__next">
+                <a class="govuk-link govuk-pagination__link" href="#8" rel="next"> <span class="govuk-pagination__link-title">Next week</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                  </svg></a>
+              </div>
+            </nav>
+
+            <div class="govuk-tabs " data-module="govuk-tabs">
+            <ul class="govuk-tabs__list ">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" style="text-align: left;">
+                <a class="govuk-tabs__tab" href="#monday">
+                  <strong>Monday</strong><br>
+                  {{weekArray[0]}}<br><br>
+                  10 slots
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item" style="text-align: left;">
+                <a class="govuk-tabs__tab" href="#tuesday">
+                  <strong>Tuesday</strong><br>
+                  {{weekArray[1]}}<br><br>
+                  17 slots
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item" style="text-align: left;">
+                <a class="govuk-tabs__tab" href="#wednesday">
+                  <strong>Wednesday</strong><br>
+                  {{weekArray[2]}}<br><br>
+                  22 slots
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item" style="text-align: left;">
+                <a class="govuk-tabs__tab" href="#thursday">
+                  <strong>Thursday</strong><br>
+                  {{weekArray[3]}}<br><br>
+                  5 slots
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item" style="text-align: left;">
+                <a class="govuk-tabs__tab" href="#friday">
+                  <strong>Friday</strong><br>
+                  {{weekArray[4]}}<br><br>
+                  0 slots
+                </a>
+              </li>
+
+            </ul>
+            <div class="govuk-tabs__panel" id="monday">
+              {% include "../../../../version7/includes/monday.html" %}
+            </div>
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tuesday">
+              {% include "../../../../version7/includes/tuesday.html" %}
+            </div>
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="wednesday">
+              {% include "../../../../version7/includes/wednesday.html" %}
+            </div>
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="thursday">
+              {% include "../../../../version7/includes/thursday.html" %}
+            </div>
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="friday">
+              {% include "../../../../version7/includes/friday.html" %}
+            </div>
+          </div>
+
+          <nav class="govuk-pagination" role="navigation" aria-label="results">
+            <div class="govuk-pagination__prev">
+              <a class="govuk-link govuk-pagination__link" href="#8" rel="prev">
+                <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                  <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                </svg>
+                <span class="govuk-pagination__link-title">Previous week</span></a>
+            </div>
+
+            <div class="govuk-pagination__next">
+              <a class="govuk-link govuk-pagination__link" href="#8" rel="next"> <span class="govuk-pagination__link-title">Next week</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                  <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                </svg></a>
+            </div>
+          </nav>
+
+          {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true
+          }) }}
+
+
+        </div>
+        </form>
+    </div>
+
+    <!-- <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h3 class="govuk-heading-m govuk-!-margin-top-8">Appointment details</h3>
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Location
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['location'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="location">Change<span class="govuk-visually-hidden"> appointment location</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Channel
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['appointment-channel'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="channel">Change<span class="govuk-visually-hidden"> appointment channel</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['appointment-type'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment type</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Duration
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['appointment-duration'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="appointment-type">Change<span class="govuk-visually-hidden"> appointment curation</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Work coach
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['agent'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="who">Change<span class="govuk-visually-hidden"> appointment curation</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div> -->
+{% endblock %}

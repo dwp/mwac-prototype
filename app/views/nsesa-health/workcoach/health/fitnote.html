@@ -1,0 +1,129 @@
+{% extends "layout-esa-appointee-final.html" %}
+
+{% block pageTitle %}
+Fit Note - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Fit note
+      </h1>
+      <form action="view-health-updated" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              <h3 class="govuk-fieldset__heading">
+                Does the claimant have a fit note?
+              </h3>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="fitnote-date" name="fitnote-date" type="radio" value="Yes" checked>
+                <label class="govuk-label govuk-radios__label" for="fitnote-date">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional" id="conditional-contact">
+                <div class="govuk-date-input" id="fitnote-start">
+                  <h4 class="govuk-heading-s">
+                    Start date
+                  </h4>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="fitnote-start-day">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fitnote-start-day" name="fitnote-start-day" type="text" inputmode="numeric" placeholder="21">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="fitnote-start-month">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fitnote-start-month" name="fitnote-start-month" type="text" inputmode="numeric" placeholder="11">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="fitnote-start-year">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="fitnote-start-year" name="fitnote-start-year" type="text" inputmode="numeric" placeholder="2024">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="govuk-date-input govuk-!-margin-top-6" id="fitnote-end">
+                  <h4 class="govuk-heading-s">
+                    End date
+                  </h4>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="fitnote-end-day">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fitnote-end-day" name="fitnote-end-day" type="text" inputmode="numeric" placeholder="21">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="fitnote-end-month">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fitnote-end-month" name="fitnote-end-month" type="text" inputmode="numeric" placeholder="1">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="fitnote-end-year">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="fitnote-end-year" name="fitnote-end-year" type="text" inputmode="numeric" placeholder="2025">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="fitnote-date-2" name="fitnote-date" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="fitnote-date-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+
+      </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -376,6 +376,95 @@ router.post('/version8/workcoach/new-claim/appointment-duration', function (req,
   }
 })
 
+// NSJSA public beta
+
+router.post('/nsjsa-publicbeta/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/attended-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/nsjsa-publicbeta/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/nsjsa-publicbeta/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/nsjsa-publicbeta/workcoach/edit-appt/attended-photo-id', function (req, res) {
+
+  let idType = req.session.data['id-types']
+
+  if (idType === 'No') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/attended-kbv-id')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/attended-photo-id')
+  }
+})
+
+router.post('/nsjsa-publicbeta/workcoach/edit-appt/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+
+  if (kbvFail === 'No') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/kbv-failed')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/kbv-notes')
+  }
+})
+
+router.post('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-wsr')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-flex')
+  }
+})
+
+router.post('/nsjsa-publicbeta/workcoach/new-claim/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/nsjsa-publicbeta/workcoach/new-claim/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/nsjsa-publicbeta/workcoach/new-claim/appointment-duration-wsr')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/new-claim/appointment-duration-flex')
+  }
+})
+
 
 // Version 1 ESA - appointment amending
 
@@ -812,6 +901,208 @@ router.post('/version3-esa-2/workcoach/existing-claim-v3/appointment-duration', 
     res.redirect('/version3-esa-2/workcoach/existing-claim-v3/appointment-duration-wsr')
   } else {
     res.redirect('/version3-esa-2/workcoach/existing-claim-v3/appointment-duration-flex')
+  }
+})
+
+// NSESA public beta
+
+router.post('/nsesa-publicbeta/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-kbv-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/nsesa-publicbeta/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/nsesa-publicbeta/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/nsesa-publicbeta/workcoach/edit-appt/attended-photo-id', function (req, res) {
+
+  let idType = req.session.data['id-types']
+
+  if (idType === 'No') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-kbv-id')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-photo-id')
+  }
+})
+
+router.post('/nsesa-publicbeta/workcoach/edit-appt/attended-photo-id-appointee', function (req, res) {
+
+  let idType = req.session.data['id-types-appointee']
+
+  if (idType === 'No') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-kbv-id-appointee')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-photo-id-appointee')
+  }
+})
+
+router.post('/nsesa-publicbeta/workcoach/edit-appt/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+  let kbvFailAppointee = req.session.data['kbv-check-appointee']
+
+  if (kbvFail === 'No') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-kbv-id-appointee')
+  } else if (kbvFailAppointee === 'No') {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-kbv-id-appointee')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/attended-kbv-id-appointee')
+  }
+})
+
+router.post('/nsesa-publicbeta/workcoach/existing-claim-v3/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/nsesa-publicbeta/workcoach/existing-claim-v3/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/nsesa-publicbeta/workcoach/existing-claim-v3/appointment-duration-wsr')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/existing-claim-v3/appointment-duration-flex')
+  }
+})
+
+router.post('/nsesa-publicbeta/workcoach/edit-appt/health-update', function (req, res) {
+
+  let health = req.session.data['health-update']
+
+  if (health === 'Yes') {
+    res.redirect('/nsesa-publicbeta/workcoach/health/view-health-appointment')
+  } else {
+    res.redirect('/nsesa-publicbeta/workcoach/edit-appt/kbv-notes')
+  }
+})
+
+// NSESA health info
+
+router.post('/nsesa-health/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-kbv-id')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/nsesa-health/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/nsesa-health/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/nsesa-health/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/nsesa-health/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/nsesa-health/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/nsesa-health/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/nsesa-health/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/nsesa-health/workcoach/edit-appt/attended-photo-id', function (req, res) {
+
+  let idType = req.session.data['id-types']
+
+  if (idType === 'No') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-kbv-id')
+  } else {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-photo-id')
+  }
+})
+
+router.post('/nsesa-health/workcoach/edit-appt/attended-photo-id-appointee', function (req, res) {
+
+  let idType = req.session.data['id-types-appointee']
+
+  if (idType === 'No') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-kbv-id-appointee')
+  } else {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-photo-id-appointee')
+  }
+})
+
+router.post('/nsesa-health/workcoach/edit-appt/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+  let kbvFailAppointee = req.session.data['kbv-check-appointee']
+
+  if (kbvFail === 'No') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-kbv-id-appointee')
+  } else if (kbvFailAppointee === 'No') {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-kbv-id-appointee')
+  } else {
+    res.redirect('/nsesa-health/workcoach/edit-appt/attended-kbv-id-appointee')
+  }
+})
+
+router.post('/nsesa-health/workcoach/existing-claim-v3/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/nsesa-health/workcoach/existing-claim-v3/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/nsesa-health/workcoach/existing-claim-v3/appointment-duration-wsr')
+  } else {
+    res.redirect('/nsesa-health/workcoach/existing-claim-v3/appointment-duration-flex')
+  }
+})
+
+router.post('/nsesa-health/workcoach/edit-appt/health-update', function (req, res) {
+
+  let health = req.session.data['health-update']
+
+  if (health === 'Yes') {
+    res.redirect('/nsesa-health/workcoach/health/view-health-appointment')
+  } else {
+    res.redirect('/nsesa-health/workcoach/edit-appt/kbv-notes')
   }
 })
 
@@ -2290,3 +2581,28 @@ router.post('/address_2-pioneer', function (req, res) {
     res.redirect('identify-match-refer/V1_2/not-suitable-address')
   }
 });
+
+// add another thing //
+
+router.post('/nsesa-publicbeta/workcoach/health/new-condition', (req, res, next) => {
+
+const { data } = req.session;
+const condition = data.condition;
+
+if(condition.id) {
+  amendCondition(data.conditionOrder, condition);
+} else {
+  // give condition an id - to find in amend step
+  condition.id = data.conditionOrder.length + 1;
+  data.conditionOrder.push(condition);
+}
+
+res.render('condition/check-order.njk', { condition: data.condition });
+})
+
+const amendCondition = (conditions, condition) => {
+  const index = conditions.findIndex(p => p.id === condition.id);
+  conditions.splice(index, 1);
+  conditions.push(condition);
+  return conditions;
+}

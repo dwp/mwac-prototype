@@ -1,0 +1,78 @@
+{% extends "layout-esa-appointee-final.html" %}
+
+{% block pageTitle %}
+Health impacts - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Health impacts
+      </h1>
+      <form action="view-health-updated" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              <h3 class="govuk-fieldset__heading">
+                Do any of the claimants conditions affect their ability to work or look for work?
+              </h3>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pregnancy" name="pregnancy" type="radio" value="Yes" checked>
+                <label class="govuk-label govuk-radios__label" for="pregnancy">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pregnancy-2" name="pregnancy" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="pregnancy-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper">
+            <label class="govuk-label" for="more-detail">
+              What impact do these health conditions have on their ability to work?
+            </label>
+          </h3>
+          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">Suffers from frequent seizures and requires considerable time to recover. Difficulty in identifying risks and requires 24hr care. Can perform basic tasks with supervision and currently attends social care placements 3 times per week.
+          </textarea>
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+
+      </form>
+    </div>
+</div>
+
+{% endblock %}

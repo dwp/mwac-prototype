@@ -1,0 +1,249 @@
+{% extends "layout-esa-appointee-final.html" %}
+
+{% block pageTitle %}
+Health Information - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            Health condition successfully added
+          </h3>
+        </div>
+      </div>
+
+        <h1 class="govuk-heading-l">
+            Health
+        </h1>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sharing information about health conditions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="sharing-info">Change<span class="govuk-visually-hidden"> sharing health conditions</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your doctor said you have less than 12 months to live?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="less-than-12-months">Change<span class="govuk-visually-hidden"> if your doctor said you have less than 12 months to live</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you currently staying in hospital as an in patient?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="hospital">Change<span class="govuk-visually-hidden"> if you are staying in hospital</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you pregnant?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="pregnancy">Change<span class="govuk-visually-hidden"> if you are pregnant or not</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-9">
+            Health conditions
+        </h3>
+
+        <form action="add-condition" method="post" novalidate>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Health condition
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Epilepsy
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> health condition</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> health condition</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Health condition
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Learning disability
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> health condition</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> health condition</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Add another condition
+        </button>
+        </form>
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-7">
+            GP surgery or medical centre
+        </h3>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GetWell medical centre
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="gp-name">Change<span class="govuk-visually-hidden"> GP surgery or medical centre name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              123 South Street<br>
+              Town<br>
+              Country<br>
+              Postcode
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="gp-address">Change<span class="govuk-visually-hidden"> GP or medical centre address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              07540 589871
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="gp-phone">Change<span class="govuk-visually-hidden"> GP or medical centre phone number</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-9">
+            Health impacts
+        </h3>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do any of the claimants conditions affect their ability to work or look for work?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="ability">Change<span class="govuk-visually-hidden"> if claimants conditions affect their ability to work</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What impact do these health conditions have on their ability to work?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Suffers from frequent seizures and requires considerable time to recover. Difficulty in identifying risks and requires 24hr care. Can perform basic tasks with supervision and currently attends social care placements 3 times per week.
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="ability">Change<span class="govuk-visually-hidden"> health condition impacts on their ability to work</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-9">
+            Fit note <strong class="govuk-tag govuk-tag--red govuk-!-margin-left-2">Expired</strong>
+        </h3>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does the claimant have a fit note?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="fitnote">Change<span class="govuk-visually-hidden"> if claimant has a fit note</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Fit note dates
+            </dt>
+            <dd class="govuk-summary-list__value">
+              21 November 2024 to 21 January 2025
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="fitnote">Change<span class="govuk-visually-hidden"> fit note dates</span></a>
+            </dd>
+          </div>
+        </dl>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

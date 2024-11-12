@@ -1,0 +1,31 @@
+{% extends "layout-noheader.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+First appointment rebooked
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="notifications">
+  <div class="container">
+
+    <div class="notification-header">
+      <div class="back">‹</div>
+      <div class="name">GOVUK</div>
+    </div>
+
+    <div class="imessage">
+      <p class="from-them">New Style Jobseeker's Allowance: Your first appointment has been rebooked for 1:00pm on 11 October 2023 at Kendal Jobcentre, Kentmere House, 1 Blackhall Rd, Kendal LA9 4BS. You must bring 3 forms of identity with you, see: <a href="https://gov.uk/dwp/jsa-interview" class="govuk-link govuk-link--no-visited-state">https://gov.uk/dwp/jsa-interview</a>. You will only get New Style JSA payments after you attend and agree your claimant commitment.</p>
+    </div>
+</div>
+
+{% endblock %}

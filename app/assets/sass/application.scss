@@ -587,3 +587,9 @@ h2 {
 .link-panel:hover {
   background: #003078;
 }
+
+// Increase width of summary list links
+
+.govuk-summary-list__actions {
+  width: 24%;
+}

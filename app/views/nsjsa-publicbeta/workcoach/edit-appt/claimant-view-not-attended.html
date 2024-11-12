@@ -1,0 +1,40 @@
+{% extends "layout-nsjsa-final.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+Appointment not attended - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Appointment not attended
+      </h1>
+      <div class="govuk-panel__body">
+        Appointment marked as <br><strong>'Failed to attend'</strong>
+      </div>
+    </div>
+    <h3 class="govuk-heading-m">What happens next?</h3>
+    <p>We will automatically contact the claimant by:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>text message to <strong>07777 900 900</strong></li>
+      <li>letter</li>
+    </ul>
+
+    <p>We will tell the claimant that they have until <strong><span class="future-date"></span></strong> to get in touch before we take claim closure action.</p>
+
+  </div>
+</div>
+
+{% endblock %}

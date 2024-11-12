@@ -1,0 +1,337 @@
+{% extends "layout-nsjsa-final.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Mark appointment as attended - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">New claim appointment</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 1:50pm</h3>
+
+        <form action="attended-notes" method="post">
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                <legend class="govuk-fieldset__legend">
+                  <h1 class="govuk-fieldset__heading">
+                    Which photo ID did the claimant present?
+                  </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="photo-id" name="photo-id" type="radio" value="driving-licence" data-aria-controls="conditional-photo-id">
+                    <label class="govuk-label govuk-radios__label" for="photo-id">
+                      Driving licence
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-photo-id">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="photo-id-driving-licence">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="photo-id-driving-licence" name="photo-id-driving-licence" type="text" spellcheck="false">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="photo-id-2" name="photo-id" type="radio" value="passport" data-aria-controls="conditional-photo-id-2">
+                    <label class="govuk-label govuk-radios__label" for="photo-id-2">
+                      Passport
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-photo-id-2">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="photo-id-passport">
+                        Last 4 digits of the claimant's passport number
+                      </label>
+                      <input class="govuk-input govuk-input--width-4" id="photo-id-passport" name="photo-id-passport" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="photo-id-3" name="photo-id" type="radio" value="bio-residence-permit" data-aria-controls="conditional-photo-id-3">
+                    <label class="govuk-label govuk-radios__label" for="photo-id-3">
+                      Biometric residence permit
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-photo-id-3">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="photo-id-bio-residence-permit">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="photo-id-bio-residence-permit" name="photo-id-bio-residence-permit" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="photo-id-4" name="photo-id" type="radio" value="naturalisation-cert" data-aria-controls="conditional-photo-id-4">
+                    <label class="govuk-label govuk-radios__label" for="photo-id-4">
+                      Certificate of naturalisation as a British citizen
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-photo-id-4">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="photo-id-naturalisation-cert">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="photo-id-naturalisation-cert" name="photo-id-naturalisation-cert" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="photo-id-5" name="photo-id" type="radio" value="perm-residence-permit" data-aria-controls="conditional-photo-id-5">
+                    <label class="govuk-label govuk-radios__label" for="photo-id-5">
+                      Permanent residence permit
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-photo-id-5">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="photo-id-perm-residence-permit">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="photo-id-perm-residence-permit" name="photo-id-perm-residence-permit" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="photo-id-6" name="photo-id" type="radio" value="other" data-aria-controls="conditional-photo-id-6">
+                    <label class="govuk-label govuk-radios__label" for="photo-id-6">
+                      Other photo ID
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-photo-id-6">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="photo-id-other">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="photo-id-other" name="photo-id-other" type="text">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                <legend class="govuk-fieldset__legend">
+                  <h1 class="govuk-fieldset__heading">
+                    Which proof of address did the claimant present?
+                  </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="proof-of-address" name="proof-of-address" type="radio" value="payslip" data-aria-controls="conditional-proof-of-address">
+                    <label class="govuk-label govuk-radios__label" for="proof-of-address">
+                      Payslip or pension statement
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-proof-of-address">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="proof-of-address-payslip">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="proof-of-address-payslip" name="proof-of-address-payslip" type="text" spellcheck="false">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="proof-of-address-2" name="proof-of-address" type="radio" value="student-loan" data-aria-controls="conditional-proof-of-address-2">
+                    <label class="govuk-label govuk-radios__label" for="proof-of-address-2">
+                      Student loan documentation
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-proof-of-address-2">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="proof-of-address-student-loan">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="proof-of-address-student-loan" name="proof-of-address-student-loan" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="proof-of-address-3" name="proof-of-address" type="radio" value="utility-bill" data-aria-controls="conditional-proof-of-address-3">
+                    <label class="govuk-label govuk-radios__label" for="proof-of-address-3">
+                      Utility bill
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-proof-of-address-3">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="proof-of-address-utility-bill">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="proof-of-address-utility-bill" name="proof-of-address-utility-bill" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="proof-of-address-4" name="proof-of-address" type="radio" value="council-tax" data-aria-controls="conditional-proof-of-address-4">
+                    <label class="govuk-label govuk-radios__label" for="proof-of-address-4">
+                      Council Tax bill
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-proof-of-address-4">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="proof-of-address-council-tax">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="proof-of-address-council-tax" name="proof-of-address-council-tax" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="proof-of-address-5" name="proof-of-address" type="radio" value="other" data-aria-controls="conditional-proof-of-address-5">
+                    <label class="govuk-label govuk-radios__label" for="proof-of-address-5">
+                      Other proof of address
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-proof-of-address-5">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="proof-of-address-other">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="proof-of-address-other" name="proof-of-address-other" type="text">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                <legend class="govuk-fieldset__legend">
+                  <h1 class="govuk-fieldset__heading">
+                    Which further proof of ID did the claimant present?
+                  </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="further-proof" name="further-proof" type="radio" value="P60" data-aria-controls="conditional-further-proof">
+                    <label class="govuk-label govuk-radios__label" for="further-proof">
+                      P60
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-further-proof">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="further-proof-P60">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="further-proof-P60" name="further-proof-P60" type="text" spellcheck="false">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="further-proof-1" name="further-proof" type="radio" value="P60" data-aria-controls="conditional-further-proof-1">
+                    <label class="govuk-label govuk-radios__label" for="further-proof-1">
+                      P45
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-further-proof-1">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="further-proof-P45">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="further-proof-P45" name="further-proof-P45" type="text" spellcheck="false">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="further-proof-2" name="further-proof" type="radio" value="savings-account" data-aria-controls="conditional-further-proof-2">
+                    <label class="govuk-label govuk-radios__label" for="further-proof-2">
+                      Savings account book
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-further-proof-2">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="further-proof-savings-account">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="further-proof-savings-account" name="further-proof-savings-account" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="further-proof-3" name="further-proof" type="radio" value="cheque-book" data-aria-controls="conditional-further-proof-3">
+                    <label class="govuk-label govuk-radios__label" for="further-proof-3">
+                      Personal cheque book
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-further-proof-3">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="further-proof-cheque-book">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="further-proof-cheque-book" name="further-proof-cheque-book" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="further-proof-4" name="further-proof" type="radio" value="bank-card" data-aria-controls="conditional-further-proof-4">
+                    <label class="govuk-label govuk-radios__label" for="further-proof-4">
+                      Bank card and statement
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-further-proof-4">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="further-proof-bank-card">
+                        Last 4 digits of the claimant's bank card number
+                      </label>
+                      <input class="govuk-input govuk-input--width-4" id="further-proof-bank-card" name="further-proof-bank-card" type="text">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="further-proof-5" name="further-proof" type="radio" value="other" data-aria-controls="conditional-further-proof-5">
+                    <label class="govuk-label govuk-radios__label" for="further-proof-5">
+                      Other proof of ID
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-further-proof-5">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="further-proof-other">
+                        Document reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="further-proof-other" name="further-proof-other" type="text">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+
+        </form>
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m" style="border-top: #1d70b8 solid 4px; padding-top: 4px;">Recent appointments</h3>
+
+      <p>No recent appointments</p>
+
+    </div> -->
+
+
+
+</div>
+
+{% endblock %}
