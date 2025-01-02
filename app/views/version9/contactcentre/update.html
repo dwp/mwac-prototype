@@ -1,0 +1,187 @@
+{% extends "layout-nsjsa-claim.html" %}
+
+{% block pageTitle %}
+Select a status - Apply for New Style Jobseeker’s Allowance
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row  govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="confirmation" method="get">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+
+
+
+
+
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+      <h1 class="govuk-fieldset__heading">
+        Update the status of this claim
+      </h1>
+
+    </legend>
+
+
+    <div class="govuk-radios" data-module="govuk-radios">
+
+
+
+
+
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="status" name="claimStatus" type="radio" value="no-slots">
+        <label class="govuk-label govuk-radios__label" for="status">
+          No slots available
+        </label>
+
+      </div>
+
+
+
+
+
+
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="status-2" name="claimStatus" type="radio" value="first-fail" aria-controls="conditional-status-2" aria-expanded="false">
+        <label class="govuk-label govuk-radios__label" for="status-2">
+          First fail
+        </label>
+
+      </div>
+
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-status-2">
+        <div class="govuk-form-group">
+    <label class="govuk-label">
+      Please give more detail
+    </label>
+
+
+
+    <select class="govuk-select govuk-input--width-10" id="" name="reason">
+
+
+      <option>Select an option</option>
+
+
+
+      <option value="Callback in 1 hr">Callback in 1 hr</option>
+
+
+
+      <option value="Callback in 2 hrs">Callback in 2 hrs</option>
+
+
+
+      <option value="Callback in 3 hrs">Callback in 3 hrs</option>
+
+
+    </select>
+
+  </div>
+      </div>
+
+
+
+
+
+
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="status-3" name="claimStatus" type="radio" value="final-fail" aria-controls="conditional-status-3" aria-expanded="false">
+        <label class="govuk-label govuk-radios__label" for="status-3">
+          Final fail
+        </label>
+
+      </div>
+
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-status-3">
+        <div class="govuk-form-group">
+    <label class="govuk-label">
+      Please give more detail
+    </label>
+
+
+
+    <select class="govuk-select govuk-input--width-10" id="" name="reason">
+
+
+      <option>Select an option</option>
+
+
+
+      <option value="voicemail">Voicemail</option>
+
+
+
+      <option value="letter">Letter</option>
+
+
+    </select>
+
+  </div>
+      </div>
+
+
+
+
+
+
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="status-4" name="claimStatus" type="radio" value="appointment-booked">
+        <label class="govuk-label govuk-radios__label" for="status-4">
+          Appointment booked
+        </label>
+
+      </div>
+
+
+
+
+    </div>
+
+  </fieldset>
+
+</div>
+
+
+
+        </fieldset>
+      </div>
+
+
+
+
+
+<!-- <button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button> -->
+
+<a href="confirmation" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+  Continue
+</a>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "layout-nsjsa-final.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Provision details - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l"><span class="govuk-caption-l">Provision details</span>15 June 2023 - 2:00pm</h1>
+
+      <h3 class="govuk-heading-m">Referral notes</h3>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu pharetra massa. Mauris laoreet, orci ut varius dignissim, augue est blandit dolor, non lacinia est arcu quis tellus. Duis scelerisque sem et placerat efficitur. Integer dignissim, ipsum et pellentesque mattis, lectus justo posuere erat, non vestibulum urna nisi ut diam.</p>
+
+      <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h3 class="govuk-heading-s" style="float:left">ID check</h3>
+
+      <p class="" style="margin-left: 244px;">Utility bill, Bank card</p> -->
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--s">Referral details</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header"> </th>
+            <th scope="col" class="govuk-table__header"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell govuk-!-width-one-half">Employment and training restrictions</th>
+            <td class="govuk-table__cell">No</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">Provision name</th>
+            <td class="govuk-table__cell">Pioneer</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">Are they eligible and suitable for Pioneer?</th>
+            <td class="govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">Will they need any extra support or reasonable adjustments?</th>
+            <td class="govuk-table__cell">No</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">Did the warm handover take place with claimant, DWP and the provider?</th>
+            <td class="govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">Referral ID</th>
+            <td class="govuk-table__cell">321743277</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m" style="border-top: #1d70b8 solid 4px; padding-top: 4px;">Actions</h3>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="pinned-hint">
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="pinned" name="pinned" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="pinned">
+                Pin this note
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue",
+        href: 'claimant-view#history'
+      }) }}
+
+    </div> -->
+
+</div>
+
+{% endblock %}

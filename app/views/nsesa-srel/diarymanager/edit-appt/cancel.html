@@ -1,0 +1,83 @@
+{% extends "layout-esa-appointee-final.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Cancel appointment - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Full initial NSJSA interview</span>
+        <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 2:00pm</h3>
+
+        {{ govukRadios({
+          classes: "govuk-radios, govuk-radios--inline",
+          name: "cancel",
+          fieldset: {
+            legend: {
+              text: "Are you sure you want to cancel this appointment?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "cancel-yes",
+              text: "Yes"
+            },
+            {
+              value: "cancel-no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukTextarea({
+          name: "cancellation-notes",
+          id: "cancellation-notes",
+          label: {
+            text: "Cancellation notes",
+            classes: "govuk-label--s"
+          }
+        }) }}
+
+
+        {{ govukButton({
+        text: "Cancel appointment",
+        classes: "govuk-button--warning",
+        preventDoubleClick: true,
+        href: "claimant-view-cancelled.html"
+        }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

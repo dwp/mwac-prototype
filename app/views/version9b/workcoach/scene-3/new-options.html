@@ -1,0 +1,69 @@
+{% extends "layout-nsjsa-final.html" %}
+
+{% block pageTitle %}
+Select an appointment location - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+{%- set office %}
+<label class="govuk-label" for="office-autocomplete">Enter name of Job Centre</label>
+<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
+
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="new-options" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="location-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Appointment cannot be booked yet
+            </h1>
+          </legend>
+          <p><strong>{{ data['agent'] }}</strong> is no longer available on <strong><span class="future-date"></span></strong> at <strong>{{ data['app-time'] }}</strong>.<br>Choose a different option from the list.</p>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="options" name="options" type="radio" value="date1">
+              <label class="govuk-label govuk-radios__label" for="options">
+                <span class="future-date-15"></span> at 2:00pm with {{ data['agent'] }}
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="options-2" name="options" type="radio" value="date2" data-aria-controls="conditional-options-2">
+              <label class="govuk-label govuk-radios__label" for="options-2">
+                <span class="future-date-17"></span> at 10:15am with {{ data['agent'] }}
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="options-3" name="options" type="radio" value="new-date" data-aria-controls="conditional-options-3">
+              <label class="govuk-label govuk-radios__label" for="options-3">
+                Choose a different date and time for {{ data['agent'] }}
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="options-4" name="options" type="radio" value="new-work-coach" data-aria-controls="conditional-options-4">
+              <label class="govuk-label govuk-radios__label" for="options-4">
+                Check a different work coaches availability
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        preventDoubleClick: true
+      }) }}
+      </form>
+    </div>
+
+</div>
+
+{% endblock %}

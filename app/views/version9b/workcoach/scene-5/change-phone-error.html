@@ -1,0 +1,69 @@
+{% extends "layout-nsjsa-final.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Change phone number - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Includes -->
+{%- set office %}
+<label class="govuk-label" for="office-autocomplete">Enter type of meeting</label>
+<div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container"></div>
+
+{% endset -%}
+
+{%- set timex %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  hint: {
+    text: "For example 10 minuites or 1 hour"
+  },
+  label: {
+    text: "Enter meeting length"
+  }
+}) }}
+{% endset -%}
+
+{%- set typeOfMeeting %}
+<label class="govuk-label" for="appointment-name">What is the appointment for?</label>
+<input class="govuk-input govuk-!-width-one-half" id="appointment-name" name="appointment-name" type="text">
+
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Phone number could not be updated
+      </h1>
+      <p class="govuk-body">You can <a class="govuk-notification-banner__link" href="change-phone">try again</a>. If the problem continues, use the <a class="govuk-notification-banner__link" href="https://intranet.dwp.gov.uk/section/operational-instructions/calculators-tools-and-systems/customer-information-system-cis/cis-guidance/cis-data-amendment-forms" target="_blank">CIS500 form</a> to update Searchlight instead.
+
+      <p class="govuk-body">You can still book the appointment without updating the claimant's contact details, by going back to the <a class="govuk-notification-banner__link" href="check">check details</a> page.</p>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block bodyEnd %}
+
+
+{% endblock %}

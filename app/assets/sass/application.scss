@@ -593,3 +593,19 @@ h2 {
 .govuk-summary-list__actions {
   width: 24%;
 }
+
+// Summary list modifications for error messages
+
+.govuk-summary-list__error {
+  width: 100%;
+}
+
+.govuk-summary-list-row__error {
+  display: inline-block;
+  width: max-content;
+  border-bottom: none;
+
+  dt {
+    margin: 0 0 5px 0;
+  }
+}

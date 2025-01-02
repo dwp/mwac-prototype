@@ -1,0 +1,90 @@
+{% extends "layout-esa-appointee-final.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+First - Claimant details
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "What language does the claimant speak?"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+            Further appointment details
+        </h1>
+        {{ govukRadios({
+            classes: "govuk-radios",
+            name: "appointment-channel",
+            fieldset: {
+              legend: {
+                text: "Do they need an interpreter?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "",
+                text: "Yes",
+                conditional: {
+                    html: interpreter
+                }
+              },
+              {
+                value: "",
+                checked: "true",
+                text: "No"
+              }
+              ]
+          }) }}
+
+
+            {{ govukTextarea({
+            name: "more-detail",
+            id: "more-detail",
+            label: {
+                text: "Any other information?",
+                classes: "govuk-label--s",
+                isPageHeading: true
+            }
+            }) }}
+
+
+
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true,
+            href: "check"
+            }) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

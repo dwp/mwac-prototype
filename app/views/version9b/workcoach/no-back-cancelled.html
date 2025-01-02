@@ -1,0 +1,30 @@
+{% extends "layout-nsjsa-final.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+You cannot go back to the previous page - Managing Working Age Claimants - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">You cannot go back to the previous page</h1>
+
+        <p class="govuk-body">The appointment has been cancelled.</p>
+
+        <p class="govuk-body">You can</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="existing-claim-v3/location" class="govuk-link--no-visited-state">book another appointment</a></li>
+          <li>view the claimants <a href="existing-claim-v3/location" class="govuk-link--no-visited-state">history and notes</a></li>
+          or
+          <li>close this tab to return to Searchlight</li>
+        </ul>
+
+
+      </div>
+    </div>
+
+{% endblock %}

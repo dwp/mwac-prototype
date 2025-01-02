@@ -98,6 +98,38 @@ if(document.querySelector(".future-date-7-short")) {
   document.querySelector(".future-date-7-short").innerHTML = nd + " " + monthNamesShort[nm] + " " + ny;
 }
 
+// Show future date
+newDate = new Date();
+var numberOfDaysToAdd = +15;
+newDate.setDate(newDate.getDate() + numberOfDaysToAdd);
+ny = newDate.getFullYear();
+nm = newDate.getMonth();
+nd = newDate.getDate();
+
+if(document.querySelector(".future-date-15")) {
+  document.querySelector(".future-date-15").innerHTML = nd + " " + monthNames[nm] + " " + ny;
+}
+
+if(document.querySelector(".future-date-15-short")) {
+  document.querySelector(".future-date-15-short").innerHTML = nd + " " + monthNamesShort[nm] + " " + ny;
+}
+
+// Show future date
+newDate = new Date();
+var numberOfDaysToAdd = +17;
+newDate.setDate(newDate.getDate() + numberOfDaysToAdd);
+ny = newDate.getFullYear();
+nm = newDate.getMonth();
+nd = newDate.getDate();
+
+if(document.querySelector(".future-date-17")) {
+  document.querySelector(".future-date-17").innerHTML = nd + " " + monthNames[nm] + " " + ny;
+}
+
+if(document.querySelector(".future-date-17-short")) {
+  document.querySelector(".future-date-17-short").innerHTML = nd + " " + monthNamesShort[nm] + " " + ny;
+}
+
 // convert month numbers to names
 var months = document.querySelector(".months");
 
