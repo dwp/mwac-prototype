@@ -42,6 +42,12 @@ if(document.querySelector(".date")) {
   document.querySelector(".date").innerHTML = d + " " + monthNames[m] + " " + y;
 }
 
+var shortDate = document.getElementsByClassName('short-date');
+
+for(var i=0; i<shortDate.length; i++) {
+  shortDate[i].innerHTML = d + " " + monthNamesShort[m] + " " + y;
+}
+
 if(document.querySelector(".short-date")) {
   document.querySelector(".short-date").innerHTML = d + " " + monthNamesShort[m] + " " + y;
 }
