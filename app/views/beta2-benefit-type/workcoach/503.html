@@ -1,0 +1,20 @@
+{% extends "layout-nokeydetails.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+Sorry, the service is unavailable - Managing Working Age Claimants - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+    <p class="govuk-body">Try again later or <a class="govuk-link" href="https://dwp.service-now.com/itsupport" target="_blank">report an incident</a> in DWP Place. If you report an incident, quote this message in full, including the error code and timestamp below. </p>
+
+    <p class="govuk-body"><strong>Error code: 503; Timestamp: 11:24:31</strong></p>
+  </div>
+</div>
+
+{% endblock %}

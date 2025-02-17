@@ -1,0 +1,121 @@
+{% extends "layout-nokeydetails.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select an appointment type - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <form action="appointment-duration" method="post">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select an appointment type
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-type" name="appointment-type" type="radio" value="New claim appointment" {{ checked("appointment-type", "New claim appointment") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-type">
+                New claim appointment
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-type-2" name="appointment-type" type="radio" value="Health and work conversation" {{ checked("appointment-type", "Health and work conversation") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-type-2">
+                Health and work conversation
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-type-3" name="appointment-type" type="radio" value="Flexible appointment - Voluntary" {{ checked("appointment-type", "Flexible appointment - Voluntary") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-type-3">
+                Flexible appointment - Voluntary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-type-4" name="appointment-type" type="radio" value="Flexible appointment - Mandatory" {{ checked("appointment-type", "Flexible appointment - Mandatory") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-type-4">
+                Flexible appointment - Mandatory
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-type-5" name="appointment-type" type="radio" value="Work coach support health - Voluntary" {{ checked("appointment-type", "Work coach support health - Voluntary") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-type-5">
+                Work coach support health - Voluntary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-type-6" name="appointment-type" type="radio" value="Work coach support health - Mandatory" {{ checked("appointment-type", "Work coach support health - Mandatory") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-type-6">
+                Work coach support health - Mandatory
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-type-7" name="appointment-type" type="radio" value="Disability Employment Adviser" {{ checked("appointment-type", "Disability Employment Adviser") }}>
+              <label class="govuk-label govuk-radios__label" for="appointment-type-7">
+                Disability Employment Adviser
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        preventDoubleClick: true
+      }) }}
+
+
+
+
+
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m">Appointment details</h3>
+      <dl class="govuk-summary-list govuk-!-font-size-16">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="location">Change<span class="govuk-visually-hidden"> appointment location</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Channel
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointment-channel'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="channel">Change<span class="govuk-visually-hidden"> appointment channel</span></a>
+          </dd>
+        </div>
+      </dl>
+    </div> -->
+</form>
+</div>
+
+{% endblock %}

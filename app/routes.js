@@ -1797,6 +1797,300 @@ router.post('/beta2/workcoach/edit-appt/rebook/appointment-duration', function (
   }
 })
 
+// Beta 2 - benefit type
+
+router.post('/beta2-benefit-type/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/attended-wsr')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/not-attended-wsr')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/edit-appt/amend-3-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/attended')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/edit-appt/claimant-view-attended', function (req, res) {
+
+  let notes = req.session.data['appointment-notes']
+
+  if (notes.length != 0) {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/claimant-view-attended')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/attended-error')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/existing-claim-v3/appointment-location', function (req, res) {
+
+  let type = req.session.data['benefit-type']
+
+  if (type === 'New Style Jobseekers Allowance') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsjsa/location')
+  } else if (type === 'New Style Employment and Support Allowance') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsesa/location')
+  } else if (type === 'Flexible Support Fund') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/fsf/location')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nc1/location')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/existing-claim-v3/nsjsa/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsjsa/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsjsa/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsjsa/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/existing-claim-v3/nsesa/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsesa/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsesa/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nsesa/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/existing-claim-v3/nc1/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nc1/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nc1/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/nc1/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/existing-claim-v3/fsf/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/fsf/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/fsf/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/existing-claim-v3/fsf/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type/workcoach/edit-appt/rebook/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/rebook/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/rebook/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type/workcoach/edit-appt/rebook/appointment-duration-flex')
+  }
+})
+
+// Beta 2 - benefit type - 1
+
+router.post('/beta2-benefit-type-1/workcoach/edit-appt/amend-2-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/attended-wsr')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/not-attended-wsr')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/edit-appt/amend-3-error', function (req, res) {
+
+  let appointment = req.session.data['appointmentActions']
+
+  if (appointment === 'attended') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/attended')
+  } else if (appointment === 'not-attended') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/not-attended')
+  } else if (appointment === 'rebook') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/rebook/location')
+  } else if (appointment === 'cancel') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/cancel')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/amend-2-error')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/edit-appt/claimant-view-attended', function (req, res) {
+
+  let notes = req.session.data['appointment-notes']
+
+  if (notes.length != 0) {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/claimant-view-attended')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/attended-error')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/appointment-location', function (req, res) {
+
+  let type = req.session.data['benefit-type']
+
+  if (type === 'New Style Jobseekers Allowance') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/location')
+  } else if (type === 'New Style Employment and Support Allowance') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/location')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/other/location')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/edit-appt/claimant-view-not-attended', function (req, res) {
+
+  let notesfta = req.session.data['appointment-notes-not-attended']
+
+  if (notesfta.length != 0) {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/claimant-view-not-attended')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/not-attended-error')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/edit-appt/claimant-view-cancelled', function (req, res) {
+
+  let notescancel = req.session.data['cancellation-notes']
+
+  if (notescancel.length != 0) {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/claimant-view-cancelled')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/cancel-error')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/other/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'NC1 Credits Only - New claim appointment') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/other/appointment-duration-new-claim')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/other/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-duration-flex')
+  }
+})
+
+router.post('/beta2-benefit-type-1/workcoach/edit-appt/rebook/appointment-duration', function (req, res) {
+
+  let type = req.session.data['appointment-type']
+
+  if (type === 'New claim appointment') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/rebook/appointment-duration-new-claim')
+  } else if (type === 'Work search review') {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/rebook/appointment-duration-wsr')
+  } else {
+    res.redirect('/beta2-benefit-type-1/workcoach/edit-appt/rebook/appointment-duration-flex')
+  }
+})
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
