@@ -728,6 +728,28 @@ router.post('/nsjsa-publicbeta/workcoach/edit-appt/attended-notes', function (re
   }
 })
 
+router.post('/nsjsa-publicbeta/workcoach/edit-appt/id-f2f/attended-photo-id', function (req, res) {
+
+  let idType = req.session.data['id-types']
+
+  if (idType === 'No') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/id-f2f/attended-kbv-id')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/id-f2f/attended-photo-id')
+  }
+})
+
+router.post('/nsjsa-publicbeta/workcoach/edit-appt/id-f2f/attended-notes', function (req, res) {
+
+  let kbvFail = req.session.data['kbv-check']
+
+  if (kbvFail === 'No') {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/id-f2f/kbv-failed')
+  } else {
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/id-f2f/kbv-notes')
+  }
+})
+
 router.post('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration', function (req, res) {
 
   let type = req.session.data['appointment-type']
