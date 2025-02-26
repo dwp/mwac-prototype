@@ -36,50 +36,36 @@ Mark appointment as attended - Managing Working Age Claimants
       <span class="govuk-caption-l">New claim appointment</span>
         <h3 class="govuk-heading-l"><span class="date"></span> - 1:00pm to 1:50pm</h3>
 
-        {% if data['id-types']=="Yes" %}
+
         <h2 class="govuk-heading-m govuk-!-margin-top-6">ID documents</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Photo ID
+              Claimant ID
             </dt>
             <dd class="govuk-summary-list__value">
-              Passport
+              {{ data['photo-id'] }}, {{ data['proof-of-address'] }}, {{ data['further-proof'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="attended-v2-id">
-                Change<span class="govuk-visually-hidden"> photo ID</span>
+              <a class="govuk-link govuk-link--no-visited-state" href="attended-photo-id">
+                Change<span class="govuk-visually-hidden"> claimant ID</span>
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
+          <!-- <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Proof of address
+              Appointee ID
             </dt>
             <dd class="govuk-summary-list__value">
-              Utility bill
+              {{ data['appointee-photo-id'] }}, {{ data['appointee-proof-of-address'] }}, {{ data['appointee-further-proof'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="attended-v2-id">
-                Change<span class="govuk-visually-hidden"> proof of address</span>
+              <a class="govuk-link govuk-link--no-visited-state" href="attended-photo-id-appointee">
+                Change<span class="govuk-visually-hidden"> appointee ID</span>
               </a>
             </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Further proof of ID
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Bank card and statement
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="attended-v2-id">
-                Change<span class="govuk-visually-hidden"> further proof of ID</span>
-              </a>
-            </dd>
-          </div>
+          </div> -->
         </dl>
-        {% endif %}
 
         <form action="claimant-view-attended" method="post">
 
