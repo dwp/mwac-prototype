@@ -21,7 +21,7 @@ Further appointment details - Managing Working Age Claimants
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
           <legend class="govuk-fieldset__legend">
-              Does the claimant need an interpreter?
+              Is an interpreter needed for this appointment?
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
@@ -33,13 +33,13 @@ Further appointment details - Managing Working Age Claimants
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-interpreter-2">
               <div class="govuk-form-group">
                 <label class="govuk-label" for="interpreter-by-text">
-                  What language does the claimant speak?
+                  What language is required?
                 </label>
                 <input class="govuk-input govuk-!-width-two-thirds" id="interpreter-by-text" name="interpreter-language" type="text" value="{{ data['interpreter-language'] }}">
               </div>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="interpreter" name="interpreter" type="radio" value="No" {{ checked("interpreter", "No") }} checked>
+              <input class="govuk-radios__input" id="interpreter" name="interpreter" type="radio" value="No" {{ checked("interpreter", "No") }}>
               <label class="govuk-label govuk-radios__label" for="interpreter">
                 No
               </label>
@@ -48,18 +48,82 @@ Further appointment details - Managing Working Age Claimants
           </fieldset>
           </div>
 
+          <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              Why is this appointment being rebooked?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook" name="rebook" type="radio" value="Claimant is ill" {{ checked("rebook", "Illness") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook">
+                  Illness
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-2" name="rebook" type="radio" value="Claimant has childcare commitments" {{ checked("rebook", "Childcare commitment") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-2">
+                  Childcare commitment
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-3" name="rebook" type="radio" value="Claimant has a medical appointment" {{ checked("rebook", "Medical appointment") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-3">
+                  Medical appointment
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-4" name="rebook" type="radio" value="Claimant has an interview" {{ checked("rebook", "Has an interview") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-4">
+                  Has an interview
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-5" name="rebook" type="radio" value="Claimant needs specialist work coach" {{ checked("rebook", "Referred to a specialist work coach") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-5">
+                  Referred to a specialist work coach
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-6" name="rebook" type="radio" value="Claimant is going through a bereavement" {{ checked("rebook", "Bereavement") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-6">
+                  Bereavement
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-7" name="rebook" type="radio" value="Claimant has a domestic emergency" {{ checked("rebook", "Domestic emergency") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-7">
+                  Domestic emergency
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-8" name="rebook" type="radio" value="Claimant has jury service" {{ checked("rebook", "Jury service") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-8">
+                  Jury service
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rebook-9" name="rebook" type="radio" value="Other" {{ checked("rebook", "Other") }}>
+                <label class="govuk-label govuk-radios__label" for="rebook-9">
+                  Other
+                </label>
+              </div>
 
-          <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
-            <div class="govuk-form-group">
-              <label class="govuk-label" for="further-appointment-info">
-                Any other information?
-              </label>
-              <textarea class="govuk-textarea govuk-js-character-count" id="further-appointment-info" name="further-appointment-info" rows="5" aria-describedby="further-appointment-info-info">{{ data['further-appointment-info'] }}</textarea>
             </div>
-            <div id="further-appointment-info-info" class="govuk-hint govuk-character-count__message">
-              You can enter up to 1000 words
-            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="1000">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="further-appointment-info">
+              Any other information?
+            </label>
+            <textarea class="govuk-textarea govuk-js-character-count" id="further-appointment-info" name="further-appointment-info" rows="5" aria-describedby="further-appointment-info-info">{{ data['further-appointment-info'] }}</textarea>
           </div>
+          <div id="further-appointment-info-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 1000 words
+          </div>
+        </div>
 
 
         {{ govukButton({

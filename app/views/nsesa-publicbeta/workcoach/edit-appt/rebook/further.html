@@ -21,7 +21,7 @@ Further appointment details - Managing Working Age Claimants
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
           <legend class="govuk-fieldset__legend">
-              Does the claimant need an interpreter?
+              Is an interpreter needed for this appointment?
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
@@ -33,7 +33,7 @@ Further appointment details - Managing Working Age Claimants
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-interpreter-2">
               <div class="govuk-form-group">
                 <label class="govuk-label" for="interpreter-by-text">
-                  What language does the claimant speak?
+                  What language is required?
                 </label>
                 <input class="govuk-input govuk-!-width-two-thirds" id="interpreter-by-text" name="interpreter-language" type="text" value="{{ data['interpreter-language'] }}">
               </div>
@@ -55,51 +55,51 @@ Further appointment details - Managing Working Age Claimants
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook" name="rebook" type="radio" value="Claimant is ill" {{ checked("rebook", "Claimant is ill") }}>
+                <input class="govuk-radios__input" id="rebook" name="rebook" type="radio" value="Claimant is ill" {{ checked("rebook", "Illness") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook">
-                  Claimant is ill
+                  Illness
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook-2" name="rebook" type="radio" value="Claimant has childcare commitments" {{ checked("rebook", "Claimant has childcare commitments") }}>
+                <input class="govuk-radios__input" id="rebook-2" name="rebook" type="radio" value="Claimant has childcare commitments" {{ checked("rebook", "Childcare commitment") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook-2">
-                  Claimant has childcare commitments
+                  Childcare commitment
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook-3" name="rebook" type="radio" value="Claimant has a medical appointment" {{ checked("rebook", "Claimant has a medical appointment") }}>
+                <input class="govuk-radios__input" id="rebook-3" name="rebook" type="radio" value="Claimant has a medical appointment" {{ checked("rebook", "Medical appointment") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook-3">
-                  Claimant has a medical appointment
+                  Medical appointment
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook-4" name="rebook" type="radio" value="Claimant has an interview" {{ checked("rebook", "Claimant has an interview") }}>
+                <input class="govuk-radios__input" id="rebook-4" name="rebook" type="radio" value="Claimant has an interview" {{ checked("rebook", "Has an interview") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook-4">
-                  Claimant has an interview
+                  Has an interview
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook-5" name="rebook" type="radio" value="Claimant needs specialist work coach" {{ checked("rebook", "Claimant needs specialist work coach") }}>
+                <input class="govuk-radios__input" id="rebook-5" name="rebook" type="radio" value="Claimant needs specialist work coach" {{ checked("rebook", "Referred to a specialist work coach") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook-5">
-                  Claimant needs specialist work coach
+                  Referred to a specialist work coach
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook-6" name="rebook" type="radio" value="Claimant is going through a bereavement" {{ checked("rebook", "Claimant is going through a bereavement") }}>
+                <input class="govuk-radios__input" id="rebook-6" name="rebook" type="radio" value="Claimant is going through a bereavement" {{ checked("rebook", "Bereavement") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook-6">
-                  Claimant is going through a bereavement
+                  Bereavement
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook-7" name="rebook" type="radio" value="Claimant has a domestic emergency" {{ checked("rebook", "Claimant has a domestic emergency") }}>
+                <input class="govuk-radios__input" id="rebook-7" name="rebook" type="radio" value="Claimant has a domestic emergency" {{ checked("rebook", "Domestic emergency") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook-7">
-                  Claimant has a domestic emergency
+                  Domestic emergency
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rebook-8" name="rebook" type="radio" value="Claimant has jury service" {{ checked("rebook", "Claimant has jury service") }}>
+                <input class="govuk-radios__input" id="rebook-8" name="rebook" type="radio" value="Claimant has jury service" {{ checked("rebook", "Jury service") }}>
                 <label class="govuk-label govuk-radios__label" for="rebook-8">
-                  Claimant has jury service
+                  Jury service
                 </label>
               </div>
               <div class="govuk-radios__item">
