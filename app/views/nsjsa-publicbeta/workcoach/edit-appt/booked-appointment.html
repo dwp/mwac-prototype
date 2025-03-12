@@ -1,0 +1,107 @@
+{% extends "layout-nsjsa-final.html" %}
+{% from "timeline/macro.njk" import dwpTimeline %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+Appointment details - Managing Working Age Claimants
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+      }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Includes -->
+{%- set interpreter %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contact-by-phone",
+  type: "text",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter language required"
+  }
+}) }}
+{% endset -%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Appointment details</span>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--l">25 July 2023 - 1:00pm to 1:10pm</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"> </th>
+              <th scope="col" class="govuk-table__header"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Work coach</th>
+              <td class="govuk-table__cell">Jon Clement (claimants work coach)</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Location</th>
+              <td class="govuk-table__cell">Kendal Jobcentre Plus<br>Kentmere House<br>1 Blackhall Road<br>Kendal<br>LA9 4BS</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Channel</th>
+              <td class="govuk-table__cell">In jobcentre</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Appointment type</th>
+              <td class="govuk-table__cell">Work search review</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Is an interpreter needed for this appointment?</strong><br>
+        No</p>
+
+        <p><strong>Other information</strong><br>
+        -</p>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <form action="booked-appointment" method="post">
+          {{ govukRadios({
+            classes: "govuk-radios",
+            name: "appointmentActions",
+            fieldset: {
+              legend: {
+                text: "Appointment actions",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "rebook",
+                text: "Rebook this appointment"
+              },
+              {
+                value: "cancel",
+                text: "Cancel this appointment"
+              }
+            ]
+          }) }}
+
+            {{ govukButton({
+            text: "Continue",
+            preventDoubleClick: true
+            }) }}
+
+          </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
