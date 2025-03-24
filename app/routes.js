@@ -672,7 +672,7 @@ router.post('/nsjsa-publicbeta/workcoach/edit-appt/amend-2-error', function (req
   let appointment = req.session.data['appointmentActions']
 
   if (appointment === 'attended') {
-    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/attended-id')
+    res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/id-f2f/attended-id')
   } else if (appointment === 'not-attended') {
     res.redirect('/nsjsa-publicbeta/workcoach/edit-appt/not-attended')
   } else if (appointment === 'rebook') {

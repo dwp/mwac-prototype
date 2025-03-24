@@ -44,26 +44,10 @@ Past appointment details - Managing Working Age Claimants
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Photo ID
+            Claimant ID
           </dt>
           <dd class="govuk-summary-list__value">
-            Passport - 4523
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Proof of address
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Utility bill - 56782345
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Further proof of ID
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Bank card - 3345
+            Driving licence, Utility bill, Bank card and statement
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -71,9 +55,22 @@ Past appointment details - Managing Working Age Claimants
             Claimant commitment
           </dt>
           <dd class="govuk-summary-list__value">
-            <strong class="govuk-tag govuk-tag--green">updated</strong>
+            <strong class="govuk-tag govuk-tag--green">Accepted</strong>
           </dd>
         </div>
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appointee ID
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appointee-photo-id'] }}, {{ data['appointee-proof-of-address'] }}, {{ data['appointee-further-proof'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="attended-photo-id-appointee">
+              Change<span class="govuk-visually-hidden"> appointee ID</span>
+            </a>
+          </dd>
+        </div> -->
       </dl>
 
       <table class="govuk-table">
@@ -86,12 +83,20 @@ Past appointment details - Managing Working Age Claimants
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Benefit type</th>
+            <td class="govuk-table__cell">New Style Jobseeker's Allowance</td>
+          </tr>
+          <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header govuk-!-width-one-third">Work coach</th>
             <td class="govuk-table__cell">Jon Clement (claimants work coach)</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Location</th>
             <td class="govuk-table__cell">Kendal Jobcentre Plus<br>Kentmere House<br>1 Blackhall Road<br>Kendal<br>LA9 4BS</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Channel</th>
+            <td class="govuk-table__cell">In jobcentre</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Appointment type</th>

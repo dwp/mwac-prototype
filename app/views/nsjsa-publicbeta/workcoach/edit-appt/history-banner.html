@@ -18,13 +18,17 @@ History and notes - Managing Working Age Claimants
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-quarter">
-    {{ govukButton({
-      text: "Add a note",
-      href: 'add-note-new'
-    }) }}
+    <a href="add-note-new" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0">
+      Add a note
+    </a>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <h2 class="govuk-heading-m">Filters</h2>
 
+    <button  class="govuk-button">
+      Apply filters
+    </button>
 
 
     <div class="govuk-form-group">
@@ -96,6 +100,12 @@ History and notes - Managing Working Age Claimants
             </label>
           </div>
           <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="status-5" name="status" type="checkbox" value="Booked">
+            <label class="govuk-label govuk-checkboxes__label" for="status-5">
+              Booked
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="fta">
             <label class="govuk-label govuk-checkboxes__label" for="status-2">
               Failed to attend
@@ -107,12 +117,12 @@ History and notes - Managing Working Age Claimants
               Rebooked
             </label>
           </div>
-          <div class="govuk-checkboxes__item">
+          <!-- <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="status-4" name="status" type="checkbox" value="cancelled">
             <label class="govuk-label govuk-checkboxes__label" for="status-4">
               Cancelled
             </label>
-          </div>
+          </div> -->
           <!-- <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="appointment-5" name="appointment" type="checkbox" value="general">
             <label class="govuk-label govuk-checkboxes__label" for="appointment-5">
@@ -149,12 +159,12 @@ History and notes - Managing Working Age Claimants
               Flexible appointment
             </label>
           </div>
-          <div class="govuk-checkboxes__item">
+          <!-- <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="apptype-4" name="apptype" type="checkbox" value="cancelled">
             <label class="govuk-label govuk-checkboxes__label" for="apptype-4">
               Other
             </label>
-          </div>
+          </div> -->
           <!-- <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="appointment-5" name="appointment" type="checkbox" value="general">
             <label class="govuk-label govuk-checkboxes__label" for="appointment-5">
@@ -196,7 +206,7 @@ History and notes - Managing Working Age Claimants
       </fieldset>
     </div>
 
-    <div class="govuk-form-group">
+    <!-- <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
           <h1 class="govuk-fieldset__heading">
@@ -218,7 +228,7 @@ History and notes - Managing Working Age Claimants
           </div>
         </div>
       </fieldset>
-    </div>
+    </div> -->
 
   </div>
 
@@ -256,7 +266,23 @@ History and notes - Managing Working Age Claimants
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__header"><span style="white-space: nowrap;">28 Jun 2023</span><br> 2:00pm</td>
+          <td class="govuk-table__header"><span style="white-space: nowrap;">2 Jul 2023</span><br> 1:13pm</td>
+          <td class="govuk-table__cell"><a href="booked-appointment" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Appointment date<br>25 July 2023 - 1:00pm to 1:10pm</p></td>
+          <td class="govuk-table__cell">Jon Clement</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple govuk-!-margin-top-2">Booked</strong></td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header"><span style="white-space: nowrap;">2 Jul 2023</span><br> 1:13pm</td>
+          <td class="govuk-table__cell"><a href="rebooked-appointment" class="govuk-link--no-visited-state">Work Search Review</a></td>
+          <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Rebooked for the next available time. Claimant informed of new appointment via text message</p></td>
+          <td class="govuk-table__cell">Jon Clement</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2">Rebooked</strong></td>
+        </tr>
+        <!--  -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__header"><span style="white-space: nowrap;">28 Jun 2023</span><br> 1:43pm</td>
           <td class="govuk-table__cell"><a href="past-appointment" class="govuk-link--no-visited-state">Work Search Review</a></td>
           <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Claimant provided job applications via email and interview confirmations for 2 roles. Has said they will provide an update via email when they have</p></td>
           <td class="govuk-table__cell">Jon Clement</td>
@@ -273,26 +299,10 @@ History and notes - Managing Working Age Claimants
         <!--  -->
         <tr class="govuk-table__row">
           <td class="govuk-table__header" ><span style="white-space: nowrap;">1 Jun 2023</span><br> 2:00pm</td>
-          <td class="govuk-table__cell" ><a href="view-note-colleague" class="govuk-link--no-visited-state">Failure to accept an offered job</a></td>
-          <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Referral raised and sent to decision maker, waiting for feedback and investigation</p></td>
-          <td class="govuk-table__cell" >Jon Clement</td>
-          <td class="govuk-table__cell" ><strong class="govuk-tag govuk-tag--yellow govuk-!-margin-top-2">Colleague</strong></td>
-        </tr>
-        <!--  -->
-        <tr class="govuk-table__row">
-          <td class="govuk-table__header" ><span style="white-space: nowrap;">1 Jun 2023</span><br> 2:00pm</td>
           <td class="govuk-table__cell" ><a href="#" class="govuk-link--no-visited-state">Work search review</a></td>
           <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Claimant mentioned they had declined a job offer so I will send in a referral to a decision maker</p></td>
           <td class="govuk-table__cell" >Jon Clement</td>
           <td class="govuk-table__cell" ><strong class="govuk-tag govuk-tag--green govuk-!-margin-top-2">Attended</strong></td>
-        </tr>
-        <!--  -->
-        <tr class="govuk-table__row">
-          <td class="govuk-table__header"><span style="white-space: nowrap;">21 May 2023</span><br> 1:00pm</td>
-          <td class="govuk-table__cell"><a href="rebooked-appointment" class="govuk-link--no-visited-state">Work Search Review</a></td>
-          <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Rebooked for the 1st of June. Claimant informed of new appointment via text message</p></td>
-          <td class="govuk-table__cell">Jon Clement</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2">Rebooked</strong></td>
         </tr>
         <!--  -->
         <tr class="govuk-table__row">
@@ -317,22 +327,6 @@ History and notes - Managing Working Age Claimants
           <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Frustrated at having to search online. Claimant finding it very difficult to get a response</p></td>
           <td class="govuk-table__cell">Jon Clement</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green govuk-!-margin-top-2">Attended</strong></td>
-        </tr>
-        <!--  -->
-        <tr class="govuk-table__row">
-          <td class="govuk-table__header"><span style="white-space: nowrap;">6 Apr 2023</span><br> 2:00pm</td>
-          <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Work Search Review</a></td>
-          <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Claimant finds it difficult to use a computer to search for work. Prefers to use job papers</p></td>
-          <td class="govuk-table__cell">Jon Clement</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green govuk-!-margin-top-2">Attended</strong></td>
-        </tr>
-        <!--  -->
-        <tr class="govuk-table__row">
-          <td class="govuk-table__header"><span style="white-space: nowrap;">12 Mar 2023</span><br> 1:00pm</td>
-          <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Work Search Review</a></td>
-          <td class="govuk-table__cell"><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Claimant called to rebook appointment. New appt booked in for 6th April as they are on jury duty</p></td>
-          <td class="govuk-table__cell">Jon Clement</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2">Rebooked</strong></td>
         </tr>
         <!--  -->
         <tr class="govuk-table__row">
