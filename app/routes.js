@@ -758,6 +758,10 @@ router.post('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration'
     res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-new-claim')
   } else if (type === 'Work search review') {
     res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-wsr')
+  } else if (type === 'Disability Employment Adviser') {
+    res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-dea') 
+  } else if (type === 'Flexible Support Fund') {
+    res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-fsf')        
   } else {
     res.redirect('/nsjsa-publicbeta/workcoach/existing-claim-v3/appointment-duration-flex')
   }
@@ -1016,7 +1020,7 @@ router.post('/version2-esa-2/workcoach/edit-appt/kbv-notes', function (req, res)
 
 router.post('/version2-esa-2/workcoach/existing-claim-v3/appointment-duration', function (req, res) {
 
-  let type = req.session.data['appointment-type']
+  let type = req.session.data['appointment-type'] 
 
   if (type === 'New claim appointment') {
     res.redirect('/version2-esa-2/workcoach/existing-claim-v3/appointment-duration-new-claim')
@@ -2058,6 +2062,10 @@ router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment
     res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-new-claim')
   } else if (type === 'Work search review') {
     res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-wsr')
+  } else if (type === 'Disability Employment Adviser') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-dea') 
+  } else if (type === 'Flexible Support Fund') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-fsf')            
   } else {
     res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsjsa/appointment-duration-flex')
   }
@@ -2071,6 +2079,14 @@ router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment
     res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-new-claim')
   } else if (type === 'Work search review') {
     res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-wsr')
+  } else if (type === 'Work coach support health - Voluntary') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-wcsh')
+  } else if (type === 'Work coach support health - Mandatory') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-wcsh')        
+  } else if (type === 'Disability Employment Adviser') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-dea')        
+  } else if (type === 'Flexible Support Fund') {
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-fsf')              
   } else {
     res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/nsesa/appointment-duration-flex')
   }
@@ -2096,7 +2112,7 @@ router.post('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-d
   } else if (type === 'Work search review') {
     res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-duration-wsr')
   } else {
-    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-duration-flex')
+    res.redirect('/beta2-benefit-type-1/workcoach/existing-claim-v3/fsf/appointment-duration-flexsss')
   }
 })
 
