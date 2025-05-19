@@ -27,7 +27,22 @@ Select an appointment location - Managing Working Age Claimants
               Select an appointment location
             </h1>
           </legend>
-          <div class="govuk-radios" data-module="govuk-radios">
+
+          <label class="govuk-label" for="office-autocomplete">Enter name of jobcentre</label>
+          <div class="autocomplete-wrapper govuk-body" id="office-autocomplete-container">
+            <div class="autocomplete__wrapper">
+              <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                <div id="office-autocomplete__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
+                <div id="office-autocomplete__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
+              </div>
+              <!-- <input aria-expanded="false" aria-owns="office-autocomplete__listbox" aria-autocomplete="list" aria-describedby="office-autocomplete__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="office-autocomplete" name="input-autocomplete" placeholder="" type="text" role="combobox"> -->
+              <div class="autocomplete__dropdown-arrow-down-wrapper"></div>
+              <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="office-autocomplete__listbox" role="listbox"></ul>
+              <span id="office-autocomplete__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
+            </div>
+          </div>
+
+          <div class="govuk-radios" data-module="govuk-radios" style="display: none;">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="location" name="location" type="radio" value="Kendal Jobcentre" {{ checked("location", "Kendal Jobcentre") }}>
               <label class="govuk-label govuk-radios__label" for="location">
